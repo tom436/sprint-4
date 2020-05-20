@@ -1,15 +1,27 @@
-[
-    {
-        "_id":"v101",
-        "name":"hapirat haadom",
-        "owner":"ownerId",
-        "itemsId":[],
-        "about":{"shortDesc":"ahla hanot","LongDesc":"mamash ahla hanot organit"},
-        "logo":"URL",
-        "aboutImgs":[],
-        "location":"Paris",
-        "reviwes":[],
-        "score":2,
-        "categories":["meat","organic"]
-    }
-]
+[{
+        "_id": "v101",
+        "name": "Hapirat Haadom",
+        "owner": {"mini.user":"get the mini user"},
+        "title":"ahla hanot",
+        "about": "mamash ahla hanot organit",
+        "logo": "URL",
+        "aboutImgs": [],
+        "location": "Paris",
+        "reviews": [],
+        "tags": ["meat", "organic"],
+        "rate": 2
+            },
+            {
+                "_id": "v102",
+                "name": "Hapirat Hadebil",
+                "owner": {"mini.user":"get the mini user"},
+                "title":"hanut debilit",
+                "about": "bla bla blah blah",
+                "logo": "URL",
+                "aboutImgs": [],
+                "location": "London",
+                "reviews": [],
+                "tags": ["flowers"],
+                "rate": 5
+                    }
+        ]
