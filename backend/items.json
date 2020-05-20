@@ -1,0 +1,15 @@
+[
+    {
+        "_id":"v101",
+        "title":"batata",
+        "price":12,
+        "units":"kg",
+        "shop":{"shopId":"c102","shopName":"hapirat haadom"},
+        "descrption":"batata esh",
+        "img":"URL",
+        "reviwes":[],
+        "score":2,
+        "tags":["organic","veg","root"]
+        
+    }
+]

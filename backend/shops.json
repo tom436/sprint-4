@@ -1,0 +1,15 @@
+[
+    {
+        "_id":"v101",
+        "name":"hapirat haadom",
+        "owner":"ownerId",
+        "itemsId":[],
+        "about":{"shortDesc":"ahla hanot","LongDesc":"mamash ahla hanot organit"},
+        "logo":"URL",
+        "aboutImgs":[],
+        "location":"Paris",
+        "reviwes":[],
+        "score":2,
+        "categories":["meat","organic"]
+    }
+]

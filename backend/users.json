@@ -1,0 +1,56 @@
+[
+    {
+        "_id": "u101",
+        "fullName": "Orly Amdadi",
+        "userName": "orly@amdadi.com",
+        "password": "tinkerbell",
+        "isAdmin": true,
+        "isSeller": true,
+        "favorites": [],
+        "imgUrl": "http://some-img",
+        "msgs": [
+            {
+                "sender": "moshes farm",
+                "txt": "your order is ready",
+                "isRead": "false",
+                "time": "14:33"
+            }
+        ]
+    },
+    {
+        "_id": "u102",
+        "fullName": "Or Ami",
+        "userName": "or@ami.com",
+        "password": "captainHook",
+        "isAdmin": false,
+        "isSeller": false,
+        "favorites": [],
+        "imgUrl": "http://some-img",
+        "msgs": [
+            {
+                "sender": "avis farm",
+                "txt": "your order is approved",
+                "isRead": "true",
+                "time": "15:33"
+            }
+        ]
+    },
+    {
+        "_id": "u103",
+        "fullName": "Frank Franko",
+        "userName": "frank@franko.com",
+        "password": "pokemon",
+        "isAdmin": true,
+        "isSeller": true,
+        "favorites": [],
+        "imgUrl": "http://some-img",
+        "msgs": [
+            {
+                "sender": "moshes farm",
+                "txt": "your order is ready",
+                "isRead": "false",
+                "time": "14:33"
+            }
+        ]
+    }
+]
