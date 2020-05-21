@@ -1,6 +1,14 @@
-@import './basics/helpers.scss';
-@import './basics/layouts.scss';
-@import './basics/basic.scss';
+@import "./basics/helpers.scss";
+@import "./basics/layouts.scss";
+@import "./basics/basic.scss";
+@import "./cmps/header.scss";
 
+<<<<<<< HEAD
 @import './pages/home.scss';
 @import './pages/shop.scss';
+=======
+@import "./pages/home.scss";
+* {
+    margin: 0;  
+}
+>>>>>>> eb6ea6056a8eb1e1d87700a4bc6db5934162acd7
