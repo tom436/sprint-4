@@ -38,7 +38,7 @@ function save(itemToSave) {
 function query(filterBy) {
     if (!filterBy) filterBy = {};
     
-    return axios.get(baseUrl, {params: {q: filterBy.vendor}})
+    return axios.get(baseUrl, {params: {q: filterBy}})
         .then(res => res.data)
         .then(items => {
             gItems = items;
