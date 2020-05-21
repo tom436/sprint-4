@@ -1,0 +1,249 @@
+{
+    "items": [
+        {
+            "_id": "v140",
+            "title": "batata",
+            "price": 12,
+            "unit": "kg",
+            "shop": {
+                "_id": "v101",
+                "name": "Hapirat Haadom",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 2
+            },
+            "descrption": "big batata",
+            "img": "veg.jpg",
+            "tags": [
+                "organic",
+                "veg",
+                "root"
+            ]
+        },
+        {
+            "_id": "v105",
+            "title": "potato",
+            "price": 10,
+            "unit": "kg",
+            "shop": {
+                "_id": "v102",
+                "name": "Hapirat Hadebil",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 5
+            },
+            "descrption": "chips",
+            "img": "",
+            "tags": [
+                "organic",
+                "veg",
+                "root"
+            ]
+        },
+        {
+            "_id": "v101",
+            "title": "strawberries",
+            "price": 20,
+            "unit": "100g",
+            "shop": {
+                "_id": "v102",
+                "name": "Hapirat Hadebil",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 5
+            },
+            "descrption": "strawberries",
+            "img": "",
+            "tags": [
+                "organic",
+                "fruit"
+            ]
+        },
+        {
+            "_id": "v130",
+            "title": "cucumber",
+            "price": 12,
+            "unit": "100g",
+            "shop": {
+                "_id": "v102",
+                "name": "Hapirat Hadebil",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 5
+            },
+            "descrption": "cucumber",
+            "img": "URL",
+            "tags": [
+                "organic",
+                "veg",
+                "root"
+            ]
+        },
+        {
+            "_id": "v134",
+            "title": "pear",
+            "price": 12,
+            "unit": "100g",
+            "shop": {
+                "_id": "v102",
+                "name": "Hapirat Hadebil",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 5
+            },
+            "descrption": "pear",
+            "img": "URL",
+            "tags": [
+                "organic",
+                "veg",
+                "root"
+            ]
+        },
+        {
+            "_id": "v136",
+            "title": "peach",
+            "price": 12,
+            "unit": "kg",
+            "shop": {
+                "_id": "v101",
+                "name": "Hapirat Haadom",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 2
+            },
+            "descrption": "peach",
+            "img": "URL",
+            "tags": [
+                "organic",
+                "fruit"
+            ]
+        },
+        {
+            "_id": "v138",
+            "title": "bananas",
+            "price": 12,
+            "unit": "kg",
+            "shop": {
+                "_id": "v101",
+                "name": "Hapirat Haadom",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 2
+            },
+            "descrption": "bananas",
+            "img": "URL",
+            "tags": [
+                "organic",
+                "fruit"
+            ]
+        },
+        {
+            "_id": "v139",
+            "title": "kiwi",
+            "price": 12,
+            "unit": "kg",
+            "shop": {
+                "_id": "v101",
+                "name": "Hapirat Haadom",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 2
+            },
+            "descrption": "kiwi",
+            "img": "URL",
+            "tags": [
+                "organic",
+                "fruit"
+            ]
+        }
+    ],
+    "orders": [
+        {
+            "_id": "v1225",
+            "cretatedAt": 9898989,
+            "shopperId": "33221",
+            "totalPrice": 20,
+            "units": "kg",
+            "shop": {
+                "_id": "v102",
+                "name": "Hapirat Hadebil",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 5
+            },
+            "items": [
+                {
+                    "_id": "v140",
+                    "amount": 2
+                },
+                {
+                    "_id": "v105",
+                    "amount": 3
+                }
+            ],
+            "status": "pending"
+        },
+        {
+            "_id": "v1226",
+            "cretatedAt": 9898989,
+            "shopperId": "33221",
+            "totalPrice": 20,
+            "units": "kg",
+            "shop": {
+                "_id": "v101",
+                "name": "Hapirat Hadebil",
+                "title": "ahla hanot",
+                "logo": "URL",
+                "rate": 5
+            },
+            "items": [
+                {
+                    "_id": "v140",
+                    "amount": 2
+                },
+                {
+                    "_id": "v105",
+                    "amount": 3
+                }
+            ],
+            "status": "pending"
+        }
+    ],
+    "shops": [
+        {
+            "id": "v101",
+            "name": "Hapirat Haadom",
+            "owner": {
+                "mini.user": "get the mini user"
+            },
+            "title": "ahla hanot",
+            "about": "mamash ahla hanot organit",
+            "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
+            "aboutImgs": [],
+            "location": "Paris",
+            "reviews": [],
+            "tags": [
+                "meat",
+                "organic"
+            ],
+            "rate": 2
+        },
+        {
+            "id": "v102",
+            "name": "Hapirat Hadebil",
+            "owner": {
+                "mini.user": "get the mini user"
+            },
+            "title": "hanut debilit",
+            "about": "bla bla blah blah",
+            "logo": "https://www.nationalgeographic.com/content/dam/environment/photos/future_of_food/organic_farming_rough/01_organic_farming_i8860_20181003_11260.adapt.1900.1.jpg",
+            "aboutImgs": [],
+            "location": "London",
+            "reviews": [],
+            "tags": [
+                "flowers"
+            ],
+            "rate": 5
+        }
+    ]
+}

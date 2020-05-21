@@ -18,7 +18,7 @@ export default class ShopDetails extends React.Component {
     }
 
     loadShop() {
-        const id = this.props.match.params.theShopId
+        const id = this.props.match.params.id
         shopService.getById(id)
             .then(shop => {
                 console.log(shop)

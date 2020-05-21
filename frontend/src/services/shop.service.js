@@ -1,26 +1,26 @@
-const fs = require('fs');
+// const fs = require('fs');
 
-const baseUrl = 'http://localhost:3000/shops';
-const axios = require('axios').default;
-
-
-const shops = _getShops()
+// const baseUrl = 'http://localhost:3000/shops';
+// const axios = require('axios').default;
 
 
-function _getShops() {
-    return axios.get(baseUrl)
-        .then(shops => gShops = shops.data)
-}
+// const shops = _getShops()
 
 
-function getById(shopId) {
-    const shop = shops.find(shop => shop.id === shopId)
-    return Promise.resolve(shop);
-}
+// function _getShops() {
+//     return axios.get(baseUrl)
+//         .then(shops => gShops = shops.data)
+// }
+
+
+// function getById(shopId) {
+//     const shop = shops.find(shop => shop.id === shopId)
+//     return Promise.resolve(shop);
+// }
 
 
 
 
-module.exports = {
-    getById
-}
+// module.exports = {
+//     getById
+// }
