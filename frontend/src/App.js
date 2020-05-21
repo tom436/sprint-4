@@ -1,15 +1,26 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
 import Home from './pages/Home'
 import './styles/global.scss'
+import ShopDetails from './pages/ShopDetails'
+import { Route, Switch, Link } from 'react-router-dom';
 
-function App() {
-  return (
-    <Switch>
-      <Route component={Home} path="/" />
 
-    </Switch>
-  );
-}
+  function App() {
+    return (
+      <div className="App">
+        <Switch>
+          <Route component={Home} path="/" />
+          {/* <Route component={ItemsPage} path="/items/:q?" />
+          <Route component={ItemDetails} path="/item/:id" /> */}
+          <Route component={ShopDetails} path="/shop/:id" />
+          {/* <Route component={ShopEdit} path="/shop/edit/:id" />
+          <Route component={Login} path="/signup" /> */}
+          {/* <Route component={Cart} path="/cart" /> */}
 
-export default App;
+        </Switch>
+
+      </div>
+    );
+  }
+
+  export default App;
