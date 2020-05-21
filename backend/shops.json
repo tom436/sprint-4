@@ -1,27 +1,31 @@
-[{
-        "_id": "v101",
-        "name": "Hapirat Haadom",
-        "owner": {"mini.user":"get the mini user"},
-        "title":"ahla hanot",
-        "about": "mamash ahla hanot organit",
-        "logo": "URL",
-        "aboutImgs": [],
-        "location": "Paris",
-        "reviews": [],
-        "tags": ["meat", "organic"],
-        "rate": 2
-            },
-            {
-                "_id": "v102",
-                "name": "Hapirat Hadebil",
-                "owner": {"mini.user":"get the mini user"},
-                "title":"hanut debilit",
-                "about": "bla bla blah blah",
-                "logo": "URL",
-                "aboutImgs": [],
-                "location": "London",
-                "reviews": [],
-                "tags": ["flowers"],
-                "rate": 5
-                    }
-        ]
+{"shops":[{
+    "id": "v101",
+    "name": "Hapirat Haadom",
+    "owner": {"mini.user":"get the mini user"},
+    "title":"ahla hanot",
+    "about": "mamash ahla hanot organit",
+    "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
+    "aboutImgs": [],
+    "location": "Paris",
+    "reviews": [],
+    "tags": ["meat", "organic"],
+    "rate": 2
+        },
+        {
+            "id": "v102",
+            "name": "Hapirat Hadebil",
+            "owner": {"mini.user":"get the mini user"},
+            "title":"hanut debilit",
+            "about": "bla bla blah blah",
+            "logo": "https://www.nationalgeographic.com/content/dam/environment/photos/future_of_food/organic_farming_rough/01_organic_farming_i8860_20181003_11260.adapt.1900.1.jpg",
+            "aboutImgs": [],
+            "location": "London",
+            "reviews": [],
+            "tags": ["flowers"],
+            "rate": 5
+                }
+            
+    
+]
+}
+       
