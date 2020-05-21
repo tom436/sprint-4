@@ -1,5 +1,5 @@
 import itemService from '../services/itemService.js'
-import ItemList from '../pages/ItemList.jsx'
+import ItemList from '../cmps/ItemList.jsx'
 
 export class ShopDetails extends React.Component {
 

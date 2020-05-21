@@ -1,6 +1,6 @@
 
-import utilService from './utilService.js'
-import storageService from './storageService.js'
+// import utilService from './utilService.js'
+// import storageService from './storageService.js'
 const baseUrl = 'http://localhost:3000/items';
 const axios = require('axios').default;
 const STORAGE_KEY = 'items'
@@ -10,8 +10,7 @@ export default {
     query,
     save,
     remove,
-    getById,
-    getNextPrevItems
+    getById
 }
 
 
@@ -66,10 +65,3 @@ function _getIdxById(itemId) {
     return gItems.findIndex(item => item.id === itemId)
 }
 
-function getNextPrevItems(itemId) {
-    // TODO: do it for real
-    return {
-        nextId: 'xxxNext',
-        prevId: 'xxxPrev',
-    }
-}
