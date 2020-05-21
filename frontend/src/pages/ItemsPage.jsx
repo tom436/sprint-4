@@ -24,7 +24,7 @@ export class ShopDetails extends React.Component {
 
     render() {
         return (!this.state.items)? Loading : <section className="main-section">
-            <section ></section>
+            
 
 
         </section>

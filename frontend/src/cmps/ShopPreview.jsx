@@ -5,6 +5,7 @@ export function ShopPreview({ shop, imgUrl }) {//gets an image based on the sear
             <Link to={`/shop/${shop.id}`}>
             <img src={imgUrl} />
             <p>{shop.name}</p>
+            <p>{shop.rate}</p>
             <p>{shop.title}</p>
             </Link>
         </div>
