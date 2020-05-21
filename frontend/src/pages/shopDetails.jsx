@@ -1,7 +1,7 @@
 import React from 'react';
 import shopService from '../services/shop.service'
 
-var shopId = "v101"
+
 
 export default class ShopDetails extends React.Component {
 
@@ -18,7 +18,15 @@ export default class ShopDetails extends React.Component {
     }
 
     loadShop() {
+<<<<<<< HEAD
         const id = this.props.match.params.id
+=======
+        console.log('load shop');
+        
+        const id = this.props.match.params.id
+        console.log('id', id);
+        
+>>>>>>> 66fcc45668fe2563a7922d7f2943f40403fc0b9b
         shopService.getById(id)
             .then(shop => {
                 console.log(shop)

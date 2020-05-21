@@ -1,4 +1,9 @@
 
+<<<<<<< HEAD
+=======
+// import utilService from './utilService.js'
+// import storageService from './storageService.js'
+>>>>>>> 66fcc45668fe2563a7922d7f2943f40403fc0b9b
 const baseUrl = 'http://localhost:3000/items';
 const axios = require('axios').default;
 const STORAGE_KEY = 'items'
