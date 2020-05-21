@@ -11,10 +11,8 @@ export default class Carusel extends React.Component {
         items:''
     }
     componentDidMount() {
-        console.log('fds');
-
+           
         itemService.query().then(items => {
-            console.log('rew');
 
             console.log(items)
             this.setState({ items })

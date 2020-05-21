@@ -1,5 +1,9 @@
-@import './basics/helpers.scss';
-@import './basics/layouts.scss';
-@import './basics/basic.scss';
+@import "./basics/helpers.scss";
+@import "./basics/layouts.scss";
+@import "./basics/basic.scss";
+@import "./cmps/header.scss";
 
-@import './pages/home.scss';
+@import "./pages/home.scss";
+* {
+    margin: 0;  
+}

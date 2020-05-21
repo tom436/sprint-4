@@ -2,29 +2,28 @@ import React from 'react';
 import Home from './pages/Home'
 import './styles/global.scss'
 import ShopDetails from './pages/ShopDetails'
+import Header from './cmps/Header'
+
 import { Route, Switch, Link } from 'react-router-dom';
 
 
-  function App() {
-    return (
-      <div className="App">
-        <Switch>
-          {/* <Route component={ItemsPage} path="/items/:q?" />
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Switch>
+        {/* <Route component={ItemsPage} path="/items/:q?" />
           <Route component={ItemDetails} path="/item/:id" /> */}
-          <Route component={ShopDetails} path="/shop/:id" />
-          {/* <Route component={ShopEdit} path="/shop/edit/:id" />
+        <Route component={ShopDetails} path="/shop/:id" />
+        {/* <Route component={ShopEdit} path="/shop/edit/:id" />
           <Route component={Login} path="/signup" /> */}
-          {/* <Route component={Cart} path="/cart" /> */}
-          <Route component={Home} path="/" />
-<<<<<<< HEAD
+        {/* <Route component={Cart} path="/cart" /> */}
+        <Route component={Home} path="/" />
 
-=======
->>>>>>> 66fcc45668fe2563a7922d7f2943f40403fc0b9b
+      </Switch>
 
-        </Switch>
+    </div>
+  );
+}
 
-      </div>
-    );
-  }
-
-  export default App;
+export default App;

@@ -34,7 +34,7 @@ export default function Caruselle(props) {
                     return <div key={idx} className="ggg">
                         <Link to={`item/${item._id}`}>
                         <img src={`${item.img}`} alt='cannot load' />
-                <p>${item.price}/{item.units}</p>
+                <p>${item.price}/{item.unit}</p>
                         </Link>
                     </div>
                 })}
