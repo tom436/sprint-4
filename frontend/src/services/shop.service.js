@@ -1,7 +1,7 @@
 // const fs = require('fs');
 
-// const baseUrl = 'http://localhost:3000/shops';
-// const axios = require('axios').default;
+const baseUrl = 'http://localhost:3000/shops';
+const axios = require('axios').default;
 
 
 function getById(shopId) {
