@@ -21,10 +21,7 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-<<<<<<< HEAD
-=======
     "react-slick": "^0.26.1",
->>>>>>> c7199d235481e1e437c0b421e812e02bdb271f7d
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1"

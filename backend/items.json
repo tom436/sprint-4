@@ -5,8 +5,8 @@
         "price": 12,
         "unit": "kg",
          "shop": {
-            "_id": "v141",
-            "name": "hapirat haadom",
+            "_id": "v101",
+            "name": "Hapirat Haadom",
             "title": "ahla hanot",
             "logo": "URL",
             "rate": 2
@@ -20,18 +20,18 @@
         ]
     },
     {
-        "_id": "v102",
+        "_id": "v105",
         "title": "potato",
         "price": 10,
         "unit": "kg",
         "shop": {
-            "_id": "v122",
-            "name": "hapirat haadom",
+            "_id": "v102",
+            "name": "Hapirat Hadebil",
             "title": "ahla hanot",
             "logo": "URL",
-            "rate": 2
+            "rate": 5
         },
-        "descrption": "batata esh",
+        "descrption": "chips",
         "img": "",
         "tags": [
             "organic",
@@ -43,35 +43,34 @@
         "_id": "v101",
         "title": "strawberries",
         "price": 20,
-        "unit": "kg",
+        "unit": "100g",
         "shop": {
-            "_id": "v122",
-            "name": "pink",
-            "title": "my shop",
-            "logo": "",
-            "rate": 2
+            "_id": "v102",
+            "name": "Hapirat Hadebil",
+            "title": "ahla hanot",
+            "logo": "URL",
+            "rate": 5
         },
-        "descrption": "batata esh",
+        "descrption": "strawberries",
         "img": "",
         "tags": [
             "organic",
-            "fruit",
-            "root"
+            "fruit"
         ]
     },
     {
         "_id": "v130",
-        "title": "batata",
+        "title": "cucumber",
         "price": 12,
-        "unit": "kg",
+        "unit": "100g",
         "shop": {
-            "_id": "v101",
-            "name": "hapirat haadom",
+            "_id": "v102",
+            "name": "Hapirat Hadebil",
             "title": "ahla hanot",
             "logo": "URL",
-            "rate": 2
+            "rate": 5
         },
-        "descrption": "batata esh",
+        "descrption": "cucumber",
         "img": "URL",
         "tags": [
             "organic",
@@ -81,17 +80,17 @@
     },
     {
         "_id": "v134",
-        "title": "batata",
+        "title": "pear",
         "price": 12,
-        "unit": "kg",
+        "unit": "100g",
         "shop": {
-            "_id": "v135",
-            "name": "hapirat haadom",
+            "_id": "v102",
+            "name": "Hapirat Hadebil",
             "title": "ahla hanot",
             "logo": "URL",
-            "rate": 2
+            "rate": 5
         },
-        "descrption": "batata esh",
+        "descrption": "pear",
         "img": "URL",
         "tags": [
             "organic",
@@ -101,62 +100,59 @@
     },
     {
         "_id": "v136",
-        "title": "batata",
+        "title": "peach",
         "price": 12,
         "unit": "kg",
         "shop": {
-            "_id": "v137",
-            "name": "hapirat haadom",
+            "_id": "v101",
+            "name": "Hapirat Haadom",
             "title": "ahla hanot",
             "logo": "URL",
             "rate": 2
         },
-        "descrption": "batata esh",
+        "descrption": "peach",
         "img": "URL",
         "tags": [
             "organic",
-            "veg",
-            "root"
+            "fruit"
         ]
     },
     {
         "_id": "v138",
-        "title": "batata",
+        "title": "bananas",
         "price": 12,
         "unit": "kg",
         "shop": {
             "_id": "v101",
-            "name": "hapirat haadom",
+            "name": "Hapirat Haadom",
             "title": "ahla hanot",
             "logo": "URL",
             "rate": 2
         },
-        "descrption": "batata esh",
+        "descrption": "bananas",
         "img": "URL",
         "tags": [
             "organic",
-            "veg",
-            "root"
+            "fruit"
         ]
     },
     {
         "_id": "v139",
-        "title": "batata",
+        "title": "kiwi",
         "price": 12,
         "unit": "kg",
         "shop": {
             "_id": "v101",
-            "name": "hapirat haadom",
+            "name": "Hapirat Haadom",
             "title": "ahla hanot",
             "logo": "URL",
             "rate": 2
         },
-        "descrption": "batata esh",
+        "descrption": "kiwi",
         "img": "URL",
         "tags": [
             "organic",
-            "veg",
-            "root"
+            "fruit"
         ]
     }
 ]
