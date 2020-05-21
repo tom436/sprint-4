@@ -1,0 +1,14 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.hero-image{
+    width: 100vw;
+    background-image: url("../../imgs/farm.jpg");
+    height: 500px;
+    // background-position:center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    // position: relative;
+  }
