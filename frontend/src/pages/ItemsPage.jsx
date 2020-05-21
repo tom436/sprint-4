@@ -1,7 +1,7 @@
 import itemService from '../services/itemService.js'
-import ItemList from '../pages/ItemList.jsx'
+import ItemList from '../cmps/ItemList.jsx'
 
-export class ShopDetails extends React.Component {
+export class ItemsPage extends React.Component {
 
     state = {
         items:null
@@ -24,7 +24,7 @@ export class ShopDetails extends React.Component {
 
     render() {
         return (!this.state.items)? Loading : <section className="main-section">
-            <section ></section>
+            
 
 
         </section>

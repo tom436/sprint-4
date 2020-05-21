@@ -17,8 +17,8 @@ function App() {
         <Route component={ShopDetails} path="/shop/:id" />
         {/* <Route component={ShopEdit} path="/shop/edit/:id" />
           <Route component={Login} path="/signup" /> */}
-        {/* <Route component={Cart} path="/cart" /> */}
-        <Route component={Home} path="/" />
+          {/* <Route component={Cart} path="/cart" /> */}
+          <Route component={Home} path="/" />
 
       </Switch>
 

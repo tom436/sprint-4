@@ -8,8 +8,7 @@ export default {
     query,
     save,
     remove,
-    getById,
-    getNextPrevItems
+    getById
 }
 
 
@@ -36,18 +35,34 @@ function save(itemToSave) {
 
 }
 
-function query(filterBy) {
-    if (!filterBy) filterBy = {};
-    
-    return axios.get('http://localhost:3000/items', {params: {q: filterBy.vendor}})
+function query() {
+    // if (!filterBy) filterBy = {};
+    const filterBy={
+        searchValue:'',
+    }
+    return axios.get(`${baseUrl}`)
         .then(res => res.data)
         .then(items => {
-            gItems = items;
-            // This is very useful for DEBUGING from the console!
             window.theItems = items;
+            console.log(items);
+
+            if(filterBy.searchValue) items=_filterItems(items,filterBy);
+            console.log(items);
+            
             return items;
         })
 }
+
+function _filterItems(items,filterBy){
+    return items.filter(item=>{
+        return item.title.includes(filterBy.searchValue)||
+        item.tags.includes(filterBy.searchValue)||
+        item.shop._id.includes(filterBy.searchValue)
+   })
+}
+
+
+
 function remove(itemId) {
     return axios.delete(`${baseUrl}/${itemId}`)
         .then(() => {
@@ -64,10 +79,3 @@ function _getIdxById(itemId) {
     return gItems.findIndex(item => item.id === itemId)
 }
 
-function getNextPrevItems(itemId) {
-    // TODO: do it for real
-    return {
-        nextId: 'xxxNext',
-        prevId: 'xxxPrev',
-    }
-}

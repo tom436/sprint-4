@@ -1,28 +1,25 @@
 
-
+import { loadItems } from '../store/actions/itemActions.js'
 import React from 'react';
-
 import itemService from '../services/itemService'
-
 import Caruselle from '../cmps/Caruselle'
-export default class Carusel extends React.Component {
+import { connect } from 'react-redux';
 
-    state = {
-        items:''
-    }
+
+ class Home extends React.Component {
+
+
     componentDidMount() {
-           
-        itemService.query().then(items => {
-
-            console.log(items)
-            this.setState({ items })
-        })
+        this.props.loadItems(null);
+        console.log(this.props);
+        
     }
 
 
     render() {
-        const { items } = this.state
+        const { items } = this.props
         return (
+           ( !items)? 'loading':
             <section className="home-page">
                 <section className="hero-image" >
                     <div className="hero-text">
@@ -45,6 +42,14 @@ export default class Carusel extends React.Component {
     }
 
 }
+const mapStateToProps = (state) => {
+    return {
+      items: state.item.items
+    }
+  }
+  const mapDispatchToProps = {
+    loadItems
+  }
+  
 
-
-
+  export default connect(mapStateToProps, mapDispatchToProps)(Home)
