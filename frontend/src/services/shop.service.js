@@ -1,22 +1,15 @@
-const fs = require('fs');
+// const fs = require('fs');
 
-const baseUrl = 'http://localhost:3000/shops';
-const axios = require('axios').default;
-
-
-const shops = _getShops()
-
-
-function _getShops() {
-    return axios.get(baseUrl)
-        .then(shops => gShops = shops.data)
-}
+// const baseUrl = 'http://localhost:3000/shops';
+// const axios = require('axios').default;
 
 
 function getById(shopId) {
-    const shop = shops.find(shop => shop.id === shopId)
-    return Promise.resolve(shop);
+    return axios.get(`${baseUrl}/${shopId}`)
+        .then(res => console.log('should be a store',res)
+        )
 }
+
 
 
 
