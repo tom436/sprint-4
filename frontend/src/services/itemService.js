@@ -36,15 +36,11 @@ function save(itemToSave) {
 }
 
 function query(filterBy) {
-    console.log('filter by',filterBy);
-
     if (!filterBy) filterBy = {};
-    
-    return axios.get(baseUrl)
-    .then(res => res.data)
-    .then(items => {
-        console.log('filter by',filterBy);
-            gItems = items;
+  
+    return axios.get(`${baseUrl}`)
+        .then(res => res.data)
+        .then(items => {
             window.theItems = items;
 
             if(filterBy.searchValue) items=_filterItems(items,filterBy);
