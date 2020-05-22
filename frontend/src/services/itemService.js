@@ -40,12 +40,11 @@ function query(filterBy) {
 
     if (!filterBy) filterBy = {};
     
-    return axios.get(baseUrl,)
+    return axios.get(baseUrl)
     .then(res => res.data)
     .then(items => {
         console.log('filter by',filterBy);
             gItems = items;
-            // This is very useful for DEBUGING from the console!
             window.theItems = items;
 
             if(filterBy.searchValue) items=_filterItems(items,filterBy);
