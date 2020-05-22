@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+
 import {addToCart,addToFavorites} from '../store/actions/itemActions'
 //add a msg :added to cart!
-export class ItemPreview extends React.Component {
+ class ItemPreview extends React.Component {
 
     state = {
         amount: 1 
@@ -19,28 +22,27 @@ export class ItemPreview extends React.Component {
                 <p>{item.title}</p>
                 <Link to={`/shop/${item.shop.id}`}>{item.shop.name}<span>*{item.shop.rate}</span></Link>
                 <p>Price:{item.price}/ {item.unit}</p>
-                <input type="number" name="amount" placeHolder="1" onChange={this.onHandleChang} />
-                <button onClick={() => addToCart(item._id,this.state.amount)}>Add to Cart</button>
-                <button onClick={() => addToFavorites(item._id)}>Like!</button>
+                <input type="number" name="amount" placeholder="1" onChange={this.onHandleChang} />
+                {/* <button onClick={() => addToCart(item._id,this.state.amount)}>Add to Cart</button>
+                <button onClick={() => addToFavorites(item._id)}>Like!</button> */}
             </div>
     }
 }
 
 
-// const mapStateToProps = state => {
-//     return {
-//         item: state.item.currItem
-//     };
-// };
+const mapStateToProps = state => {
+    return {
+        
+    };
+};
 
 const mapDispatchToProps = {
-    loadItem,
     addToCart,
     addToFavorites
 };
 
-// export default connect(mapStateToProps, mapDispatchToProps)(ItemDetails);
-export default connect( mapDispatchToProps)(ItemDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemPreview);
+// export default connect(mapDispatchToProps)(ItemPreview);
 
 
 // export function ItemPreview({ item, addToCart, addToFavorites }) {
