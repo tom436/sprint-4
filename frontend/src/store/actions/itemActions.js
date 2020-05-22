@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 
 import itemService from '../../services/itemService.js';
 
@@ -23,7 +21,6 @@ export function removeItem(itemId) {
       .then(() => dispatch({ type: 'REMOVE_ITEM', itemId }))
   }
 }
->>>>>>> 9681183738fdbe7df25dd6ce14a9265a92c772bb
 
 export function saveItem(item) {
   return dispatch => {
