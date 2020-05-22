@@ -2,7 +2,7 @@ import React from 'react';
 import Home from './pages/Home'
 import './styles/global.scss'
 import ShopDetails from './pages/ShopDetails'
-import {ItemsPage} from './pages/ItemsPage'
+import ItemsPage from './pages/ItemsPage'
 import Header from './cmps/Header'
 import { Route, Switch, Link } from 'react-router-dom';
 
