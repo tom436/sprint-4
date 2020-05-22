@@ -35,9 +35,9 @@ function save(itemToSave) {
 
 }
 
-<<<<<<< HEAD
 function query(filterBy) {
-    
+    console.log('filter by',filterBy);
+
     if (!filterBy) filterBy = {};
     
     return axios.get(baseUrl,)
@@ -46,21 +46,9 @@ function query(filterBy) {
         console.log('filter by',filterBy);
             gItems = items;
             // This is very useful for DEBUGING from the console!
-=======
-function query() {
-    // if (!filterBy) filterBy = {};
-    const filterBy={
-        searchValue:'',
-    }
-    return axios.get(`${baseUrl}`)
-        .then(res => res.data)
-        .then(items => {
->>>>>>> eb6ea6056a8eb1e1d87700a4bc6db5934162acd7
             window.theItems = items;
-            console.log(items);
 
             if(filterBy.searchValue) items=_filterItems(items,filterBy);
-            console.log(items);
             
             return items;
         })

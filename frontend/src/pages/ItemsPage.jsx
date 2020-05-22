@@ -1,5 +1,6 @@
 import itemService from '../services/itemService.js'
 import ItemList from '../cmps/ItemList.jsx'
+import React from 'react';
 
 export class ItemsPage extends React.Component {
 
@@ -23,7 +24,7 @@ export class ItemsPage extends React.Component {
     }
 
     render() {
-        return (!this.state.items)? Loading : <section className="main-section">
+        return (!this.state.items)? 'Loading' : <section className="main-section">
             
 
 

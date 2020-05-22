@@ -5,17 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router } from "react-router-dom";
 
-<<<<<<< HEAD
-=======
 import { Provider } from 'react-redux'
 import  Store  from './store/store';
 
 
->>>>>>> eb6ea6056a8eb1e1d87700a4bc6db5934162acd7
 ReactDOM.render(
-  <Provider store={Store}>
-
-  <Router>
+  <Provider store={Store} >
+  <Router >
     <App />
   </Router>
   </Provider>  ,    
