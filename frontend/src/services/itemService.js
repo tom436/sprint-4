@@ -35,11 +35,9 @@ function save(itemToSave) {
 
 }
 
-function query() {
-    // if (!filterBy) filterBy = {};
-    const filterBy={
-        searchValue:'',
-    }
+function query(filterBy) {
+    if (!filterBy) filterBy = {};
+  
     return axios.get(`${baseUrl}`)
         .then(res => res.data)
         .then(items => {

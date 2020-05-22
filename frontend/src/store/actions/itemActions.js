@@ -1,12 +1,14 @@
-<<<<<<< HEAD
-=======
 
 import itemService from '../../services/itemService.js';
 
-export function loadItems() {  
+export function loadItems(filter) {  
   return dispatch => {
-    itemService.query()
-      .then(items => dispatch({ type: 'SET_ITEMS', items }))
+    itemService.query(filter)
+      .then(items => {
+       console.log(items)
+        return dispatch({ type: 'SET_ITEMS', items })
+      })
+        
   }
 }
 export function loadItem(id) {
@@ -23,7 +25,6 @@ export function removeItem(itemId) {
       .then(() => dispatch({ type: 'REMOVE_ITEM', itemId }))
   }
 }
->>>>>>> 9681183738fdbe7df25dd6ce14a9265a92c772bb
 
 export function saveItem(item) {
   return dispatch => {
