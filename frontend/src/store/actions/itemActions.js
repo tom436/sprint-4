@@ -1,14 +1,10 @@
 
 import itemService from '../../services/itemService.js';
 
-export function loadItems(filter) {  
+export function loadItems(filterBy) {  
   return dispatch => {
-    itemService.query(filter)
-      .then(items => {
-       console.log(items)
-        return dispatch({ type: 'SET_ITEMS', items })
-      })
-        
+    itemService.query(filterBy)
+      .then(items => dispatch({ type: 'SET_ITEMS', items }))
   }
 }
 export function loadItem(id) {
@@ -34,6 +30,14 @@ export function saveItem(item) {
 
   }
 }
+
+export function setFilter(filter) {
+  return dispatch => {
+ dispatch({ type:'SET_FILTER', filter })
+
+  }
+}
+
 
 
 

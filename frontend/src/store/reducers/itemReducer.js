@@ -1,12 +1,12 @@
 const initialState = {
     items: [],
+    filter:'',
     currItem: null
 };
 
 export default function ItemReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_ITEMS':
-            console.log(action);
             return {
                 ...state,
                 items: action.items
@@ -33,6 +33,11 @@ export default function ItemReducer(state = initialState, action) {
             return {
                 ...state,
                 items: state.items.filter(item => item._id !== action.itemId)
+          }
+          case 'SET_FILTER':
+            return {
+                ...state,
+                filter: action.filter
           }
         default:
             return state;
