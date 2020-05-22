@@ -14,15 +14,12 @@ class Header extends React.Component {
 
     state = {
         class: '',
-        filter:{
-            searchValue:''
+        filter: {
+            searchValue: ''
         }
     }
     componentDidMount() {
-        console.log(withRouter);
-        
         window.addEventListener('scroll', this.getWindowHeight);
-        
 
     }
     componentWillUnmount() {
@@ -51,7 +48,7 @@ class Header extends React.Component {
     }
     handleSubmit = (ev) => {
         ev.preventDefault()
-        
+
         this.props.loadItems(this.state.filter);
         this.props.setFilter(this.state.filter)
         // this.props.history.push(`#/items`)
@@ -66,7 +63,7 @@ class Header extends React.Component {
             <section className={`main-header ${this.state.class} flex align-center space-between`}>
                 <h1>Farm To You</h1>
                 <form action="" onSubmit={this.handleSubmit}>
-                    <input name="searchValue" type="text" onChange={this.handleChange}  value={ this.state.filter.searchValue } />
+                    <input name="searchValue" type="text" onChange={this.handleChange} value={this.state.filter.searchValue} />
                     <button>GO</button>
                 </form>
                 <ul className="main-nav flex">
@@ -85,13 +82,13 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-      items: state.item.items
+        items: state.item.items
     }
-  }
-  const mapDispatchToProps = {
+}
+const mapDispatchToProps = {
     loadItems,
     setFilter
-  }
-  
+}
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
