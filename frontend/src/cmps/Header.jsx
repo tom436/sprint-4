@@ -52,7 +52,7 @@ class Header extends React.Component {
         this.props.loadItems(this.state.filter);
         this.props.setFilter(this.state.filter)
         // this.props.history.push(`#/items`)
-        window.location.replace(`http://localhost:3001/#/items/${this.state.filter.searchValue}`)
+        window.location.replace(`#/items/${this.state.filter.searchValue}`)
 
     }
 
