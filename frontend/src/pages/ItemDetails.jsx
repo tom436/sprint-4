@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 
+import { connect } from 'react-redux';
 import {loadItem,addToCart,addToFavorites} from '../store/actions/itemActions'
 //add a msg :added to cart!
 class ItemDetails extends React.Component {
@@ -9,9 +10,9 @@ class ItemDetails extends React.Component {
         amount:1
     }
 
-    componentDidMount(){
-        this.props.loadItem()
-    }
+    // componentDidMount(){
+    //     this.props.loadItem()
+    // }
 
     onHandleChange=({target})=>{
         this.setState({amount:target.value})
@@ -21,7 +22,7 @@ class ItemDetails extends React.Component {
         const {item} = this.props
         return (!item) ? <p>Loading</p> :
             <div className="item-details">
-                <button onClick={}>Back</button>
+                {/* <button onClick={}>Back</button> */}
                 <img src={item.img} />
                 <p>{item.title}</p>
                 <Link to={`/shop/${item.shop._id}`}>
