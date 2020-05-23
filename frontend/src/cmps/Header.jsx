@@ -66,6 +66,7 @@ class Header extends React.Component {
                     <input name="searchValue" type="text" onChange={this.handleChange} value={this.state.filter.searchValue} />
                     <button>GO</button>
                 </form>
+
                 <ul className="main-nav flex">
                     <li><NavLink to="/" exact >Home</NavLink></li>
                     <li><NavLink to="/items" exact>items</NavLink></li>

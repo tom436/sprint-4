@@ -1,8 +1,8 @@
 
-import { loadItems } from '../store/actions/itemActions.js'
 import React from 'react';
 import itemService from '../services/itemService'
 import Caruselle from '../cmps/Caruselle'
+import { loadItems } from '../store/actions/itemActions.js'
 import { connect } from 'react-redux';
 
 
