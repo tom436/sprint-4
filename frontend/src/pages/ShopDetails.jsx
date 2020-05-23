@@ -7,6 +7,7 @@ import MapContainer from '../cmps/MapContainer'
 
 
 
+
 export default class ShopDetails extends React.Component {
 
     state = {

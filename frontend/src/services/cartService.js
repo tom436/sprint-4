@@ -14,16 +14,20 @@ _createCart()
 
 
 function addToCart(item, amount) {
-
+    console.log('im here');
+    
     var idx=gCart.findIndex(purchase=>{
         return purchase._id===item._id
     })
+    console.log(idx);
+
     if(idx!=-1){
         gCart[idx].totalPrice+=item.price*amount
         gCart[idx].amount+=amount;
+        storageService.store('cart', gCart);
         return Promise.resolve(gCart)
     }
-    const purchase = { ...item, totalPrice: amount * item.price,amount }
+    const purchase = {shop:item.shop.title,items:[{ ...item, totalPrice: amount * item.price,amount}] }
     gCart.push(purchase);
     storageService.store('cart', gCart);
     return Promise.resolve(gCart)
@@ -32,12 +36,12 @@ function addToCart(item, amount) {
 
 
 function loadCart() {
-    return gCart;
+    return Promise.resolve(gCart)
 }
 
 function _createCart() {
-    gCart = storageService.load('Cart')
-    storageService.store('Cart', gCart)
+    gCart = storageService.load('cart')
+    storageService.store('cart', gCart)
 }
 
 

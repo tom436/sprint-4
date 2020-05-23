@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import cartService from '../services/cartService'
-
+import {addToCart,loadCart} from '../store/actions/userActions'
 
 class Cart extends React.Component {
 
@@ -11,7 +11,8 @@ class Cart extends React.Component {
         cart:['no items']
     }
     componentDidMount() {
-
+        this.props.loadCart()
+        
     }
     componentWillUnmount() {
     }
@@ -21,22 +22,18 @@ class Cart extends React.Component {
 
         return (
               <section className="cart-container flex space-around">
-                  <section className='items-container'>
+                  <section className='items-container flex column'>
                       <h1>CART</h1>
                       <button onClick={()=>{
-                          cartService.addToCart({title:'avokao',price:20})
+                          this.props.addToCart({_id:'v102',title:'cat',price:20,shop:{title:'Moshes farm',_id:'s200'}},1)
                       }      
                       }>try me</button>
                       <button onClick={()=>{
-                          const items=cartService.loadCart()
-                          console.log(items);
-                          this.setState({cart:items})
+                          console.log(this.props.cart);
                       }}>load items</button>
+
                   </section>
-                  <div>
                       
-                      {`${this.state.cart}`}
-                  </div>
                   <section className="payment-container flex column space-between">
                       <h1>TOTAL</h1>
                       <button>Checkout</button>
@@ -50,10 +47,12 @@ class Cart extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        cart:state.user.cart
     }
 }
 const mapDispatchToProps = {
-
+    addToCart,
+    loadCart
 }
 
 

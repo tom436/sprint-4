@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 
     componentDidMount() {
         this.props.loadItems(null);
+        console.log(this.props.items);
+        
     }
 
 
