@@ -44,10 +44,10 @@ function query() {
         .then(res => res.data)
         .then(items => {
             window.theItems = items;
-            console.log(items);
+            // console.log(items);
 
             if(filterBy.searchValue) items=_filterItems(items,filterBy);
-            console.log(items);
+            // console.log(items);
             
             return items;
         })

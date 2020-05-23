@@ -15,7 +15,6 @@ export default class ShopDetails extends React.Component {
 
 
     componentDidMount() {
-        console.log('did mount')
         this.loadShop()
         this.loadShopItems()
 
@@ -38,8 +37,7 @@ export default class ShopDetails extends React.Component {
         itemService.query()
             .then(items => {
                 this.setState({ items })
-                // console.log('store items',items);
-                console.log('this state', this.state);
+                console.log('store items',items);
             })
     }
 
