@@ -6,9 +6,13 @@ import {addToCart,addToFavorites} from '../store/actions/itemActions'
 //add a msg :added to cart!
  class ItemPreview extends React.Component {
 
-    state = {
-        amount: 1 
+    state={
+        amount:1
     }
+
+    // componentDidMount(){
+    //     this.props.loadItem()
+    // }
 
     onHandleChange=({target})=>{
         this.setState({amount:target.value})
@@ -23,8 +27,8 @@ import {addToCart,addToFavorites} from '../store/actions/itemActions'
                 <Link to={`/shop/${item.shop.id}`}>{item.shop.name}<span>*{item.shop.rate}</span></Link>
                 <p>Price:{item.price}/ {item.unit}</p>
                 <input type="number" name="amount" placeholder="1" onChange={this.onHandleChang} />
-                {/* <button onClick={() => addToCart(item._id,this.state.amount)}>Add to Cart</button>
-                <button onClick={() => addToFavorites(item._id)}>Like!</button> */}
+                <button onClick={() => this.props.addToCart(item._id,this.state.amount)}>Add to Cart</button>
+                <button onClick={() => this.props.addToFavorites(item._id)}>Like!</button>
             </div>
     }
 }

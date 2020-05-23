@@ -10,9 +10,9 @@ class ItemDetails extends React.Component {
         amount:1
     }
 
-    componentDidMount(){
-        this.props.loadItem()
-    }
+    // componentDidMount(){
+    //     this.props.loadItem()
+    // }
 
     onHandleChange=({target})=>{
         this.setState({amount:target.value})

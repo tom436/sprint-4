@@ -22,7 +22,7 @@ class ItemsPage extends React.Component {
     }
 
     render() {
-        return (!this.props.items) ? <p>Loading</p> : <section className="main-section">
+        return (!this.props.items) ? <p>Loading</p> : <section className="items-page">
             <form>
                 <label>Sort by Price
                     <select name="sort">

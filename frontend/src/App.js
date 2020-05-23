@@ -4,6 +4,7 @@ import './styles/global.scss'
 import ShopDetails from './pages/ShopDetails'
 import ItemsPage from './pages/ItemsPage'
 // import ItemDetails from './pages/ItemDetails'
+import Cart from './pages/Cart'
 import Header from './cmps/Header'
 import { Route, Switch, Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
@@ -22,7 +23,7 @@ function App() {
         <Route component={ShopDetails} path="/shop/:id" />
         {/* <Route component={ShopEdit} path="/shop/edit/:id" />
           <Route component={Login} path="/signup" /> */}
-        {/* <Route component={Cart} path="/cart" /> */}
+        <Route component={Cart} path="/cart" />
         <Route component={Home} path="/" />
 
       </Switch>

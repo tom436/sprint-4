@@ -2,9 +2,12 @@
 @import "./basics/layouts.scss";
 @import "./basics/basic.scss";
 @import "./cmps/header.scss";
+@import "./cmps/itemPreview.scss";
 
 @import './pages/home.scss';
 @import './pages/shop.scss';
+@import './pages/cart.scss';
+
 @import "./pages/home.scss";
 * {
     margin: 0;  
