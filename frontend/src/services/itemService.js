@@ -35,19 +35,22 @@ function save(itemToSave) {
 
 }
 
-function query() {
-    // if (!filterBy) filterBy = {};
-    const filterBy={
-        searchValue:'',
-    }
+function query(filterBy) {
+    if (!filterBy) filterBy = {};
+  
     return axios.get(`${baseUrl}`)
         .then(res => res.data)
         .then(items => {
             window.theItems = items;
+<<<<<<< HEAD
             // console.log(items);
 
             if(filterBy.searchValue) items=_filterItems(items,filterBy);
             // console.log(items);
+=======
+
+            if(filterBy.searchValue) items=_filterItems(items,filterBy);
+>>>>>>> 6face1f1aed150dc454cbede2de3b7cc6260a8fd
             
             return items;
         })
