@@ -4,7 +4,7 @@ import { loadItems } from '../store/actions/itemActions.js'
 import shopService from '../services/shopService'
 import itemService from '../services/itemService.js'
 import MapContainer from '../cmps/MapContainer'
-import ItemList from '../cmps/ItemList'
+import { ItemList } from '../cmps/ItemList'
 import { connect } from 'react-redux';
 
 
@@ -83,13 +83,11 @@ class ShopDetails extends React.Component {
                     <button >Send a Message</button>
                 </div>
 
-                {this.props.items.map((item, idx) => {
-                    return <img key={idx} src={item.img}></img>
-                })}
+
+                <ItemList items={this.props.items} />
 
             </section>
 
-           <ItemList items={this.props.items}/>
         </section>
     }
 

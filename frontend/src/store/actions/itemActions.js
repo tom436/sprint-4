@@ -7,15 +7,6 @@ export function loadItems(filterBy, sortBy=null) {
       .then(items => dispatch({ type: 'SET_ITEMS', items }))
   }
 }
-export function addToCart(){
-  console.log('added to cart');
-
-  return dispatch => {
-    itemService.query()
-      .then(items => dispatch({ type: 'SET_ITEMS', items }))
-  }
-  
-}
 export function addToFavorites(){
   console.log('added to favorites');
   return dispatch => {
@@ -54,13 +45,3 @@ export function setFilter(filter) {
 
   }
 }
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
->>>>>>> c00825a3541ba39f67e4a381077efa1827667dd3
