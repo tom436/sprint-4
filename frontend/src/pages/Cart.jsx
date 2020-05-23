@@ -54,7 +54,6 @@ class Cart extends React.Component {
                     }}>load items</button>
                 </div>
             </section>
-
         )
     }
 

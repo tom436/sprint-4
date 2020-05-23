@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import {addToCart,addToFavorites} from '../store/actions/itemActions'
+import {addToCart} from '../store/actions/userActions'
 //add a msg :added to cart!
 export class ItemPreview extends React.Component {
 
@@ -21,7 +21,6 @@ export class ItemPreview extends React.Component {
                 <p>Price:{item.price}/ {item.unit}</p>
                 <input type="number" name="amount" placeHolder="1" onChange={this.onHandleChang} />
                 <button onClick={() => addToCart(item._id,this.state.amount)}>Add to Cart</button>
-                <button onClick={() => addToFavorites(item._id)}>Like!</button>
             </div>
     }
 }
