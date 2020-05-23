@@ -14,20 +14,27 @@ _createCart()
 
 
 function addToCart(item, amount) {
-    console.log('im here');
     
-    var idx=gCart.findIndex(purchase=>{
-        return purchase._id===item._id
+    const shopIdx = gCart.findIndex(purchase => {
+        return purchase.shop === item.shop.title
     })
-    console.log(idx);
-
-    if(idx!=-1){
-        gCart[idx].totalPrice+=item.price*amount
-        gCart[idx].amount+=amount;
+    if (shopIdx != -1) {
+        const idx = gCart[shopIdx].items.findIndex(purchase => {
+            return purchase._id === item._id
+        })
+        if (idx != -1) {
+            gCart[shopIdx].items[idx].totalPrice += item.price * amount
+            gCart[shopIdx].items[idx].amount += amount;
+            storageService.store('cart', gCart);
+            return Promise.resolve(gCart)
+        }
+        const purchase = { ...item, totalPrice: amount * item.price, amount }
+        gCart[shopIdx].items.push(purchase);
         storageService.store('cart', gCart);
         return Promise.resolve(gCart)
+
     }
-    const purchase = {shop:item.shop.title,items:[{ ...item, totalPrice: amount * item.price,amount}] }
+    const purchase = { shop: item.shop.title, items: [{ ...item, totalPrice: amount * item.price, amount }] }
     gCart.push(purchase);
     storageService.store('cart', gCart);
     return Promise.resolve(gCart)
