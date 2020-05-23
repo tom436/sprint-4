@@ -1,9 +1,9 @@
 
 import itemService from '../../services/itemService.js';
 
-export function loadItems(filterBy) {  
+export function loadItems(filterBy, sortBy=null) {  
   return dispatch => {
-    itemService.query(filterBy)
+    itemService.query(filterBy,sortBy)
       .then(items => dispatch({ type: 'SET_ITEMS', items }))
   }
 }
@@ -37,6 +37,8 @@ export function setFilter(filter) {
 
   }
 }
+
+
 
 
 
