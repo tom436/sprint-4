@@ -11,7 +11,6 @@ export default {
     getById
 }
 
-
 function save(itemToSave) {
     if (itemToSave.id) {
         // UPDATE
@@ -69,9 +68,10 @@ function remove(itemId) {
 }
 function getById(itemId) {
     return axios.get(`${baseUrl}/${itemId}`)
-        .then(res => res.data)
+        .then(res => console.log(res.data))
+        .catch(err=>console.log(err) )
+       
 }
 function _getIdxById(itemId) {
     return gItems.findIndex(item => item.id === itemId)
 }
-
