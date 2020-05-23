@@ -29,9 +29,7 @@ class Cart extends React.Component {
                                 return <li className="flex space-between align-center"><img src={item.img}/>{item.title},{item.totalPrice} <button className="far fa-dove">remove</button> <input type="number" className="edit-amount" value={item.amount}/></li>
                             })}
                         </ul>
-                    
-                    
-                    
+
                     })} 
                 </section>
 
