@@ -74,20 +74,16 @@ function remove(itemId) {
             const itemIdx = _getIdxById(itemId)
             gItems.splice(itemIdx, 1)
         })
-
 }
 
 function getById(itemId) {
     return axios.get(`${baseUrl}/${itemId}`)
-        .then(res => console.log(res.data))
-        .catch(err=>console.log(err) )
-       
+        .then(res => res.data)
 }
 
 function _getIdxById(itemId) {
     return gItems.findIndex(item => item.id === itemId)
 }
-<<<<<<< HEAD
 
 function compare(items, sortBy) {
     console.log('items in compare',items);
@@ -110,6 +106,8 @@ function compare(items, sortBy) {
                     else return 0
                 })
             }
+
+
         }
 
 // function compare(a, b, sortBy) {
@@ -128,5 +126,3 @@ function compare(items, sortBy) {
 
 //     }
 // }
-=======
->>>>>>> e12562acfb4415d325e4a51dbccfce1578436ca5
