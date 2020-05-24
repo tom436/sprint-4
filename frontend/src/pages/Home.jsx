@@ -21,6 +21,7 @@ import { connect } from 'react-redux';
         return (
            ( !items)? 'loading':
             <section className="home-page">
+           
                 <section className="hero-image" >
                     <div className="hero-text">
                         <h1 >We are Farm for you</h1>
@@ -33,7 +34,6 @@ import { connect } from 'react-redux';
 
                 <div className="news">
                 {items && <Caruselle toShow={1} classN={'news'}  items={items} header={'News'} />}
-
                 </div>
 
 

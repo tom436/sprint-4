@@ -1,48 +1,55 @@
 import React from 'react';
+import { loadItems } from '../store/actions/itemActions.js'
+
 import shopService from '../services/shopService'
 import itemService from '../services/itemService.js'
 import MapContainer from '../cmps/MapContainer'
+import { ItemList } from '../cmps/ItemList'
+import { connect } from 'react-redux';
 
 
 
 
 
 
-export default class ShopDetails extends React.Component {
+class ShopDetails extends React.Component {
 
     state = {
         shop: null,
+        sortBy: null,
     }
+
+
 
 
     componentDidMount() {
-        console.log('did mount')
+        const id = this.props.match.params.id
         this.loadShop()
-        this.loadShopItems()
+        this.props.loadItems({ searchValue: id }, this.state.sortBy);
+
 
     }
 
-    loadShop() {
-        console.log('load shop');
-        
+    loadShop = () => {
         const id = this.props.match.params.id
         console.log('id', id);
-        
+
         shopService.getById(id)
             .then(shop => {
                 this.setState({ shop })
-                console.log(shop)
             })
     }
 
-    loadShopItems() {
-        itemService.query()
-            .then(items => {
-                this.setState({ items })
-                // console.log('store items',items);
-                console.log('this state', this.state);
-            })
+
+    onHandleChange = (ev) => {
+        const id = this.props.match.params.id
+        // this.setState({ sortBy: ev.target.value })
+        console.log(ev.target.value);
+
+        this.props.loadItems({ searchValue: id }, ev.target.value)
+
     }
+
 
 
 
@@ -58,18 +65,27 @@ export default class ShopDetails extends React.Component {
                 <img className="shop-logo" src={shop.logo} />
                 <h2>Store Name: {shop.name}</h2>
                 <h4>{shop.about}</h4>
-                <div className="shop-map">
+                {/* <div className="shop-map">
                     <MapContainer />
-                </div>
+                </div> */}
+
+                <form>
+                    <select name="sort" onChange={this.onHandleChange}>
+                        <option value="" >Sort By</option>
+                        <option value="byHighPrice" >By Highest Price</option>
+                        <option value="byLowPrice" >By Lowest Price</option>
+                    </select>
+                </form>
 
                 <div className="shop-interact">
                     <button >Reviews</button>
                     <button >More</button>
                     <button >Send a Message</button>
                 </div>
-            </section>
 
-            <section className="shops-items">
+
+                <ItemList items={this.props.items} />
+
             </section>
 
         </section>
@@ -78,3 +94,19 @@ export default class ShopDetails extends React.Component {
 
 }
 
+
+
+
+
+
+const mapStateToProps = (state) => {
+    return {
+        items: state.item.items
+    }
+}
+const mapDispatchToProps = {
+    loadItems
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopDetails)

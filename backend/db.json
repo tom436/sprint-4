@@ -3,7 +3,7 @@
         {
             "_id": "v140",
             "title": "batata",
-            "price": 12,
+            "price": 19,
             "unit": "kg",
             "shop": {
                 "_id": "v101",
@@ -102,7 +102,7 @@
         {
             "_id": "v136",
             "title": "peach",
-            "price": 12,
+            "price": 44,
             "unit": "kg",
             "shop": {
                 "_id": "v101",
@@ -121,7 +121,7 @@
         {
             "_id": "v138",
             "title": "bananas",
-            "price": 12,
+            "price": 10,
             "unit": "kg",
             "shop": {
                 "_id": "v101",
@@ -140,7 +140,7 @@
         {
             "_id": "v139",
             "title": "kiwi",
-            "price": 12,
+            "price": 11,
             "unit": "kg",
             "shop": {
                 "_id": "v101",
