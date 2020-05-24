@@ -68,7 +68,7 @@ function remove(itemId) {
 }
 function getById(itemId) {
     return axios.get(`${baseUrl}/${itemId}`)
-        .then(res => console.log(res.data))
+        .then(res => res.data)
         .catch(err=>console.log(err) )
        
 }

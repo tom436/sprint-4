@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
+import React from 'react';
 export function ShopPreview({ shop, imgUrl }) {//gets an image based on the search
-    return (!shop) ? Loading :
+    return (!shop) ? <p>Loading</p> :
         <div className="shop-preview">
             <Link to={`/shop/${shop.id}`}>
             <img src={imgUrl} />

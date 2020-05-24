@@ -1,0 +1,29 @@
+.item-details {
+    background-color: #ebe5e5; 
+    display: grid;
+    grid-template-columns:  minmax(20px,1fr) 350px 350px minmax(20px,1fr);
+    grid-template-rows: 300px 200px;
+    column-gap:20px;
+    img{
+        grid-column: 2;
+    }
+    div{
+        grid-column:3;
+        a{
+            background-color: lightgreen;
+            border-radius: 25px;
+        }
+    }
+}
+
+// .item-description {
+//     grid-row: 1 / span 1;
+//     grid-column: 1 / span 2;
+// }
+//  .check {
+//         grid-row: 1 / span 1;
+//         grid-column: 2 / span 1;
+//     }
+// .item-shop-description {
+//     grid-row: 2 / span 1;
+// }
