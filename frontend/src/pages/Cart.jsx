@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 import {CartItemsList} from '../cmps/CartItemsList'
-import { loadCart, remove,getTotalPrice } from '../store/actions/userActions'
+import { loadCart, remove,getTotalPrice,checkout } from '../store/actions/userActions'
 
 class Cart extends React.Component {
 
@@ -34,14 +34,16 @@ class Cart extends React.Component {
 
                 <section className="payment-container flex column space-between">
                     <h1>TOTAL</h1>
-                <h3>Sub-total: {totalPrice? totalPrice:'0'}</h3>
+                <h3>Sub-total: {totalPrice? `$${totalPrice}`:'0'}</h3>
                 <h3>Delivery:</h3>
                 <select name="" id="">
                     <option value="">Standard - Up to 7 days (Free)</option>
                     <option value="">Express - Up to 3 days ($5)</option>
                     <option value="">Next day - Will arrive tomorrow ($15)</option>
                 </select>
-                    <button>Checkout</button>
+                    <button onClick={()=>{
+                        this.props.checkout()
+                    }}>Checkout</button>
                     <div>
                     <h3>WE ACCEPT:</h3>
                 </div>

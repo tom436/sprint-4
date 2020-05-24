@@ -7,8 +7,8 @@ import ItemDetails from './pages/ItemDetails'
 import Cart from './pages/Cart'
 import Header from './cmps/Header'
 import { Route, Switch, Link } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-const history = createBrowserHistory();
+// import { createBrowserHistory } from 'history';
+// const history = createBrowserHistory();
 
 
 
@@ -16,9 +16,10 @@ const history = createBrowserHistory();
 function App() {
   return (
     <div className="App">
-      <Header  history={history}/>
+      <Header />
+      <section className="main-container">
       <Switch>
-        <Route component={ItemsPage} path="/items/:q?" />
+        <Route component={ItemsPage} path="/items" />
         <Route component={ItemDetails} path="/item/:id" />
         <Route component={ShopDetails} path="/shop/:id" />
         {/* <Route component={ShopEdit} path="/shop/edit/:id" />
@@ -27,7 +28,7 @@ function App() {
         <Route component={Home} path="/" />
 
       </Switch>
-
+          </section>
     </div>
   );
 }

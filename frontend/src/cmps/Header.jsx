@@ -3,12 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadItems } from '../store/actions/itemActions.js'
 import { setFilter } from '../store/actions/itemActions.js'
-
+import history from '../history'
 import { withRouter } from 'react-router-dom';
-// import { createBrowserHistory } from 'history';
-// const history = createBrowserHistory();
-
-
 
 class Header extends React.Component {
 
@@ -52,7 +48,11 @@ class Header extends React.Component {
         this.props.loadItems(this.state.filter);
         this.props.setFilter(this.state.filter)
         // this.props.history.push(`#/items`)
-        window.location.replace(`#/items/${this.state.filter.searchValue}`)
+        history.push({
+            pathname:'/items',
+            search:`?q=${this.state.filter.searchValue}`
+        })
+        // window.location.replace(`#/items/${this.state.filter.searchValue}`)
 
     }
 
@@ -63,17 +63,14 @@ class Header extends React.Component {
             <section className={`main-header ${this.state.class} flex align-center space-between`}>
                 <h1>Farm To You</h1>
                 <form action="" onSubmit={this.handleSubmit}>
-                    <input name="searchValue" type="text" onChange={this.handleChange} value={this.state.filter.searchValue} />
+                    <input name="searchValue" type="text" placeholder="Search products or farms" onChange={this.handleChange} value={this.state.filter.searchValue} />
                     <button>GO</button>
                 </form>
-
                 <ul className="main-nav flex">
                     <li><NavLink to="/" exact >Home</NavLink></li>
                     <li><NavLink to="/items" exact>items</NavLink></li>
                     <li><NavLink to="/cart" exact>Cart</NavLink></li>
                     <li><NavLink to="/signup" exact>Login</NavLink></li>
-
-
                 </ul>
             </section>
         );

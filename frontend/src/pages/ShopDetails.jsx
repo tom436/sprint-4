@@ -41,21 +41,23 @@ class ShopDetails extends React.Component {
         if (!shop) return <div>Loading....</div>
 
         return <section>
-            <section className="Shope-info">
-                <img src="" />
+            <section className="shope-info flex">
                 <img className="shop-logo" src={shop.logo} />
-                <h2>Store Name: {shop.name}</h2>
+                <div className="flex column space-between">
+                <h2>{shop.name}</h2>
                 <h4>{shop.about}</h4>
-                {/* <div className="shop-map">
-                    <MapContainer />
-                </div> */}
-
-
                 <div className="shop-interact">
                     <button >Reviews</button>
                     <button >More</button>
                     <button >Send a Message</button>
                 </div>
+                </div>
+                {/* <div className="shop-map">
+                    <MapContainer />
+                </div> */}
+
+
+
 
 
 

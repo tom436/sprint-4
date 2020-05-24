@@ -27,6 +27,13 @@ export function getTotalPrice(items){
   }
 }
 
+export function checkOut(items){
+  return dispatch=>{
+    cartService.getTotal(items)
+    .then(totalPrice=>dispatch({ type: 'SET_PRICE', totalPrice }))
+  }
+}
+
 
 
 

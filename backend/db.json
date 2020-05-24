@@ -153,7 +153,8 @@
             "img": "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
             "tags": [
                 "organic",
-                "fruit"
+                "fruit",
+                "flowers"
             ]
         }
     ],
@@ -245,5 +246,28 @@
             ],
             "rate": 5
         }
+    ],
+    "categories":[
+        {
+            "name":"veg",
+            "img":"https://image.flaticon.com/icons/svg/2916/2916169.svg"
+        },
+        {
+            "name":"meat",
+            "img":"https://image.flaticon.com/icons/svg/2916/2916184.svg"
+        }, 
+        {
+            "name":"dairy ",
+            "img":"https://image.flaticon.com/icons/svg/604/604813.svg"
+        },
+        {
+            "name":"organic",
+            "img":"https://image.flaticon.com/icons/svg/497/497393.svg"
+        },
+        {
+            "name":"flowers",
+            "img":"https://image.flaticon.com/icons/svg/2972/2972053.svg"
+        }
+
     ]
 }
