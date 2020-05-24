@@ -24,8 +24,11 @@ class ItemsPage extends React.Component {
         
         this.props.loadItems({searchValue:searchValue}, this.state.sort)
         .then(items => {
-            this.setState({ shop1: items[0].shop, shop2: items[1].shop })
+            if(items[0])this.setState({ shop1: items[0].shop})
+            if(items[1])this.setState({ shop2: items[1].shop }) 
         })
+        .catch(console.log('no products found'))
+      
         //  this.props.loadShops({searchValue:searchValue})
     }
     
@@ -46,7 +49,7 @@ class ItemsPage extends React.Component {
     }
 
     render() {
-        return (!this.props.items) ? <p>Loading</p> : <section className="items-page">
+        return (!this.props.items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
             <form>
                 <label>Sort by Price:
                     <select name="sort" onChange={this.onHandleChange}>
@@ -69,8 +72,8 @@ class ItemsPage extends React.Component {
                 </Link>
             </section>
             <section className="shops-of-item flex space-around">
-                <ShopPreview shop={this.state.shop1} />
-                <ShopPreview shop={this.state.shop2} />
+                {this.state.shop1&&<ShopPreview shop={this.state.shop1} />}
+                {this.state.shop2&&<ShopPreview shop={this.state.shop2} />}
             </section>
         </section>
     }
