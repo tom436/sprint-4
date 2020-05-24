@@ -7,11 +7,6 @@ import MapContainer from '../cmps/MapContainer'
 import { ItemList } from '../cmps/ItemList'
 import { connect } from 'react-redux';
 
-
-
-
-
-
 class ShopDetails extends React.Component {
 
     state = {
@@ -19,39 +14,26 @@ class ShopDetails extends React.Component {
         sortBy: null,
     }
 
-
-
-
     componentDidMount() {
         const id = this.props.match.params.id
         this.loadShop()
         this.props.loadItems({ searchValue: id }, this.state.sortBy);
-
-
     }
 
     loadShop = () => {
         const id = this.props.match.params.id
         console.log('id', id);
-
         shopService.getById(id)
             .then(shop => {
                 this.setState({ shop })
             })
     }
 
-
     onHandleChange = (ev) => {
         const id = this.props.match.params.id
         console.log(ev.target.value);
-
         this.props.loadItems({ searchValue: id }, ev.target.value)
-
     }
-
-
-
-
 
     render() {
 
@@ -90,23 +72,16 @@ class ShopDetails extends React.Component {
 
         </section>
     }
-
-
 }
-
-
-
-
-
 
 const mapStateToProps = (state) => {
     return {
         items: state.item.items
     }
 }
+
 const mapDispatchToProps = {
     loadItems
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopDetails)

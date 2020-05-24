@@ -31,13 +31,12 @@ function save(itemToSave) {
     }
 }
 
-function query(filterBy, sortBy = null) {
+function query(filterBy = null, sortBy = null) {
     if (!filterBy) filterBy = {};
 
     return axios.get(`${baseUrl}`)
         .then(res => res.data)
         .then(items => {
-
             if (filterBy.searchValue) items = _filterItems(items, filterBy);
             console.log('b4 compare',items);
            
@@ -52,13 +51,11 @@ function query(filterBy, sortBy = null) {
 function _filterItems(items, filterBy) {
     console.log(filterBy);
     console.log('in filter', items);
-
     return items.filter(item => {
         return item.title.includes(filterBy.searchValue) ||
             item.tags.includes(filterBy.searchValue) ||
             item.shop._id.includes(filterBy.searchValue)
     })
-
 }
 
 function remove(itemId) {
