@@ -7,11 +7,6 @@ import MapContainer from '../cmps/MapContainer'
 import { ItemList } from '../cmps/ItemList'
 import { connect } from 'react-redux';
 
-
-
-
-
-
 class ShopDetails extends React.Component {
 
     state = {
@@ -19,40 +14,26 @@ class ShopDetails extends React.Component {
         sortBy: null,
     }
 
-
-
-
     componentDidMount() {
         const id = this.props.match.params.id
         this.loadShop()
         this.props.loadItems({ searchValue: id }, this.state.sortBy);
-
-
     }
 
     loadShop = () => {
         const id = this.props.match.params.id
         console.log('id', id);
-
         shopService.getById(id)
             .then(shop => {
                 this.setState({ shop })
             })
     }
 
-
     onHandleChange = (ev) => {
         const id = this.props.match.params.id
-        // this.setState({ sortBy: ev.target.value })
         console.log(ev.target.value);
-
         this.props.loadItems({ searchValue: id }, ev.target.value)
-
     }
-
-
-
-
 
     render() {
 
@@ -69,13 +50,6 @@ class ShopDetails extends React.Component {
                     <MapContainer />
                 </div> */}
 
-                <form>
-                    <select name="sort" onChange={this.onHandleChange}>
-                        <option value="" >Sort By</option>
-                        <option value="byHighPrice" >By Highest Price</option>
-                        <option value="byLowPrice" >By Lowest Price</option>
-                    </select>
-                </form>
 
                 <div className="shop-interact">
                     <button >Reviews</button>
@@ -84,29 +58,30 @@ class ShopDetails extends React.Component {
                 </div>
 
 
-                <ItemList items={this.props.items} />
 
             </section>
+            <input type="text" placeholder="Search item In Shop"/>
+                <form>
+                    <select name="sort" onChange={this.onHandleChange}>
+                        <option value="" >Sort By</option>
+                        <option value="highToLow" >By Highest Price</option>
+                        <option value="lowToHigh" >By Lowest Price</option>
+                    </select>
+                </form>
+                <ItemList items={this.props.items} />
 
         </section>
     }
-
-
 }
-
-
-
-
-
 
 const mapStateToProps = (state) => {
     return {
         items: state.item.items
     }
 }
+
 const mapDispatchToProps = {
     loadItems
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopDetails)

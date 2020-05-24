@@ -1,7 +1,4 @@
-
 import storageService from './storageService'
-
-
 
 export default {
     addToCart,
@@ -12,7 +9,6 @@ export default {
 
 var gCart = [];
 _createCart()
-
 
 function addToCart(item, amount) {
     
@@ -33,7 +29,6 @@ function addToCart(item, amount) {
         gCart[shopIdx].items.push(purchase);
         storageService.store('cart', gCart);
         return Promise.resolve(gCart)
-
     }
     const purchase = { shop: item.shop.name, items: [{ ...item, totalPrice: amount * item.price, amount }] }
     gCart.push(purchase);
@@ -44,7 +39,6 @@ function addToCart(item, amount) {
 function remove(item) {
     const itemId=item._id
     const shopIdx= gCart.findIndex((purchase)=>purchase.shop===item.shop.name)
-
     const itemIdx=gCart[shopIdx].items.findIndex((currItem=>currItem._id===itemId))
     gCart[shopIdx].items.splice(itemIdx, 1)
     if(gCart[shopIdx].items.length===0) {
@@ -54,28 +48,25 @@ function remove(item) {
     return Promise.resolve({itemId,shopIdx})
 }
 
-
 function loadCart() {
     return Promise.resolve(gCart)
 }
+
 function getTotal(){
     var totalPrice=0;
     gCart.forEach(purchase => {
-        
         purchase.items.forEach(item=>{
             console.log(item.totalPrice);
             totalPrice+=item.totalPrice
         })
     });
     return Promise.resolve(totalPrice)
-
 }
+
 function _createCart() {
     gCart = storageService.load('cart')
     storageService.store('cart', gCart)
 }
-
-
 
 // function remove(itemId) {
 //     const itemIdx = _getIdxById(itemId)
@@ -83,6 +74,7 @@ function _createCart() {
 //     storageService.store('cart', gCart)
 //     return Promise.resolve();
 // }
+
 function _getIdxById(itemId) {
     return gCart.findIndex(item => item.id === itemId)
 }
