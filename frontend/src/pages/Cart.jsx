@@ -8,10 +8,9 @@ class Cart extends React.Component {
 
     componentDidMount() {
         this.props.loadCart()
-        this.props.getTotalPrice()
     }
     componentDidUpdate(){
-        
+        this.props.getTotalPrice()
     }
     componentWillUnmount() {
     }
@@ -34,8 +33,18 @@ class Cart extends React.Component {
                 <section className="payment-container flex column space-between">
                     <h1>TOTAL</h1>
                 <h3>Sub-total: {totalPrice? totalPrice:'0'}</h3>
+                <h3>Delivery:</h3>
+                <select name="" id="">
+                    <option value="">Standard - Up to 7 days (Free)</option>
+                    <option value="">Express - Up to 3 days ($5)</option>
+                    <option value="">Next day - Will arrive tomorrow ($15)</option>
+                </select>
                     <button>Checkout</button>
+                    <div>
+                    <h3>WE ACCEPT:</h3>
+                </div>
                 </section>
+
             </section>
         )
     }

@@ -24,8 +24,7 @@ export default function ItemReducer(state = initialState, action) {
                     })
             }
         }
-        case 'SET_CART':
-
+        case 'SET_PRICE':
             return {
                 ...state,
                 totalPrice:action.totalPrice
