@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { HashRouter as Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 
 import { Provider } from 'react-redux'
 import  Store  from './store/store';
-
+import history from './history'
 
 ReactDOM.render(
   <Provider store={Store} >
-  <Router >
+  <Router history={history} >
     <App />
   </Router>
   </Provider>  ,    

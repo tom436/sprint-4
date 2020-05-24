@@ -1,4 +1,6 @@
 @import "./basics/helpers.scss";
+@import "./basics/vars.scss";
+
 @import "./basics/layouts.scss";
 @import "./basics/basic.scss";
 
@@ -14,4 +16,13 @@
 @import "./pages/home.scss";
 * {
     margin: 0;  
+    box-sizing: border-box;
+
+}
+.main-container{
+    background-color: $clr4;
+
+}
+img{
+width:  100%;
 }

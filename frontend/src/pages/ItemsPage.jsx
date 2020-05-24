@@ -14,11 +14,26 @@ class ItemsPage extends React.Component {
     }
 
     componentDidMount() {
-        const filter = { searchValue: this.props.match.params.q }
-        this.props.loadItems(filter, this.state.sort)
-            .then(items => {
-                this.setState({ shop1: items[0].shop, shop2: items[1].shop })
-            })
+        console.log(this.props.location.search);
+        
+        const query = new URLSearchParams(this.props.location.search)
+        
+        console.log(query.get('q'))
+        const searchValue=query.get('q')
+        console.log(searchValue);
+        
+        this.props.loadItems({searchValue:searchValue}, this.state.sort)
+        .then(items => {
+            this.setState({ shop1: items[0].shop, shop2: items[1].shop })
+        })
+        //  this.props.loadShops({searchValue:searchValue})
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.location.search !== prevProps.location.search) {
+            const filterM = this.props.match.params.q
+            this.props.loadItems(filterM, this.state.sort)
+        }
     }
 
     onHandleChange = ({ target }) => {

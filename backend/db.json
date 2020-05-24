@@ -153,7 +153,8 @@
             "img": "https://cdn.pixabay.com/photo/2015/09/18/11/37/hass-avocado-945418_960_720.jpg",
             "tags": [
                 "organic",
-                "fruit"
+                "fruit",
+                "flowers"
             ]
         }
     ],
@@ -245,5 +246,28 @@
             ],
             "rate": 5
         }
+    ],
+    "categories":[
+        {
+            "name":"veg",
+            "img":"https://image.flaticon.com/icons/svg/2916/2916169.svg"
+        },
+        {
+            "name":"meat",
+            "img":"https://image.flaticon.com/icons/svg/2916/2916184.svg"
+        }, 
+        {
+            "name":"dairy ",
+            "img":"https://image.flaticon.com/icons/svg/604/604813.svg"
+        },
+        {
+            "name":"organic",
+            "img":"https://image.flaticon.com/icons/svg/497/497393.svg"
+        },
+        {
+            "name":"flowers",
+            "img":"https://image.flaticon.com/icons/svg/2972/2972053.svg"
+        }
+
     ]
 }

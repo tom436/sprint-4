@@ -33,7 +33,7 @@ class ItemDetails extends React.Component {
                         <p className="description">{item.description}</p>
                         <p>Price: {item.price}/ {item.unit}</p>
                         <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
-                        <button onClick={() => this.props.addToCart(item, +this.state.amount)}>Add to Cart</button>
+                        <button onClick={() => this.props.addToCart(item, this.state.amount)}>Add to Cart</button>
                     </div>
                 </section>
                 <h5>Visit our Farm!</h5>

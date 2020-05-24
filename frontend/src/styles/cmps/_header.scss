@@ -1,17 +1,42 @@
 .main-header{
-    height: 120px;
-    background-color: white;
+    height: 100px;
 
     position: sticky;
     top: 0;
     transition: .4s;
     z-index: 2;
-
+    background-color:#666;
     &.smaller{
         height: 50px;
         z-index: 2;
+    
     }
+    h1{
+        color:rgb(255, 250, 234);
 
+    }
+    form{
+        position: relative;
+    }
+    input{
+        border: none;
+        outline: none;
+        border-radius: 55px;
+        padding: .5rem;
+        width: 13rem;
+    }
+    button{
+        position: absolute;
+        top: 0;
+        right: 3px;
+        top: 9px;
+        border: none;
+        border-radius: 55px;
+        background-color: #fff;
+        cursor: pointer;
+        color: $clr1 ;
+
+    }
 }
 
 .main-nav{
