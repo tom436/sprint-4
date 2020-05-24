@@ -9,7 +9,7 @@ export function loadItems(filterBy, sortBy=null) {
 }
 export function loadItem(id) {
   return dispatch => {
-    itemService.get(id)
+    itemService.getById(id)
       .then(item => {
         dispatch({ type: 'SET_ITEM', item });
       })

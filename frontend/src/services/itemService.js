@@ -10,7 +10,6 @@ export default {
     getById
 }
 
-
 function save(itemToSave) {
     if (itemToSave.id) {
         // UPDATE
@@ -80,12 +79,15 @@ function remove(itemId) {
 
 function getById(itemId) {
     return axios.get(`${baseUrl}/${itemId}`)
-        .then(res => res.data)
+        .then(res => console.log(res.data))
+        .catch(err=>console.log(err) )
+       
 }
 
 function _getIdxById(itemId) {
     return gItems.findIndex(item => item.id === itemId)
 }
+<<<<<<< HEAD
 
 function compare(items, sortBy) {
     console.log('items in compare',items);
@@ -126,3 +128,5 @@ function compare(items, sortBy) {
 
 //     }
 // }
+=======
+>>>>>>> e12562acfb4415d325e4a51dbccfce1578436ca5

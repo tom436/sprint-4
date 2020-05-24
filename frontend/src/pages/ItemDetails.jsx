@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import React from 'react';
 
 import { connect } from 'react-redux';
-import {loadItem,addToCart,addToFavorites} from '../store/actions/itemActions'
+import {loadItem} from '../store/actions/itemActions'
+import {addToCart} from '../store/actions/userActions'
 //add a msg :added to cart!
 class ItemDetails extends React.Component {
     
@@ -10,9 +11,10 @@ class ItemDetails extends React.Component {
         amount:1
     }
 
-    // componentDidMount(){
-    //     this.props.loadItem()
-    // }
+    componentDidMount(){
+        const {id} = this.props.match.params
+        this.props.loadItem(id)
+    }
 
     onHandleChange=({target})=>{
         this.setState({amount:target.value})
@@ -35,7 +37,6 @@ class ItemDetails extends React.Component {
                 <p>Price:{item.price}/ {item.unit}</p>
                 <input type="number" name="amount" placeHolder="1" onChange={this.onHandleChange} />
                 <button onClick={() => this.props.addToCart(item._id,this.state.amount)}>Add to Cart</button>
-                <button onClick={() => this.props.addToFavorites(item._id)}>Like!</button>
             </div>
     }
 }
@@ -48,8 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     loadItem,
-    addToCart,
-    addToFavorites
+    addToCart
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemDetails);
