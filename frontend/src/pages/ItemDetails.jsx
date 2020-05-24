@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-
+import { ShopPreview } from '../cmps/ShopPreview.jsx'
 import { connect } from 'react-redux';
 import { loadItem } from '../store/actions/itemActions'
 import { addToCart } from '../store/actions/userActions'
-//add a msg :added to cart!
+
 class ItemDetails extends React.Component {
 
     state = {
@@ -23,24 +23,21 @@ class ItemDetails extends React.Component {
     render() {
         const { item } = this.props
         return (!item) ? <p>Loading</p> :
-            <div className="item-details">
-                {/* <button onClick={}>Back</button> */}
-                
+            <div className="item-details-container">
+                <section className="flex">
                     <img src={item.img} />
-                    <div className="check">
-                        {item.title}
-                        {item.description}
-                        <p>Price:{item.price}/ {item.unit}</p>
+                    <div className="flex column item-details ">
+                        <h3>{item.title}</h3>
+                        <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link>
+                            <span><i className="far fa-star"></i>{item.shop.rate}</span></h4>
+                        <p className="description">{item.description}</p>
+                        <p>Price: {item.price}/ {item.unit}</p>
                         <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
                         <button onClick={() => this.props.addToCart(item, +this.state.amount)}>Add to Cart</button>
                     </div>
-                        <img src={item.shop.logo} />
-                        <div>
-                            <p>This prudoct is sold by {item.shop.name}</p>
-                            <p>{item.shop.title}</p>
-                            <p>*{item.shop.rate}</p>
-                            <Link to={`/shop/${item.shop._id}`}>Check it out!</Link>
-                        </div>
+                </section>
+                <h5>Visit our Farm!</h5>
+                <ShopPreview shop={item.shop} />
             </div>
     }
 }
