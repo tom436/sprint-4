@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToCart } from '../store/actions/userActions'
+import {addToCart} from '../store/actions/userActions'
 //add a msg :added to cart!
 class ItemPreview extends React.Component {
 
@@ -27,7 +27,7 @@ class ItemPreview extends React.Component {
                 <Link to={`/shop/${item.shop.id}`}>{item.shop.name}<span>*{item.shop.rate}</span></Link>
                 <p>Price:{item.price}/ {item.unit}</p>
                 <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
-                <button onClick={() => this.props.addToCart(item._id, this.state.amount)}>Add to Cart</button>
+                <button onClick={() => this.props.addToCart(item,this.state.amount)}>Add to Cart</button>
             </div>
     }
 }
