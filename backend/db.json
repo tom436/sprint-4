@@ -211,7 +211,7 @@
     ],
     "shops": [
         {
-            "id": "v101",
+            "_id": "v101",
             "name": "Hapirat Haadom",
             "owner": {
                 "mini.user": "get the mini user"
@@ -229,7 +229,7 @@
             "rate": 2
         },
         {
-            "id": "v102",
+            "_id": "v102",
             "name": "Hapirat Hadebil",
             "owner": {
                 "mini.user": "get the mini user"
