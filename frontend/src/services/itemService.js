@@ -42,14 +42,11 @@ function query(filterBy, sortBy = null) {
             
             if (filterBy.searchValue) items = _filterItems(items, filterBy);
             console.log('b4 compare',items);
-            // if (sortBy) items = items.sort(compare(a, b, sortBy))
-            // console.log(items);
-            
+           
            if(sortBy) items=compare(items, sortBy)
            console.log('after comp',items);
            
             window.theItems = items;
-            // console.log('after query filter', items);
             return items;
         })
 }
@@ -90,14 +87,14 @@ function compare(items, sortBy) {
     console.log('sort by ', sortBy);
     
     switch (sortBy) {
-        case 'byHighPrice':
+        case 'highToLow':
             return items.sort((a, b) => {
                 console.log('im high');
                 if (a.price > b.price) return -1
                 if (a.price < b.price) return 1
                 else return 0
             })
-            case 'byLowPrice':
+            case 'lowToHigh':
                 return items.sort((a, b) => {
                     console.log('im low');
                     
@@ -110,19 +107,3 @@ function compare(items, sortBy) {
 
         }
 
-// function compare(a, b, sortBy) {
-//     console.log(a, b);
-//     console.log('sort by ', sortBy);
-
-//     switch (sortBy) {
-//         case byHighPrice:
-//             if (a.price > b.price) return -1
-//             if (a.price < b.price) return 1
-//             else return 0
-//         case byLowPrice:
-//             if (a.price < b.price) return -1
-//             if (a.price > b.price) return 1
-//             else return 0
-
-//     }
-// }

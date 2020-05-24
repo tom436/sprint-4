@@ -43,7 +43,6 @@ class ShopDetails extends React.Component {
 
     onHandleChange = (ev) => {
         const id = this.props.match.params.id
-        // this.setState({ sortBy: ev.target.value })
         console.log(ev.target.value);
 
         this.props.loadItems({ searchValue: id }, ev.target.value)
@@ -69,13 +68,6 @@ class ShopDetails extends React.Component {
                     <MapContainer />
                 </div> */}
 
-                <form>
-                    <select name="sort" onChange={this.onHandleChange}>
-                        <option value="" >Sort By</option>
-                        <option value="byHighPrice" >By Highest Price</option>
-                        <option value="byLowPrice" >By Lowest Price</option>
-                    </select>
-                </form>
 
                 <div className="shop-interact">
                     <button >Reviews</button>
@@ -84,9 +76,17 @@ class ShopDetails extends React.Component {
                 </div>
 
 
-                <ItemList items={this.props.items} />
 
             </section>
+            <input type="text" placeholder="Search item In Shop"/>
+                <form>
+                    <select name="sort" onChange={this.onHandleChange}>
+                        <option value="" >Sort By</option>
+                        <option value="highToLow" >By Highest Price</option>
+                        <option value="lowToHigh" >By Lowest Price</option>
+                    </select>
+                </form>
+                <ItemList items={this.props.items} />
 
         </section>
     }
