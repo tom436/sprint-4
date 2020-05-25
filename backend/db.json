@@ -1,6 +1,5 @@
 {
-    "items": [
-        {
+    "items": [{
             "_id": "v140",
             "title": "batata",
             "price": 19,
@@ -157,8 +156,7 @@
             ]
         }
     ],
-    "orders": [
-        {
+    "orders": [{
             "_id": "v1225",
             "cretatedAt": 9898989,
             "shopperId": "33221",
@@ -171,8 +169,7 @@
                 "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
                 "rate": 5
             },
-            "items": [
-                {
+            "items": [{
                     "_id": "v140",
                     "amount": 2
                 },
@@ -196,8 +193,7 @@
                 "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
                 "rate": 5
             },
-            "items": [
-                {
+            "items": [{
                     "_id": "v140",
                     "amount": 2
                 },
@@ -209,8 +205,7 @@
             "status": "pending"
         }
     ],
-    "shops": [
-        {
+    "shops": [{
             "_id": "v101",
             "name": "Hapirat Haadom",
             "owner": {
@@ -219,9 +214,19 @@
             "title": "ahla hanot",
             "about": "mamash ahla hanot organit",
             "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
-            "aboutImgs": [],
+            "aboutImg": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e7ee6cb0-29f7-4fad-a9a9-95645e0b6ce3/d2vr58h-05c4c2ce-45c5-4bcd-8f54-061c84badce1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZTdlZTZjYjAtMjlmNy00ZmFkLWE5YTktOTU2NDVlMGI2Y2UzXC9kMnZyNThoLTA1YzRjMmNlLTQ1YzUtNGJjZC04ZjU0LTA2MWM4NGJhZGNlMS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.x9pE9lleRT-OM1naFJ9rVcegu-Q1-a522AXi1JwhQss",
             "location": "Paris",
-            "reviews": [],
+            "reviews": [{
+                    "user": "u100",
+                    "txt": "the fruits are great!!!!",
+                    "stars": 5
+                },
+                {
+                    "user": "u101",
+                    "txt": "the veggies are great!!!!",
+                    "stars": 5
+                }
+            ],
             "tags": [
                 "meat",
                 "organic"
@@ -237,9 +242,17 @@
             "title": "hanut debilit",
             "about": "bla bla blah blah",
             "logo": "https://www.nationalgeographic.com/content/dam/environment/photos/future_of_food/organic_farming_rough/01_organic_farming_i8860_20181003_11260.adapt.1900.1.jpg",
-            "aboutImgs": [],
+            "aboutImg": "https://thumbs.dreamstime.com/b/new-zealand-farm-panorama-14089858.jpg",
             "location": "London",
-            "reviews": [],
+            "reviews": [{
+                "user": "u105",
+                "txt": "the veggies are great!!!!",
+                "stars": 5
+            }, {
+                "user": "u109",
+                "txt": "the veggies are great!!!!",
+                "stars": 5
+            }],
             "tags": [
                 "flowers"
             ],

@@ -3,8 +3,9 @@ import { loadItems } from '../store/actions/itemActions.js'
 
 import shopService from '../services/shopService'
 import itemService from '../services/itemService.js'
-import MapContainer from '../cmps/MapContainer'
+
 import { ItemList } from '../cmps/ItemList'
+import MoreDet from '../cmps/MoreDet'
 import { connect } from 'react-redux';
 
 class ShopDetails extends React.Component {
@@ -12,6 +13,7 @@ class ShopDetails extends React.Component {
     state = {
         shop: null,
         sortBy: null,
+        isMore: ""
     }
 
     componentDidMount() {
@@ -31,44 +33,53 @@ class ShopDetails extends React.Component {
 
     onHandleChange = (ev) => {
         const id = this.props.match.params.id
-        console.log(ev.target.value);
         this.props.loadItems({ searchValue: id }, ev.target.value)
     }
+
+    getMoreDet = () => {
+        this.setState.isMore = "none"
+        console.log('change state', this.setState.isMore);
+
+    }
+
 
     render() {
 
         const { shop } = this.state
+        const { isMore } = this.state
         if (!shop) return <div>Loading....</div>
 
         return <section>
-            <section className="Shope-info">
-                <img src="" />
+            <section className="Shope-info flex column ">
+            
+                <img className="farm-photo" src={shop.aboutImg} />
                 <img className="shop-logo" src={shop.logo} />
-                <h2>Store Name: {shop.name}</h2>
-                <h4>{shop.about}</h4>
-                {/* <div className="shop-map">
-                    <MapContainer />
-                </div> */}
+                <h2 className="center-item">Store Name: {shop.name}</h2>
+                <p className="shop-about center-item">{shop.about}</p>
 
 
-                <div className="shop-interact">
-                    <button >Reviews</button>
-                    <button >More</button>
-                    <button >Send a Message</button>
+                <div className="shop-interact center-item">
+                    <button className="shop-btn" onClick={this.getMoreDet}>More</button>
+                    <button className="shop-btn">Send a Message</button>
+                    <div className={this.state.isMore}>
+                    <MoreDet  shop={shop} isMore={isMore} />
+                    </div>
                 </div>
 
-
-
+                {/* {shop.isMore? "more-det-active":"more-det"} */}
             </section>
-            <input type="text" placeholder="Search item In Shop"/>
-                <form>
-                    <select name="sort" onChange={this.onHandleChange}>
-                        <option value="" >Sort By</option>
-                        <option value="highToLow" >By Highest Price</option>
-                        <option value="lowToHigh" >By Lowest Price</option>
-                    </select>
-                </form>
-                <ItemList items={this.props.items} />
+            <form action="" onSubmit={this.onSearchSub}>
+                <input type="text" placeholder="Search item In Shop" />
+                <button>Search</button>
+            </form>
+            <form>
+                <select name="sort" onChange={this.onHandleChange}>
+                    <option value="" >Sort By</option>
+                    <option value="highToLow" >By Highest Price</option>
+                    <option value="lowToHigh" >By Lowest Price</option>
+                </select>
+            </form>
+            <ItemList items={this.props.items} />
 
         </section>
     }

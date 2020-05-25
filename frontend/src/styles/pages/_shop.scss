@@ -1,17 +1,106 @@
-.Shope-info{
-    background-color:lightcyan;
+.Shope-info {
+    background-color: rgba(233, 228, 208, 0.493);
     border: 1px solid black;
+
 }
 
-.shop-logo{
-    height: 100px;
-    width: 100px;
+.shop-about{
+    color: #6e6e6e;
+}
+.shop-logo {
+    position: center;
+    align-self: center;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff;
+    background-color: white;
+    object-fit: cover;
+    border: 3px solid #B9C384;
 }
 
-.shop-map{
+.shop-map {
     height: 250px;
     width: 250px;
 }
-// .shop-interact{
 
-// }
+
+
+
+.shop-rev {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.rev-span {
+    text-decoration: underline;
+    align-self: center;
+    
+}
+
+.rev-txt{
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.farm-photo {
+    background: 50% 50% no-repeat;
+    width: 100%;
+    height: 200px;
+    max-height: 200px;
+    background-color: #f4f4f4;
+    display: inline-block;
+    object-fit: cover;
+    // border-bottom: 3px solid white;
+}
+
+.center-item {
+    align-self: center;
+}
+
+
+///////////SHOP BUTTONS AND ACCORDION///////////////////
+.shop-btn {
+    display: block;
+    padding: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #333333;
+    color: #ffffff;
+    text-align: left;
+    transition: background 0.2s;
+    
+}
+
+.shop-btn:hover {
+    color: black;
+}
+
+
+.more-det {
+    //  max-height: 0;
+    //  transition: max-height 0.2s;
+    padding:0 15px;
+    background: #eeeeee;
+    display: none;
+     overflow: hidden;
+}
+
+.more-det-active {
+    //  max-height: 0;
+    //  transition: max-height 0.2s;
+    padding:0 15px;
+    background: #eeeeee;
+    display: block;
+     overflow: hidden;
+}
+
+
+.text-active{
+    display: none;
+}
+
+.none{
+    display: none;
+}
