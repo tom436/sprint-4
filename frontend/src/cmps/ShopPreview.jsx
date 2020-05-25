@@ -1,13 +1,17 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import React from 'react';
-export function ShopPreview({ shop, imgUrl }) {//gets an image based on the search
+export function ShopPreview({ shop }) {
     return (!shop) ? <p>Loading</p> :
-        <div className="shop-preview">
-            <Link to={`/shop/${shop.id}`}>
-            <img src={imgUrl} />
-            <p>{shop.name}</p>
-            <p>{shop.rate}</p>
-            <p>{shop.title}</p>
-            </Link>
+        <div className="shop-preview flex">
+            <img src={shop.logo} />
+            <div>
+                <Link to={`/shop/${shop.id}`}>
+                    <div className="flex space-between">
+                        <h5>{shop.name}</h5>
+                        <span><i className="far fa-star"></i>{shop.rate}</span>
+                    </div>
+                </Link>
+                <p>{shop.title}</p>
+            </div>
         </div>
 }

@@ -7,6 +7,8 @@ const initialState = {
 export default function ItemReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_ITEMS':
+           console.log('setitems',action.items);
+            
             return {
                 ...state,
                 items: action.items

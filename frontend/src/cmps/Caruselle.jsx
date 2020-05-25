@@ -13,14 +13,10 @@ export default function Caruselle(props) {
 
 
     const settings = {
-        dots: true,
         infinite: true,
         slidesToShow: toShow,
         slidesToScroll: 1,
-        autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 10000,
-        pauseOnHover: true,
+        speed: 500,
 
     }
 
@@ -31,10 +27,9 @@ export default function Caruselle(props) {
             {<Slider {...settings}>
                 {items.map((item, idx) => {
 
-                    return <div key={idx} className="ggg">
+                    return <div key={idx} className="carusel-img">
                         <Link to={`item/${item._id}`}>
                         <img src={`${item.img}`} alt='cannot load' />
-                <p>${item.price}/{item.unit}</p>
                         </Link>
                     </div>
                 })}

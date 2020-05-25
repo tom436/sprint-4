@@ -7,7 +7,8 @@ export default {
     query,
     save,
     remove,
-    getById
+    getById,
+    queryCategories
 }
 
 function save(itemToSave) {
@@ -38,19 +39,16 @@ function query(filterBy = null, sortBy = null) {
         .then(res => res.data)
         .then(items => {
             if (filterBy.searchValue) items = _filterItems(items, filterBy);
-            console.log('b4 compare',items);
-           
-           if(sortBy) items=compare(items, sortBy)
-           console.log('after comp',items);
-           
+
+            if (sortBy) items = compare(items, sortBy)
+
             window.theItems = items;
             return items;
         })
 }
 
 function _filterItems(items, filterBy) {
-    console.log(filterBy);
-    console.log('in filter', items);
+
     return items.filter(item => {
         return item.title.includes(filterBy.searchValue) ||
             item.tags.includes(filterBy.searchValue) ||
@@ -77,27 +75,31 @@ function _getIdxById(itemId) {
 }
 
 function compare(items, sortBy) {
-    console.log('items in compare', items);
-    console.log('sort by ', sortBy);
 
     switch (sortBy) {
         case 'highToLow':
             return items.sort((a, b) => {
-                console.log('im high');
                 if (a.price > b.price) return -1
                 if (a.price < b.price) return 1
                 else return 0
             })
-            case 'lowToHigh':
-                return items.sort((a, b) => {
-                    console.log('im low');
-                    
-                    if (a.price < b.price) return -1
-                    if (a.price > b.price) return 1
-                    else return 0
-                })
-            }
+        case 'lowToHigh':
+            return items.sort((a, b) => {
+
+                if (a.price < b.price) return -1
+                if (a.price > b.price) return 1
+                else return 0
+            })
+    }
 
 
-        }
+}
 
+function queryCategories() {
+
+    return axios.get(`http://localhost:3000/categories`)
+        .then(res => res.data)
+        .then(items => {
+            return items;
+        })
+}

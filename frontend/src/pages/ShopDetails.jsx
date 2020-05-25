@@ -65,6 +65,13 @@ class ShopDetails extends React.Component {
                     <MoreDet  shop={shop} isMore={isMore} />
                     </div>
                 </div>
+                
+                {/* <div className="shop-map">
+                    <MapContainer />
+                </div> */}
+
+
+
 
                 {/* {shop.isMore? "more-det-active":"more-det"} */}
             </section>

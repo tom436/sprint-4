@@ -1,39 +1,57 @@
 import { Link } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
-import {ItemList} from '../cmps/ItemList.jsx'
-import {ShopPreview} from '../cmps/ShopPreview.jsx'
+import { ItemList } from '../cmps/ItemList.jsx'
+import { ShopPreview } from '../cmps/ShopPreview.jsx'
 import { loadItems } from '../store/actions/itemActions'
-import itemService from '../services/itemService.js'
-//add shop preview
 
 class ItemsPage extends React.Component {
 
     state = {
-        sort:null
-        
+        sort: null,
+        shop1: null,
+        shop2: null
     }
 
     componentDidMount() {
-        const filter ={searchValue : this.props.match.params.q} 
-        this.props.loadItems(filter,this.state.sort)
-        // this.props.loadShops(filter)
+        console.log(this.props.location.search);
+        
+        const query = new URLSearchParams(this.props.location.search)
+        
+        console.log(query.get('q'))
+        const searchValue=query.get('q')
+        console.log(searchValue);
+        
+        this.props.loadItems({searchValue:searchValue}, this.state.sort)
+        .then(items => {
+            if(items[0])this.setState({ shop1: items[0].shop})
+            if(items[1])this.setState({ shop2: items[1].shop }) 
+        })
+        .catch(console.log('no products found'))
+      
+        //  this.props.loadShops({searchValue:searchValue})
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.location.search !== prevProps.location.search) {
+            const filterM = this.props.match.params.q
+            this.props.loadItems(filterM, this.state.sort)
+        }
     }
 
-    onHandleChange=({target})=>{
-        const filter ={searchValue : this.props.match.params.q} 
-        this.setState({sort:target.value})
-        this.props.loadItems(filter,this.state.sort)
+    onHandleChange = ({ target }) => {
+        const filter = { searchValue: this.props.match.params.q }
+        this.setState({ sort: target.value })
+        this.props.loadItems(filter, this.state.sort)
+            .then(items => {
+                this.setState({ shop1: items[0].shop, shop2: items[1].shop })
+            })
     }
-
-    // onSetFilter = (filterBy) => {
-    //     this.setState({ filterBy }, () => this.loadItems())
-    // }
 
     render() {
-        return (!this.props.items) ? <p>Loading</p> : <section className="items-page">
+        return (!this.props.items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
             <form>
-                <label>Sort by Price: 
+                <label>Sort by Price:
                     <select name="sort" onChange={this.onHandleChange}>
                         <option value="" >sort by</option>
                         <option value="lowToHigh" >Low to High</option>
@@ -47,9 +65,16 @@ class ItemsPage extends React.Component {
                     <input name="minPrice" type="number"/>
                 </label> */}
             </form>
-            <ItemList items={this.props.items}/>
-            <ShopPreview shop={this.state.shop1}/>
-            <ShopPreview shop={this.state.shop2}/>
+            <ItemList items={this.props.items} />
+            <section className="shops-link">
+                <Link to={`/shops`}> 
+                Find similar products in these shops <i className="fas fa-angle-double-right"></i> 
+                </Link>
+            </section>
+            <section className="shops-of-item flex space-around">
+                {this.state.shop1&&<ShopPreview shop={this.state.shop1} />}
+                {this.state.shop2&&<ShopPreview shop={this.state.shop2} />}
+            </section>
         </section>
     }
 }

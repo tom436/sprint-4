@@ -1,22 +1,22 @@
 {
     "items": [{
             "_id": "v140",
-            "title": "batata",
+            "title": "Blueberries",
             "price": 19,
             "unit": "kg",
             "shop": {
                 "_id": "v101",
                 "name": "Hapirat Haadom",
                 "title": "ahla hanot",
-                "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
+                "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
                 "rate": 2
             },
-            "description": "big batata",
-            "img": "https://i.pinimg.com/originals/fc/dc/ec/fcdcec56ea379212eafd9d115596a6e5.jpg",
+            "description": "delicious blueberries",
+            "img": "https://cdn.pixabay.com/photo/2016/04/13/07/18/blueberry-1326154_960_720.jpg",
             "tags": [
                 "organic",
-                "veg",
-                "root"
+                "fruit",
+                "sweet"
             ]
         },
         {
@@ -28,11 +28,11 @@
                 "_id": "v102",
                 "name": "Hapirat Hadebil",
                 "title": "ahla hanot",
-                "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
+                "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
                 "rate": 5
             },
             "description": "chips",
-            "img": "https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+            "img": "https://cdn.pixabay.com/photo/2019/07/12/02/19/potatoes-4331742_960_720.jpg",
             "tags": [
                 "organic",
                 "veg",
@@ -48,11 +48,11 @@
                 "_id": "v102",
                 "name": "Hapirat Hadebil",
                 "title": "ahla hanot",
-                "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
+                "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
                 "rate": 5
             },
             "description": "strawberries",
-            "img": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+            "img": "https://cdn.pixabay.com/photo/2013/04/02/21/47/strawberries-99551_960_720.jpg",
             "tags": [
                 "organic",
                 "fruit"
@@ -60,27 +60,27 @@
         },
         {
             "_id": "v130",
-            "title": "cucumber",
+            "title": "banana",
             "price": 12,
             "unit": "100g",
             "shop": {
                 "_id": "v102",
                 "name": "Hapirat Hadebil",
                 "title": "ahla hanot",
-                "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
+                "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
                 "rate": 5
             },
-            "description": "cucumber",
-            "img": "https://images.unsplash.com/photo-1550461716-dbf266b2a8a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+            "description": "banana",
+            "img": "https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_960_720.jpg",
             "tags": [
                 "organic",
-                "veg",
+                "fruit",
                 "root"
             ]
         },
         {
             "_id": "v134",
-            "title": "pear",
+            "title": "corn",
             "price": 12,
             "unit": "100g",
             "shop": {
@@ -90,17 +90,17 @@
                 "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
                 "rate": 5
             },
-            "description": "pear",
-            "img": "https://images.unsplash.com/photo-1470119693884-47d3a1d1f180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+            "description": "corn",
+            "img": "https://cdn.pixabay.com/photo/2015/05/26/17/42/pop-corn-785074_960_720.jpg",
             "tags": [
                 "organic",
-                "veg",
+                "vegetables",
                 "root"
             ]
         },
         {
             "_id": "v136",
-            "title": "peach",
+            "title": "bread",
             "price": 44,
             "unit": "kg",
             "shop": {
@@ -110,7 +110,7 @@
                 "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
                 "rate": 2
             },
-            "description": "peach",
+            "description": "bread",
             "img": "https://images.unsplash.com/photo-1573333515743-56d57731dd1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
             "tags": [
                 "organic",
@@ -119,7 +119,7 @@
         },
         {
             "_id": "v138",
-            "title": "bananas",
+            "title": "pineapple",
             "price": 10,
             "unit": "kg",
             "shop": {
@@ -129,8 +129,8 @@
                 "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
                 "rate": 2
             },
-            "description": "bananas",
-            "img": "https://images.unsplash.com/photo-1492836092658-3ea71ccff9fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+            "description": "pineapple",
+            "img": "https://cdn.pixabay.com/photo/2017/04/11/07/11/pineapple-2220704_960_720.jpg",
             "tags": [
                 "organic",
                 "fruit"
@@ -138,7 +138,7 @@
         },
         {
             "_id": "v139",
-            "title": "kiwi",
+            "title": "avocado",
             "price": 11,
             "unit": "kg",
             "shop": {
@@ -148,11 +148,12 @@
                 "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
                 "rate": 2
             },
-            "description": "kiwi",
-            "img": "https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+            "description": "avocado",
+            "img": "https://cdn.pixabay.com/photo/2015/09/18/11/37/hass-avocado-945418_960_720.jpg",
             "tags": [
                 "organic",
-                "fruit"
+                "fruit",
+                "flowers"
             ]
         }
     ],
@@ -258,5 +259,28 @@
             ],
             "rate": 5
         }
+    ],
+    "categories":[
+        {
+            "name":"veg",
+            "img":"https://image.flaticon.com/icons/svg/2916/2916169.svg"
+        },
+        {
+            "name":"meat",
+            "img":"https://image.flaticon.com/icons/svg/2916/2916184.svg"
+        }, 
+        {
+            "name":"dairy ",
+            "img":"https://image.flaticon.com/icons/svg/604/604813.svg"
+        },
+        {
+            "name":"organic",
+            "img":"https://image.flaticon.com/icons/svg/497/497393.svg"
+        },
+        {
+            "name":"flowers",
+            "img":"https://image.flaticon.com/icons/svg/2972/2972053.svg"
+        }
+
     ]
 }
