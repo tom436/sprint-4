@@ -6,6 +6,8 @@ import ItemsPage from './pages/ItemsPage'
 import ItemDetails from './pages/ItemDetails'
 import Cart from './pages/Cart'
 import Header from './cmps/Header'
+import {CategoryBar} from './cmps/CategoryBar'
+
 import { Route, Switch, Link } from 'react-router-dom';
 // import { createBrowserHistory } from 'history';
 // const history = createBrowserHistory();
@@ -17,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <CategoryBar/>
       <section className="main-container">
       <Switch>
         <Route component={ItemsPage} path="/items" />

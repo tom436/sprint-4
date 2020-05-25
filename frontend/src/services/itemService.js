@@ -8,7 +8,8 @@ export default {
     save,
     remove,
     getById,
-    queryCategories
+    queryCategories,
+    queryDemoData
 }
 
 function save(itemToSave) {
@@ -98,6 +99,14 @@ function compare(items, sortBy) {
 function queryCategories() {
 
     return axios.get(`http://localhost:3000/categories`)
+        .then(res => res.data)
+        .then(items => {
+            return items;
+        })
+}
+function queryDemoData() {
+
+    return axios.get(`http://localhost:3000/demoData`)
         .then(res => res.data)
         .then(items => {
             return items;
