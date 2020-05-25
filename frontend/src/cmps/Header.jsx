@@ -24,9 +24,9 @@ class Header extends React.Component {
 
     getWindowHeight = () => {
         const distanceY = window.pageYOffset
-        const shrinkOn = 250;
-
-        if (distanceY >= shrinkOn) {
+        const shrinkOn = 0;
+        
+        if (distanceY >shrinkOn) {
             this.setState({
                 class: "smaller"
             })
@@ -62,6 +62,7 @@ class Header extends React.Component {
         return (
             <section className={`main-header ${this.state.class} flex align-center space-between`}>
                 <h1>Farm To You</h1>
+                
                 <form action="" onSubmit={this.handleSubmit}>
                     <input name="searchValue" type="text" placeholder="Search products or farms" onChange={this.handleChange} value={this.state.filter.searchValue} />
                     <button>GO</button>
@@ -69,8 +70,9 @@ class Header extends React.Component {
                 <ul className="main-nav flex">
                     <li><NavLink to="/" exact >Home</NavLink></li>
                     <li><NavLink to="/items" exact>items</NavLink></li>
-                    <li><NavLink to="/cart" exact>Cart</NavLink></li>
                     <li><NavLink to="/signup" exact>Login</NavLink></li>
+                    <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
+
                 </ul>
             </section>
         );

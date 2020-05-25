@@ -1,5 +1,4 @@
 .items-carusel {
-
     margin-bottom: 50px;
     width: 80vw;
     img {
@@ -9,20 +8,16 @@
         width: 200px;
         border-radius: 20rem;
         object-fit: cover;
-
-
     }
-    
 }
 .news {
     width: 60vw;
     div {
-        height: 300px;
+        height: 500px;
     }
     img {
         width: 100%;
         display: block;
-        
     }
 }
 .slick-prev:before,
@@ -37,17 +32,56 @@
 .hero-text {
     position: relative;
     text-align: center;
-    top:30%;
+    top: 30%;
     color: white;
     font-size: 2rem;
 }
-.categories-container{
-    width: 80vw;
+.categories-container {
+    transition: 0.4s;
+
+    padding: 0 20px;
+    margin-top: 3px;
+    width: 100%;
+    height: fit-content;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background-color: #666;
+    margin: 0 auto;
 }
-.categorie-img{
-   padding: 17px;
-    width: 6em;
-    img{
+.categorie-img {
+    width: 3em;
+    img {
         width: 100%;
     }
+}
+
+.featured {
+    width: 80%;
+    .feature-img {
+        width: 10rem;
+    }
+}
+
+.promo-container {
+    width: 90vw;
+    margin: 0 auto;
+}
+.promo {
+    position: relative;
+    width: 50%;
+    img {
+        height: 100%;
+
+        object-fit: cover;
+        overflow: hidden;
+    }
+    .promo-description {
+        color: white;
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        font-size: 1em;
+    }
+    border: 3px solid white;
 }

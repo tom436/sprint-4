@@ -56,7 +56,6 @@ function getTotal(){
     var totalPrice=0;
     gCart.forEach(purchase => {
         purchase.items.forEach(item=>{
-            console.log(item.totalPrice);
             totalPrice+=item.totalPrice
         })
     });

@@ -9,7 +9,6 @@ class Cart extends React.Component {
     componentDidMount() {
         this.props.loadCart()
         this.props.getTotalPrice()
-
     }
     componentDidUpdate(){
         this.props.getTotalPrice()
