@@ -50,7 +50,7 @@ class ShopDetails extends React.Component {
         if (!shop) return <div>Loading....</div>
 
         return <section>
-            <section className="Shope-info flex column ">
+            <section className="shope-info flex column ">
             
                 <img className="farm-photo" src={shop.aboutImg} />
                 <img className="shop-logo" src={shop.logo} />
