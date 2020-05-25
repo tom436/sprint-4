@@ -282,5 +282,23 @@
             "img":"https://image.flaticon.com/icons/svg/2972/2972053.svg"
         }
 
+    ],
+    "demoData":[
+        {
+            "name":"tomato",
+            "img":"https://image.flaticon.com/icons/svg/2909/2909922.svg"
+        },
+        {
+            "name":"fish",
+            "img":"https://image.flaticon.com/icons/svg/2885/2885062.svg"
+        },
+        {
+            "name":"bread",
+            "img":"https://image.flaticon.com/icons/svg/2915/2915863.svg"
+        },
+        {
+            "name":"cheese",
+            "img":"https://image.flaticon.com/icons/svg/575/575410.svg"
+        }
     ]
 }
