@@ -29,7 +29,7 @@ export default function MoreDet(props) {
                     {shop.reviews.map(rev => RevPrev(rev))}
                 </div>
 
-            </div>           }
+            </div>   
 
 
             {/* <div className="shop-map">
