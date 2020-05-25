@@ -5,10 +5,15 @@ const API_KEY = "AIzaSyDN84FuA5oEJP6gRqB5PthEdE9pAOuE_Cg"
 
 
 
+const containerStyle = {
+  position: 'relative',  
+  width: '100%',
+  height: '100%'
+}
 class MapContainer extends Component {
   render() {
     return (
-      <Map style={{width: 200, height: 200}} google={this.props.google} zoom={14}>
+      <Map containerStyle={containerStyle} google={this.props.google} zoom={14}>
 
         <Marker onClick={this.onMarkerClick}
           name={'Current location'} />

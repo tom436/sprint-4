@@ -62,6 +62,7 @@ class Header extends React.Component {
         return (
             <section className={`main-header ${this.state.class} flex align-center space-between`}>
                 <h1>Farm To You</h1>
+                
                 <form action="" onSubmit={this.handleSubmit}>
                     <input name="searchValue" type="text" placeholder="Search products or farms" onChange={this.handleChange} value={this.state.filter.searchValue} />
                     <button>GO</button>
