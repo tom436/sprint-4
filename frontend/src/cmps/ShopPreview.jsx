@@ -5,7 +5,7 @@ export function ShopPreview({ shop }) {
         <div className="shop-preview flex">
             <img src={shop.logo} />
             <div>
-                <Link to={`/shop/${shop.id}`}>
+                <Link to={`/shop/${shop._id}`}>
                     <div className="flex space-between">
                         <h5>{shop.name}</h5>
                         <span><i className="far fa-star"></i>{shop.rate}</span>

@@ -6,12 +6,10 @@ import ItemsPage from './pages/ItemsPage'
 import ItemDetails from './pages/ItemDetails'
 import Cart from './pages/Cart'
 import Header from './cmps/Header'
+import {Footer} from './cmps/Footer'
 import { Route, Switch, Link } from 'react-router-dom';
 // import { createBrowserHistory } from 'history';
 // const history = createBrowserHistory();
-
-
-
 
 function App() {
   return (
@@ -26,8 +24,8 @@ function App() {
           <Route component={Login} path="/signup" /> */}
         <Route component={Cart} path="/cart" />
         <Route component={Home} path="/" />
-
       </Switch>
+      <Footer/>
           </section>
     </div>
   );
