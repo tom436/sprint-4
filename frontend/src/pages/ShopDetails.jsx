@@ -13,7 +13,7 @@ class ShopDetails extends React.Component {
     state = {
         shop: null,
         sortBy: null,
-        isMore: true
+        isMore: false
     }
 
     componentDidMount() {
@@ -34,8 +34,6 @@ class ShopDetails extends React.Component {
     }
 
     addReview = (reviewToAdd) => {
-        // const id = this.props.match.params.id
-        // console.log(this.state.shop.reviews);
         console.log(reviewToAdd);
 
         const shop = this.state.shop
@@ -47,7 +45,6 @@ class ShopDetails extends React.Component {
         shopService.save(shop)
             .then(res => this.loadShop())
 
-        // // shopService.addReview(shop, reviewToAdd)
 
     }
 
@@ -93,10 +90,10 @@ class ShopDetails extends React.Component {
 
                 {/* {shop.isMore? "more-det-active":"more-det"} */}
             </section>
-            <form action="" onSubmit={this.onSearchSub}>
+            {/* <form action="" onSubmit={this.onSearchSub}>
                 <input type="text" placeholder="Search item In Shop" />
                 <button>Search</button>
-            </form>
+            </form> */}
             <form>
                 <select name="sort" onChange={this.onHandleChange}>
                     <option value="" >Sort By</option>
