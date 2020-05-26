@@ -17,7 +17,15 @@ async function getShops(req, res) {
 
     }
 }
-
+async function getShop(req, res) {
+    console.log(req.params);
+    
+    const shop = await shopService.getById(req.params.id)
+    console.log(shop);
+    
+    res.send(shop)
+}
+  
 async function deleteShop(req, res) {
     try {
         await shopService.remove(req.params.id)
@@ -41,5 +49,6 @@ async function addShop(req, res) {
 module.exports = {
     getShops,
     deleteShop,
-    addShop
+    addShop,
+    getShop
 }

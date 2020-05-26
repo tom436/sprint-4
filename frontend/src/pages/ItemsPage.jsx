@@ -15,25 +15,27 @@ class ItemsPage extends React.Component {
     }
 
     componentDidMount() {
-        
         const query = new URLSearchParams(this.props.location.search)
-        
-        const searchValue=query.get('q')
-        
-        this.props.loadItems({searchValue:searchValue}, this.state.sort)
+        const searchValue=query.get('q')        
+        this.props.loadItems(searchValue, this.state.sort)
         .then(items => {
             if(items[0])this.setState({ shop1: this.props.loadShop(items[0].shopId)})
             if(items[1])this.setState({ shop2: this.props.loadShop(items[1].shopId) }) 
         })
         .catch(console.log('no products found'))
-      
-        //  this.props.loadShops({searchValue:searchValue})
-    }
+          }
     
     componentDidUpdate(prevProps, prevState) {
+        
         if (this.props.location.search !== prevProps.location.search) {
-            const filterM = this.props.match.params.q
-            this.props.loadItems(filterM, this.state.sort)
+            const query = new URLSearchParams(this.props.location.search)
+            const searchValue=query.get('q')        
+            this.props.loadItems(searchValue, this.state.sort)
+            .then(items => {
+                if(items[0])this.setState({ shop1: items[0].shop})
+                if(items[1])this.setState({ shop2: items[1].shop }) 
+            })
+            .catch(console.log('no products found'))
         }
     }
 
