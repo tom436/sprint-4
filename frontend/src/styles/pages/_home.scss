@@ -36,25 +36,6 @@
     color: white;
     font-size: 2rem;
 }
-.categories-container {
-    transition: 0.4s;
-
-    padding: 0 20px;
-    margin-top: 3px;
-    width: 100%;
-    height: fit-content;
-    position: sticky;
-    z-index: 1;
-    top: 0;
-    background-color: #666;
-    margin: 0 auto;
-}
-.categorie-img {
-    width: 3em;
-    img {
-        width: 100%;
-    }
-}
 
 .featured {
     width: 80%;

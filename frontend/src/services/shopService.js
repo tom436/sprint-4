@@ -38,8 +38,8 @@ function getById(shopId) {
 
             return res
         })
-
 }
+
 function compare(shops, sortBy) {
     switch (sortBy) {
         case 'A-Z':
