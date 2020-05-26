@@ -1,18 +1,13 @@
 import axios from 'axios'
 // import shopItems from '../services/itemService'
 import HttpService from './HttpService';
-const baseUrl = 'http://localhost:3000/shops';
+const baseUrl = 'http://localhost:3000/items';
 
 export default {
     getById,
     query,
     addReview,
     save
-}
- 
-function getById(shopId) {
-    return axios.get(`${baseUrl}/${shopId}`)
-        .then(res =>res.data )    
 }
 
 // function getById(shopId) {
@@ -35,10 +30,21 @@ function query(filterBy = null, sortBy = null) {
 function _filter(shops, filterBy) {
     return shops.filter(shop => {
         return shop.name.includes(filterBy.searchValue) ||
-            shop._id.includes(filterBy.searchValue) 
+            shop._id.includes(filterBy.searchValue)
     })
 }
 
+function getById(shopId) {
+    console.log(`shops/${shopId}`);
+
+    return HttpService.get(`shops/${shopId}`)
+        .then(res => {
+            console.log(res)
+
+            return res
+        })
+
+}
 function compare(shops, sortBy) {
     switch (sortBy) {
         case 'A-Z':
