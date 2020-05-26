@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <CategoryBar />
+      {/* <CategoryBar/> */}
       <section className="main-container">
         <Switch>
           <Route component={ItemsPage} path="/items" />

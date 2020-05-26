@@ -1,17 +1,24 @@
 import axios from 'axios'
 // import shopItems from '../services/itemService'
-
+import HttpService from './HttpService';
 const baseUrl = 'http://localhost:3000/shops';
 
 export default {
     getById,
-    query
+    query,
+    addReview,
+    save
 }
  
 function getById(shopId) {
     return axios.get(`${baseUrl}/${shopId}`)
-        .then(res =>res.data )
+        .then(res =>res.data )    
 }
+
+// function getById(shopId) {
+//     return HttpService.get(`shops?_id=${shopId}`)
+//         .then(res => res)
+// }
 
 function query(filterBy = null, sortBy = null) {
     if (!filterBy) filterBy = {};
@@ -25,14 +32,13 @@ function query(filterBy = null, sortBy = null) {
         })
 }
 
-
 function _filter(shops, filterBy) {
     return shops.filter(shop => {
         return shop.name.includes(filterBy.searchValue) ||
             shop._id.includes(filterBy.searchValue) 
     })
 }
-///////////////////////////////
+
 function compare(shops, sortBy) {
     switch (sortBy) {
         case 'A-Z':
@@ -46,6 +52,29 @@ function compare(shops, sortBy) {
                 if (shopA.name < shopB.name) return -1
                 if (shopA.name > shopB.name) return 1
                 else return 0
+            })
+    }
+}
+
+function addReview(shop, review) {
+    shop.reviews.push(review)
+    // _save(shop)
+}
+
+function save(shop) {
+    if (shop._id) {
+        // UPDATE
+        return axios.put(`${baseUrl}/${shop._id}`, shop)
+            .then(res => res.data)
+            .then(savedItem => {
+                return savedItem
+            })
+    } else {
+        // CREATE
+        return axios.post(baseUrl, shop)
+            .then(res => res.data)
+            .then(savedItem => {
+                return savedItem
             })
     }
 }

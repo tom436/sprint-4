@@ -29,8 +29,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const itemsRoutes = require('./api/items/item.routes')
+const shopsRoutes = require('./api/shops/shop.routes')
+
 //routs
 app.use('/api/items', itemsRoutes)
+app.use('/api/shops', shopsRoutes)
 
 
 

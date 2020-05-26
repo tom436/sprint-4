@@ -10,21 +10,26 @@ module.exports = {
 
 async function query(filterBy = {}) {
     console.log(filterBy);
-    
+
     const criteria = {};
     if (filterBy.title) {
-        criteria.title = filterBy.title
+        let regex = new RegExp(filterBy.title,'i');
+        criteria.title = regex
     }
     if (filterBy.shopId) {
-        criteria.shop._id = filterBy.shopId
+        criteria['shop._id'] = filterBy.shopId
     }
-    if(filterBy.tag){
-        criteria.tags = filterBy.tag
+     if (filterBy.shopName) {
+        criteria['shop.name'] = filterBy.shopName
+    }
+    if (filterBy.tag) {
+        let regex = new RegExp(filterBy.tag,'i');
+        criteria.tags = regex
     }
 
     console.log(criteria);
-    
-    
+
+
     const collection = await dbService.getCollection('items')
     try {
         const customers = await collection.find(criteria).toArray();
@@ -38,7 +43,7 @@ async function query(filterBy = {}) {
 async function remove(itemsId) {
     const collection = await dbService.getCollection('items')
     try {
-        await collection.deleteOne({"_id":ObjectId(itemId)})
+        await collection.deleteOne({ "_id": ObjectId(itemId) })
     } catch (err) {
         console.log(`ERROR: cannot remove item ${itemId}`)
         throw err;
