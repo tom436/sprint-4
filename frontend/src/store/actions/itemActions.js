@@ -11,11 +11,14 @@ export function loadItems(filterBy, sortBy=null) {
       })
   }
 }
-export function loadItem(id) {
+export function loadItem(id,isOne) {
+  
   return dispatch => {
-   return itemService.getById(id)
+   return itemService.query(id,null,isOne)
       .then(item => {
-        dispatch({ type: 'SET_ITEM', item })
+        dispatch({ type: 'SET_ITEM', item:item[0] })
+        console.log(item);
+        
         return item
       })
   }

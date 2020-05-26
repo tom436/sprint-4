@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { ShopPreview } from '../cmps/ShopPreview.jsx'
 import { connect } from 'react-redux';
-import { loadItem } from '../store/actions/itemActions'
+import { loadItem} from '../store/actions/itemActions'
 import { loadShop } from '../store/actions/shopActions'
 import { addToCart } from '../store/actions/userActions'
 
@@ -14,7 +14,7 @@ class ItemDetails extends React.Component {
 
     componentDidMount() {
         const { id } = this.props.match.params
-        this.props.loadItem(id)
+        this.props.loadItem(id,true)
         .then(item=>this.props.loadShop(item.shopId))
     }
 

@@ -32,9 +32,7 @@ class Home extends React.Component {
         })
         this.props.loadShops()//set amount 
         .then( shops=>this.setState({shops:shops}))
-        // itemService.queryDemoData().then((demoData) => {
-        //     this.setState({ demoData })
-        // })
+
     }
 
     render() {
@@ -70,7 +68,7 @@ class Home extends React.Component {
                         <div className={'news'}>
                             {<Slider {...settings}>
                                 {shops.map(shop => {
-                                   return <div key={shop._id} > {shop.name} {shop.title}</div>
+                                   return <div key={shop._id} > <img src={shop.img} alt=""/>{shop.name} {shop.title}</div>
                                 })}
                             </Slider>}
                         </div>

@@ -49,3 +49,28 @@ async function getById(shopId) {
         throw err;
     }
 }
+
+
+async function add(shop) {
+    const collection = await dbService.getCollection('shop')
+    try {
+        await collection.insertOne(shop);
+        return shop;
+    } catch (err) {
+        console.log(`ERROR: cannot insert shop`)
+        throw err;
+    }
+}
+
+async function update(shop) {
+    const collection = await dbService.getCollection('shop')
+    shop._id = ObjectId(shop._id);
+
+    try {
+        await collection.replaceOne({"_id":shop._id}, {$set : shop})
+        return shop
+    } catch (err) {
+        console.log(`ERROR: cannot update shop ${shop._id}`)
+        throw err;
+    }
+}
