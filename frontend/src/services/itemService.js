@@ -86,9 +86,20 @@ function compare(items, sortBy) {
             })
         case 'lowToHigh':
             return items.sort((a, b) => {
-
                 if (a.price < b.price) return -1
                 if (a.price > b.price) return 1
+                else return 0
+            })
+        case 'A-Z':
+            return items.sort((a, b) => {
+                if (a.name > b.name) return -1
+                if (a.name < b.name) return 1
+                else return 0
+            })
+        case 'Z-A':
+            return items.sort((a, b) => {
+                if (a.name < b.name) return -1
+                if (a.name > b.name) return 1
                 else return 0
             })
     }

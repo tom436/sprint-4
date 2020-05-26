@@ -1,0 +1,10 @@
+.edit-items{
+    table{
+        tr{
+            height: 100px;
+            &:first-child{
+                width: 100px;
+            }
+        }
+    }
+}
