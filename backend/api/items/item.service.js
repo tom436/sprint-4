@@ -11,15 +11,15 @@ module.exports = {
 
 async function query(filterBy = {}) {
 
-    console.log();
+    console.log(filterBy);
     let criteria
     if (filterBy.searchValue) {
          criteria = { $or: [] };
         let regex = new RegExp(filterBy.searchValue, 'i');
         criteria.$or.push({ title: regex })
         criteria.$or.push({ tags: regex })
-        criteria.$or.push({ ['shop._id']: filterBy.searchValue })
-        criteria.$or.push({ ['shop.name']: regex })
+        criteria.$or.push({ shopId: filterBy.searchValue })
+        // criteria.$or.push({ ['shop.name']: regex })
     }
     else { criteria = {}}
     console.log(criteria);
