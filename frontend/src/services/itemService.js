@@ -105,6 +105,7 @@ function queryCategories() {
             return items;
         })
 }
+
 function queryDemoData() {
 
     return axios.get(`http://localhost:3000/demoData`)

@@ -1,5 +1,7 @@
 import HttpService from './HttpService';
+import axios from 'axios'
 
+ const baseUrl = 'http://localhost:3030/api/shops';
 
 
 
