@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function CartItemsList({ items,remove }) {
-    console.log(items);
     
     return (!items) ? <p>Loading</p> :
        <React.Fragment>

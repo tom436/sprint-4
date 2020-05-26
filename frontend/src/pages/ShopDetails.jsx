@@ -13,7 +13,7 @@ class ShopDetails extends React.Component {
     state = {
         shop: null,
         sortBy: null,
-        isMore: false
+        isMore: true
     }
 
     componentDidMount() {
