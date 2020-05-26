@@ -236,6 +236,7 @@
       "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2017/05/13/17/18/spinach-2310134_960_720.jpg",
       "location": "Galil",
+      "orders":[],
       "reviews": [
         {
           "user": "Avi",
@@ -278,6 +279,7 @@
       "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/09/04/20/34/plantation-4452538_960_720.jpg",
       "location": "Jerusalem",
+      "orders":[],
       "reviews": [
         {
           "user": "u105",
@@ -314,6 +316,7 @@
       "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/02/13/03/49/palm-trees-3993615_960_720.jpg",
       "location": "jerusalem",
+      "orders":[],
       "reviews": [
         {
           "user": "u105",
@@ -349,6 +352,7 @@
       "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2013/09/25/17/11/pecan-tree-186328_960_720.jpg",
       "location": "Beit Yzhak",
+      "orders":[],
       "reviews": [
         {
           "user": "u105",
@@ -385,6 +389,7 @@
       "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/10/21/14/54/oranges-4566275_960_720.jpg",
       "location": "Telmey Elazar",
+      "orders":[],
       "reviews": [
         {
           "user": "u106",
