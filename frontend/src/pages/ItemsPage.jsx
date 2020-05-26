@@ -31,8 +31,14 @@ class ItemsPage extends React.Component {
         this.setState({ sort : target.value },this.loadItems)
     }
 
+    getShopsToShow=()=>{
+        
+    }
+
     render() {
-        return (!this.props.items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
+        const {items} =this.props
+        
+        return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
             <form>
                 <label>Sort by Price:
                     <select name="sort" onChange={this.onHandleChange}>
@@ -54,7 +60,7 @@ class ItemsPage extends React.Component {
                     Find similar products in these shops <i className="fas fa-angle-double-right"></i>
                 </Link>
             </section>
-            {/* <ShopList shops={[items[0].shop, item[1].shop]}/> */}
+            <ShopList shops={[items[0].shop, items[1].shop]}/>
             
         </section>
     }
