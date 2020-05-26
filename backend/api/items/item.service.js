@@ -12,13 +12,10 @@ module.exports = {
 
 
 async function query(filterBy = {}) {
-    console.log(filterBy);
     
     const criteria = _buildCriteria(filterBy)
-    console.log('critiria is:' ,criteria);
     
     const collection = await dbService.getCollection('items')
-    // console.log(collection);
 
     try {
         var items = await collection.aggregate([
@@ -99,52 +96,6 @@ async function getById(itemId) {
 }
 
 
-// async function getById(itemId) {
-//     const criteria = {_id:itemId}
-//     console.log('critiria is:' ,criteria);
-    
-//     const collection = await dbService.getCollection('items')
-//      console.log(itemId);
-
-//     try {
-//         var items = await collection.aggregate([
-//             {
-//                 $match: criteria
-//             },
-//             {
-//                 $lookup:
-//                 {
-//                     from: 'shops',
-//                     localField: 'shopId',
-//                     foreignField: '_id',
-//                     as: 'shop'
-//                 }
-//             }, 
-//             {
-//                 $unwind: '$shop'
-//             }
- 
-//         ]).toArray()
-//         console.log(items);
-        
-//         items = items.map(item => {
-//             delete item.shopId;
-//             delete item.shop.about;
-//             delete item.shop.aboutImg;
-//             delete item.shop.location;
-//             delete item.shop.reviews;
-//             delete item.shop.tags;
-//             delete item.shop.owner;
-//             delete item.shop.orders;
-
-//             return item;
-//         })
-//         return items
-//     } catch (err) {
-//         console.log('ERROR: cannot find items')
-//         throw err;
-//     }
-// }
 
 
 

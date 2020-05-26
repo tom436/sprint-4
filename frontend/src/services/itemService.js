@@ -39,7 +39,6 @@ function query(filterBy = null, sortBy = null,isSingle) {
     
     if (!filterBy) filterBy = '';
     if(isSingle){   
-        console.log(filterBy);
              
         return HttpService.get(`items?itemId=${filterBy}`)
         .then(items => {
@@ -49,7 +48,6 @@ function query(filterBy = null, sortBy = null,isSingle) {
             return items;
         })
     }
-    console.log(filterBy);
 
     return HttpService.get(`items?searchValue=${filterBy}`)
         .then(items => {            
