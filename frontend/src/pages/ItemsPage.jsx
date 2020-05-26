@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ItemList } from '../cmps/ItemList.jsx'
 import { ShopPreview } from '../cmps/ShopPreview.jsx'
 import { loadItems } from '../store/actions/itemActions'
+import { loadShop } from '../store/actions/shopActions'
 
 class ItemsPage extends React.Component {
 
@@ -21,8 +22,8 @@ class ItemsPage extends React.Component {
         
         this.props.loadItems({searchValue:searchValue}, this.state.sort)
         .then(items => {
-            if(items[0])this.setState({ shop1: items[0].shop})
-            if(items[1])this.setState({ shop2: items[1].shop }) 
+            if(items[0])this.setState({ shop1: this.props.loadShop(items[0].shopId)})
+            if(items[1])this.setState({ shop2: this.props.loadShop(items[1].shopId) }) 
         })
         .catch(console.log('no products found'))
       
@@ -41,7 +42,7 @@ class ItemsPage extends React.Component {
         this.setState({ sort: target.value })
         this.props.loadItems(filter, this.state.sort)
             .then(items => {
-                this.setState({ shop1: items[0].shop, shop2: items[1].shop })
+                this.setState({ shop1: this.props.loadShop(items[0].shopId), shop2: this.props.loadShop(items[1].shopId )})
             })
     }
 
@@ -84,7 +85,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    loadItems
+    loadItems,
+    loadShop
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemsPage);

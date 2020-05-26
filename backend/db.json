@@ -1,17 +1,68 @@
 {
   "items": [
     {
-      "_id": "v140",
+      "_id": "i100",
+      "title": "Romaine Lettuce",
+      "price": 10,
+      "unit": "kg",
+      "shopId": "v101",
+      "description": "Large green Romaine Lettuce",
+      "img": "https://cdn.pixabay.com/photo/2016/10/02/20/02/salad-1710328__340.jpg",
+      "tags": [
+        "organic",
+        "greens",
+        "vegetables"
+      ]
+    },
+    {
+      "_id": "i101",
+      "title": "Iceberg Lettuce",
+      "price": 17,
+      "unit": "kg",
+      "shopId": "v101",
+      "description": "",
+      "img": "https://cdn.pixabay.com/photo/2018/06/29/07/26/salad-3505392__340.jpg",
+      "tags": [
+        "organic",
+        "greens",
+        "vegetables"
+      ]
+    },
+    {
+      "_id": "i102",
+      "title": "Kale",
+      "price": 19,
+      "unit": "kg",
+      "shopId": "v101", 
+      "description": "delicious blueberries",
+      "img": "https://cdn.pixabay.com/photo/2016/04/13/07/18/blueberry-1326154_960_720.jpg",
+      "tags": [
+        "organic",
+        "greens",
+        "vegetables"
+      ]
+    },
+    {
+      "_id": "i103",
+      "title": "Spinach",
+      "price": 20,
+      "unit": "kg",
+      "shopId": "v101",
+      "description": "delicious blueberries",
+      "img": "https://cdn.pixabay.com/photo/2017/04/09/21/35/spinach-2216967__340.jpg",
+      "tags": [
+        "organic",
+        "greens",
+        "vegetables",
+        "leaves"
+      ]
+    },
+    {
+      "_id": "i104",
       "title": "Blueberries",
       "price": 19,
       "unit": "kg",
-      "shop": {
-        "_id": "v101",
-        "name": "Hapirat Haadom",
-        "title": "ahla hanot",
-        "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
-        "rate": 2
-      },
+      "shopId":  "v101",
       "description": "delicious blueberries",
       "img": "https://cdn.pixabay.com/photo/2016/04/13/07/18/blueberry-1326154_960_720.jpg",
       "tags": [
@@ -21,17 +72,11 @@
       ]
     },
     {
-      "_id": "v105",
+      "_id": "i105",
       "title": "potato",
       "price": 10,
       "unit": "kg",
-      "shop": {
-        "_id": "v102",
-        "name": "Hapirat Hadebil",
-        "title": "ahla hanot",
-        "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
-        "rate": 5
-      },
+      "shopId": "v102", 
       "description": "chips",
       "img": "https://cdn.pixabay.com/photo/2019/07/12/02/19/potatoes-4331742_960_720.jpg",
       "tags": [
@@ -41,17 +86,11 @@
       ]
     },
     {
-      "_id": "v101",
+      "_id": "i106",
       "title": "strawberries",
       "price": 20,
       "unit": "100g",
-      "shop": {
-        "_id": "v102",
-        "name": "Hapirat Hadebil",
-        "title": "ahla hanot",
-        "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
-        "rate": 5
-      },
+      "shopId": "v102",
       "description": "strawberries",
       "img": "https://cdn.pixabay.com/photo/2013/04/02/21/47/strawberries-99551_960_720.jpg",
       "tags": [
@@ -64,13 +103,7 @@
       "title": "banana",
       "price": 12,
       "unit": "100g",
-      "shop": {
-        "_id": "v102",
-        "name": "Hapirat Hadebil",
-        "title": "ahla hanot",
-        "logo": "https://cdn.pixabay.com/photo/2016/01/08/05/24/sunflower-1127174_960_720.jpg",
-        "rate": 5
-      },
+      "shopId":"v102",
       "description": "banana",
       "img": "https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_960_720.jpg",
       "tags": [
@@ -84,13 +117,7 @@
       "title": "corn",
       "price": 12,
       "unit": "100g",
-      "shop": {
-        "_id": "v102",
-        "name": "Hapirat Hadebil",
-        "title": "ahla hanot",
-        "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
-        "rate": 5
-      },
+      "shopId": "v102",
       "description": "corn",
       "img": "https://cdn.pixabay.com/photo/2015/05/26/17/42/pop-corn-785074_960_720.jpg",
       "tags": [
@@ -104,13 +131,7 @@
       "title": "bread",
       "price": 44,
       "unit": "kg",
-      "shop": {
-        "_id": "v101",
-        "name": "Hapirat Haadom",
-        "title": "ahla hanot",
-        "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
-        "rate": 2
-      },
+      "shopId": "v101",
       "description": "bread",
       "img": "https://images.unsplash.com/photo-1573333515743-56d57731dd1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
       "tags": [
@@ -123,13 +144,7 @@
       "title": "pineapple",
       "price": 10,
       "unit": "kg",
-      "shop": {
-        "_id": "v101",
-        "name": "Hapirat Haadom",
-        "title": "ahla hanot",
-        "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
-        "rate": 2
-      },
+      "shopId": "v101",
       "description": "pineapple",
       "img": "https://cdn.pixabay.com/photo/2017/04/11/07/11/pineapple-2220704_960_720.jpg",
       "tags": [
@@ -142,13 +157,7 @@
       "title": "avocado",
       "price": 11,
       "unit": "kg",
-      "shop": {
-        "_id": "v101",
-        "name": "Hapirat Haadom",
-        "title": "ahla hanot",
-        "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
-        "rate": 2
-      },
+      "shopId": "s101",
       "description": "avocado",
       "img": "https://cdn.pixabay.com/photo/2015/09/18/11/37/hass-avocado-945418_960_720.jpg",
       "tags": [
@@ -212,67 +221,101 @@
   ],
   "shops": [
     {
+      "mini-shop": {
+        "_id": "v101",
+        "name": "Galil Farm",
+        "title": "Fresh Lettuce and other",
+        "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
+        "rate": 4
+      },
       "_id": "v101",
-      "name": "Hapirat Haadom",
+      "name": "Galil Farm",
       "owner": {
         "mini.user": "get the mini user"
       },
-      "title": "ahla hanot",
-      "about": "mamash ahla hanot organit",
-      "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
-      "aboutImg": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e7ee6cb0-29f7-4fad-a9a9-95645e0b6ce3/d2vr58h-05c4c2ce-45c5-4bcd-8f54-061c84badce1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvZTdlZTZjYjAtMjlmNy00ZmFkLWE5YTktOTU2NDVlMGI2Y2UzXC9kMnZyNThoLTA1YzRjMmNlLTQ1YzUtNGJjZC04ZjU0LTA2MWM4NGJhZGNlMS5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.x9pE9lleRT-OM1naFJ9rVcegu-Q1-a522AXi1JwhQss",
-      "location": "Paris",
+      "title": "Fresh Lettuce and other",
+      "about": "fresh and crunchy, organic greens ",
+      "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
+      "aboutImg": "https://cdn.pixabay.com/photo/2017/05/13/17/18/spinach-2310134_960_720.jpg",
+      "location": "Galil",
       "reviews": [
         {
-          "user": "Guest",
-          "txt": "david melech",
-          "stars": 0
+          "user": "Avi",
+          "txt": "Great lettuce",
+          "stars": 5
         },
         {
           "user": "Guest",
-          "txt": "TOM HA GEVER",
-          "stars": "4"
+          "txt": "Fresh produce",
+          "stars": 4
         },
         {
-          "user": "Guest",
-          "txt": "sadfsaf",
-          "stars": "-3"
-        },
-        {
-          "user": "Guest",
-          "txt": "sadfsadf",
-          "stars": 0
-        },
-        {
-          "user": "Guest",
-          "txt": "its morning time",
-          "stars": 0,
+          "user": "Tom",
+          "txt": "ok",
+          "stars": 3,
           "time": "5/26/2020, 10:39:40 AM"
-        },
-        {
-          "user": "Guest",
-          "txt": "morning 2\n",
-          "stars": 0,
-          "time": "5/26/2020, 10:40:22 AM"
         }
       ],
       "tags": [
-        "meat",
+        "vegetables",
         "organic"
       ],
-      "rate": 2
+      "rate": 4
     },
     {
+      "mini-shop": {
+        "_id": "v102",
+        "name": "Meshek Moshik",
+        "title": "Organic fruits and olives",
+        "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
+        "rate": 5
+      },
       "_id": "v102",
-      "name": "Hapirat Hadebil",
+      "name": "Meshek Moshik",
       "owner": {
         "mini.user": "get the mini user"
       },
-      "title": "hanut debilit",
+      "title": "Organic fruits and olives",
+      "about": "We invite you to try our olive oil!",
+      "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
+      "aboutImg": "https://cdn.pixabay.com/photo/2019/09/04/20/34/plantation-4452538_960_720.jpg",
+      "location": "Jerusalem",
+      "reviews": [
+        {
+          "user": "u105",
+          "txt": "the veggies are great!!!!",
+          "stars": 5
+        },
+        {
+          "user": "u109",
+          "txt": "the veggies are great!!!!",
+          "stars": 5
+        }
+      ],
+      "tags": [
+        "fruits",
+        "olives"
+      ],
+      "rate": 5
+    },
+    {
+      "mini-shop":{
+        "_id": "s102",
+        "name": "Dates Land",
+        "title": "Sweets of the desert",
+        "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
+        "rate":5
+      },
+      "_id": "s102",
+      "name": "Dates Land",
+      "owner": {
+        "mini.user": "get the mini user"
+      },
+      "title": "Sweets of the desert",
       "about": "bla bla blah blah",
-      "logo": "https://www.nationalgeographic.com/content/dam/environment/photos/future_of_food/organic_farming_rough/01_organic_farming_i8860_20181003_11260.adapt.1900.1.jpg",
-      "aboutImg": "https://thumbs.dreamstime.com/b/new-zealand-farm-panorama-14089858.jpg",
-      "location": "London",
+      "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
+      "aboutImg": "https://cdn.pixabay.com/photo/2019/02/13/03/49/palm-trees-3993615_960_720.jpg",
+      "location": "jerusalem",
       "reviews": [
         {
           "user": "u105",
@@ -287,6 +330,77 @@
       ],
       "tags": [
         "flowers"
+      ],
+      "rate": 5
+    },
+    {
+      "mini-shop":{
+        "_id": "s103",
+        "name": "Dayan Brothers",
+        "title": "Nuts and grains",
+        "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
+        "rate":4
+      },
+      "_id": "s103",
+      "name": "Dayan Brothers",
+      "owner": {
+        "mini.user": "get the mini user"
+      },
+      "title": "Nuts and grains",
+      "about": "We sell top quality nuts and grains. At our shop you can find pecans,cheakpeas, red, black, and green lentils",
+      "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
+      "aboutImg": "https://cdn.pixabay.com/photo/2013/09/25/17/11/pecan-tree-186328_960_720.jpg",
+      "location": "Beit Yzhak",
+      "reviews": [
+        {
+          "user": "u105",
+          "txt": "the pecans are great!",
+          "stars": 5
+        },
+        {
+          "user": "u110",
+          "txt": "I loved the red lentils",
+          "stars": 5
+        }
+      ],
+      "tags": [
+        "nuts",
+        "grains"
+      ],
+      "rate": 5
+    },
+    {
+      "mini-shop":{
+        "_id": "v109",
+      "name": "Hadar Fields",
+      "title": "Juicy citrus fruits",
+      "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
+      "rate":5
+      },
+      "_id": "v109",
+      "name": "Hadar Fields",
+      "owner": {
+        "mini.user": "get the mini user"
+      },
+      "title": "Juicy citrus fruits",
+      "about": "In Hadar Fields we grow oranges, mandarines, clamantines and more. We also reccomand our perfect avocados",
+      "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
+      "aboutImg": "https://cdn.pixabay.com/photo/2019/10/21/14/54/oranges-4566275_960_720.jpg",
+      "location": "Telmey Elazar",
+      "reviews": [
+        {
+          "user": "u106",
+          "txt": "sweet fruits,perfect!",
+          "stars": 5
+        },
+        {
+          "user": "u109",
+          "txt": "the avocados are great!!!!",
+          "stars": 5
+        }
+      ],
+      "tags": [
+        "fruits"
       ],
       "rate": 5
     }

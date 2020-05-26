@@ -61,7 +61,7 @@ function _filterItems(items, filterBy) {
     return items.filter(item => {
         return item.title.includes(filterBy.searchValue) ||
             item.tags.includes(filterBy.searchValue) ||
-            item.shop._id.includes(filterBy.searchValue)
+            item.shopId.includes(filterBy.searchValue)
     })
 }
 
