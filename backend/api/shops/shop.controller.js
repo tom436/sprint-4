@@ -38,11 +38,7 @@ async function deleteShop(req, res) {
 
 async function addShop(req, res) {
     var shop = req.body;
-    shop.byUserId = req.session.user._id;
     shop = await shopService.add(shop)
-    shop.byUser = req.session.user;
-    // TODO - need to find aboutUser
-    shop.aboutUser = {}
     res.send(shop)
 }
 
