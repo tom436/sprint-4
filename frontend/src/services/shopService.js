@@ -10,10 +10,10 @@ export default {
     save
 }
 
-function getById(shopId) {
-    return HttpService.get(`shops?_id=${shopId}`)
-        .then(res => res)
-}
+// function getById(shopId) {
+//     return HttpService.get(`shops?_id=${shopId}`)
+//         .then(res => res)
+// }
 
 function query(filterBy = null, sortBy = null) {
     if (!filterBy) filterBy = {};
