@@ -9,9 +9,7 @@ export default {
     query,
     save,
     remove,
-    getById,
-    queryCategories,
-    queryDemoData
+    getById
 }
 
 function save(itemToSave) {
@@ -42,27 +40,15 @@ function query(filterBy = null, sortBy = null,isSingle) {
              
         return HttpService.get(`items?itemId=${filterBy}`)
         .then(items => {
-            // if (sortBy) items = compare(items, sortBy)
-            console.log(items);
-            
+            if (sortBy) items = compare(items, sortBy)
             return items;
         })
     }
-
     return HttpService.get(`items?searchValue=${filterBy}`)
         .then(items => {            
-            // if (sortBy) items = compare(items, sortBy)
+            if (sortBy) items = compare(items, sortBy)
             return items;
         })
-
-    // return HttpService.get(`items`)
-    //     .then(items => {
-    //         // console.log(items);
-    //         // if (filterBy.searchValue) items = _filterItems(items, filterBy);
-    //         // if (sortBy) items = compare(items, sortBy)
-    //         // window.theItems = items;
-    //         return items;
-    //     })
 }
 
 function _filterItems(items, filterBy) {

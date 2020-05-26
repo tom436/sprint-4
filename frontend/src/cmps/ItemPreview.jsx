@@ -6,7 +6,7 @@ import { addToCart } from '../store/actions/userActions'
 class ItemPreview extends React.Component {
 
     state = {
-        amount: 1
+        amount: 1,
     }
 
     onHandleChange = ({ target }) => {
@@ -15,11 +15,14 @@ class ItemPreview extends React.Component {
 
     render() {
         const { item } = this.props
+        console.log('item',item);
+        
+        const {shop} = item
         return (!item) ? <p>Loading</p> :
             <div className="item-preview">
                 <Link to={`/item/${item._id}`}><img src={item.img} /><p>{item.title}</p></Link>
-                <Link to={`/shop/${item.shopId}`}>{item.shopId}<span><i className="far fa-star"></i>{item.shopId}</span></Link>
-                <p>Price: {item.price}/ {item.unit}</p>
+                <Link to={`/shop/${shop._id}`}>{shop.name}<span><i className="far fa-star"></i>{shop.rate}</span></Link>
+                <p>Price:  &#36; {item.price}/ {item.unit}</p>
                 <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
                 <button onClick={() => this.props.addToCart(item, +this.state.amount)}><i className="fas fa-shopping-cart"></i></button>
             </div>

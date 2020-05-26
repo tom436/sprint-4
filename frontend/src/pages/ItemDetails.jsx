@@ -15,23 +15,22 @@ class ItemDetails extends React.Component {
     componentDidMount() {
         const { id } = this.props.match.params
         this.props.loadItem(id,true)
-        .then(item=>this.props.loadShop(item.shopId))
     }
-
     onHandleChange = ({ target }) => {
         this.setState({ amount: target.value })
     }
 
-    render() {
+    render(){
         const { item } = this.props
-        return (!item) ? <p>Loading</p> :
+        const { shop } = item
+        return (!item || !shop) ? <p>Loading</p> :
             <div className="item-details-container">
                 <section className="flex">
                     <img src={item.img} />
                     <div className="item-details flex column">
                         <h3>{item.title}</h3>
-                        <h4>From <Link to={`/shop/${item.shopId}`}>{item.shopId}</Link>
-                            <span><i className="far fa-star"></i>{item.shopId}</span></h4>
+                        <h4>From <Link to={`/shop/${shop._id}`}>{shop.name}</Link>
+                            <span><i className="far fa-star"></i>{shop.rate}</span></h4>
                         <p className="description">{item.description}</p>
                         <p>Price: {item.price}/ {item.unit}</p>
                         <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
@@ -39,7 +38,7 @@ class ItemDetails extends React.Component {
                     </div>
                 </section>
                 <h5>Visit our Farm!</h5>
-                {/* <ShopPreview shop={item.shop} /> */}
+                <ShopPreview shop={shop} />
             </div>
     }
 }
@@ -53,7 +52,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     loadItem,
-    loadShop,
     addToCart
 };
 

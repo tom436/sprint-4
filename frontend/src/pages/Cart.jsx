@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { CartItemsList } from '../cmps/CartItemsList'
 import { loadCart, remove, getTotalPrice, checkout } from '../store/actions/userActions'
 import CartService from '../services/cartService'
+import storageService from '../services/storageService'
 
 class Cart extends React.Component {
+
 
     componentDidMount() {
         this.props.loadCart()
@@ -18,12 +20,19 @@ class Cart extends React.Component {
     }
 
 
+    onSetModal() {
+        console.log('changing modal');
+        const currentState = this.state.modal;
+        this.setState({ modal: !currentState })
+    }
+
     render() {
         const { cart, remove, totalPrice } = this.props
         console.log(cart);
-        
+
         return (
             <section className="cart-container flex space-around">
+
                 <section className='items-container flex column'>
                     <h1>CART</h1>
                     {cart.map((cartItem, idx) => {
@@ -43,7 +52,7 @@ class Cart extends React.Component {
                         <option value="">Express - Up to 3 days ($5)</option>
                         <option value="">Next day - Will arrive tomorrow ($15)</option>
                     </select>
-                    <button onClick={CartService.checkOut}>Checkout</button>
+                    <button onClick={() => CartService.newOrder}>Checkout</button>
                     <div>
                         <h3>WE ACCEPT:</h3>
                     </div>

@@ -2,7 +2,6 @@
 const itemService = require('./item.service.js')
 
 
-// const logger = require('../../services/logger.service')
 
 // TODO: needs error handling! try, catch
 
@@ -12,13 +11,11 @@ async function getItems(req, res) {
         const items = await itemService.query(req.query)
         res.send(items)
     } catch (err) {
-        // logger.error('Cannot get items', err);
         res.status(500).send({ error: 'cannot get items' })
 
     }
 }
 async function getItem(req, res) {
-    console.log(req.params);
     
     const item = await itemService.getById(req.params.id)
     res.send(item)
@@ -29,7 +26,6 @@ async function deleteItem(req, res) {
         await itemService.remove(req.params.id)
         res.end()
     } catch (err) {
-        // logger.error('Cannot delete item', err);
         res.status(500).send({ error: 'cannot delete item' })
     }
 }
