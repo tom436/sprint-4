@@ -24,7 +24,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.state.tags.forEach(tag => {
-            this.props.loadItems({ searchValue: tag })
+            this.props.loadItems( tag )
                 .then(itemsSet => {
                     this.setState(prevState => ({ items: [...prevState.items, itemsSet] }))
                 })
@@ -55,7 +55,7 @@ class Home extends React.Component {
                     <section>
                         <Link to={`/items?q=${tags[0]}`}>Organic<i className="fas fa-angle-double-right"></i> </Link>
                         {items[0] && <Caruselle toShow={4} classN={'items-carusel'} items={items[0]} />}
-                        <Link to={`/items?q=${tags[1]}`}>Fruits<i className="fas fa-angle-double-right"></i> </Link>
+                        <Link to={`/items?q=${tags[1]}`}>Greens<i className="fas fa-angle-double-right"></i> </Link>
                         {items[1] && <Caruselle toShow={4} classN={'items-carusel'} items={items[1]} />}
                         <Link to={`/items?q=${tags[2]}`}>Fruits<i className="fas fa-angle-double-right"></i> </Link>
                         {items[2] && <Caruselle toShow={4} classN={'items-carusel'} items={items[2]} />}

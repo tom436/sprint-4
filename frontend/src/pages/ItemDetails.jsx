@@ -22,7 +22,7 @@ class ItemDetails extends React.Component {
 
     render(){
         const { item } = this.props
-        const { shop } = item.shop
+        const { shop } = item
         return (!item || !shop) ? <p>Loading</p> :
             <div className="item-details-container">
                 <section className="flex">
