@@ -5,7 +5,8 @@ const ObjectId = require('mongodb').ObjectId
 
 
 module.exports = {
-    query
+    query,
+    getById
 }
 
 async function query(filterBy = {}) {
@@ -24,7 +25,6 @@ async function query(filterBy = {}) {
         criteria.tags = filterBy.tag
     }
 
-
     const collection = await dbService.getCollection('shops')
     try {
         const customers = await collection.find(criteria).toArray();
@@ -35,3 +35,17 @@ async function query(filterBy = {}) {
     }
 }
 
+async function getById(shopId) {
+    console.log('here',shopId);
+    
+    const collection = await dbService.getCollection('shops')
+    try {
+        const shop = await collection.findOne({"_id":shopId})
+        console.log('in',shop);
+        
+        return shop
+    } catch (err) {
+        console.log(`ERROR: while finding shop ${shopId}`)
+        throw err;
+    }
+}

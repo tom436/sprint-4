@@ -44,16 +44,11 @@ class Header extends React.Component {
     }
     handleSubmit = (ev) => {
         ev.preventDefault()
-
-        this.props.loadItems(this.state.filter);
         this.props.setFilter(this.state.filter)
-        // this.props.history.push(`#/items`)
         history.push({
             pathname:'/items',
             search:`?q=${this.state.filter.searchValue}`
         })
-        // window.location.replace(`#/items/${this.state.filter.searchValue}`)
-
     }
 
 

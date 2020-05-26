@@ -17,7 +17,13 @@ async function getItems(req, res) {
 
     }
 }
-
+async function getItem(req, res) {
+    console.log(req.params);
+    
+    const item = await itemService.getById(req.params.id)
+    res.send(item)
+}
+  
 async function deleteItem(req, res) {
     try {
         await itemService.remove(req.params.id)
@@ -41,5 +47,6 @@ async function addItem(req, res) {
 module.exports = {
     getItems,
     deleteItem,
-    addItem
+    addItem,
+    getItem
 }

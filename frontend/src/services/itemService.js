@@ -36,15 +36,14 @@ function save(itemToSave) {
 }
 
 function query(filterBy = null, sortBy = null) {
-    if (!filterBy) filterBy = {};
     console.log(filterBy);
     
-    return HttpService.get(`items`)
+    if (!filterBy) filterBy = '';
+    console.log(filterBy);
+    
+    return HttpService.get(`items?searchValue=${filterBy}`)
         .then(items => {
-            // console.log(items);
-            // if (filterBy.searchValue) items = _filterItems(items, filterBy);
             // if (sortBy) items = compare(items, sortBy)
-            // window.theItems = items;
             return items;
         })
 }
@@ -59,6 +58,7 @@ function _filterItems(items, filterBy) {
 }
 
 function remove(itemId) {
+    
     return axios.delete(`${baseUrl}/${itemId}`)
         .then(() => {
             const itemIdx = _getIdxById(itemId)
@@ -67,8 +67,14 @@ function remove(itemId) {
 }
 
 function getById(itemId) {
-    return axios.get(`${baseUrl}/${itemId}`)
-        .then(res => res.data)
+    console.log(itemId);
+    
+    return HttpService.get(`items/${itemId}`)
+        .then(res => {
+            console.log(res);
+            return res
+            
+        })
         .catch(err => console.log(err))
 }
 

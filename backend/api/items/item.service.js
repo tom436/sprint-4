@@ -5,37 +5,43 @@ const ObjectId = require('mongodb').ObjectId
 
 
 module.exports = {
-    query
+    query,
+    getById
 }
 
 async function query(filterBy = {}) {
-    console.log(filterBy);
 
-    const criteria = {};
-    if (filterBy.title) {
-        let regex = new RegExp(filterBy.title,'i');
-        criteria.title = regex
+    console.log();
+    let criteria
+    if (filterBy.searchValue) {
+         criteria = { $or: [] };
+        let regex = new RegExp(filterBy.searchValue, 'i');
+        criteria.$or.push({ title: regex })
+        criteria.$or.push({ tags: regex })
+        criteria.$or.push({ ['shop._id']: filterBy.searchValue })
+        criteria.$or.push({ ['shop.name']: regex })
     }
-    if (filterBy.shopId) {
-        criteria['shop._id'] = filterBy.shopId
-    }
-     if (filterBy.shopName) {
-        criteria['shop.name'] = filterBy.shopName
-    }
-    if (filterBy.tag) {
-        let regex = new RegExp(filterBy.tag,'i');
-        criteria.tags = regex
-    }
-
+    else { criteria = {}}
     console.log(criteria);
-
 
     const collection = await dbService.getCollection('items')
     try {
-        const customers = await collection.find(criteria).toArray();
-        return customers
+        const items = await collection.find(criteria).toArray();
+        return items
     } catch (err) {
         console.log('ERROR: cannot find items')
+        throw err;
+    }
+}
+
+async function getById(itemId) {
+
+    const collection = await dbService.getCollection('items')
+    try {
+        const item = await collection.findOne({ "_id": itemId })
+        return item
+    } catch (err) {
+        console.log(`ERROR: while finding item ${itemId}`)
         throw err;
     }
 }

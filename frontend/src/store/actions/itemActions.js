@@ -2,6 +2,7 @@
 import itemService from '../../services/itemService.js';
 
 export function loadItems(filterBy, sortBy=null) {  
+  
   return dispatch => {
     return itemService.query(filterBy,sortBy)
       .then(items => {
