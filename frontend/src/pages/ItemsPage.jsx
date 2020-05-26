@@ -14,13 +14,10 @@ class ItemsPage extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.location.search);
         
         const query = new URLSearchParams(this.props.location.search)
         
-        console.log(query.get('q'))
         const searchValue=query.get('q')
-        console.log(searchValue);
         
         this.props.loadItems({searchValue:searchValue}, this.state.sort)
         .then(items => {

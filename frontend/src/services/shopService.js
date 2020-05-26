@@ -1,7 +1,6 @@
-import axios from 'axios'
-import shopItems from '../services/itemService'
+import HttpService from './HttpService';
 
-const baseUrl = 'http://localhost:3000/shops';
+
 
 
 export default {
@@ -12,14 +11,15 @@ export default {
 
 
 function getById(shopId) {
-    return axios.get(`${baseUrl}/${shopId}`)
-        .then(res => res.data)
-        .then(shop => shop)
+    console.log(`?_id=${shopId}`);
+
+    return HttpService.get(`shops?_id=${shopId}`)
+        .then(res => res)
 }
 
 
 function addReview(shop, review) {
-    shop.reviews.unshift(review)
+    shop.reviews.push(review)
     // _save(shop)
 }
 
@@ -41,4 +41,5 @@ function save(shop) {
                 return savedItem
             })
     }
+
 }

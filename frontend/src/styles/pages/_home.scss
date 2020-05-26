@@ -59,9 +59,13 @@
 .featured {
     width: 80%;
     .feature-img {
-        width: 10rem;
+        width: 5rem;
+        img{
+            width: 100%;
+        }
     }
 }
+
 
 .promo-container {
     width: 90vw;
@@ -72,7 +76,7 @@
     width: 50%;
     img {
         height: 100%;
-
+        width: 100%;
         object-fit: cover;
         overflow: hidden;
     }

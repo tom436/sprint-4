@@ -24,12 +24,10 @@ class ShopDetails extends React.Component {
 
     loadShop = () => {
         const id = this.props.match.params.id
-        console.log('id', id);
         shopService.getById(id)
             .then(shop => {
-                this.setState({ shop })
-                console.log(shop);
-
+                console.log(shop);  
+                return this.setState({ shop })
             })
 
 

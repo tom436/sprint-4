@@ -1,4 +1,6 @@
-const baseUrl = 'http://localhost:3000/items';
+import HttpService from './HttpService';
+
+const baseUrl = 'http://localhost:3030/api/items';
 const axios = require('axios').default;
 const STORAGE_KEY = 'items'
 var gItems = []
@@ -35,15 +37,14 @@ function save(itemToSave) {
 
 function query(filterBy = null, sortBy = null) {
     if (!filterBy) filterBy = {};
-
-    return axios.get(`${baseUrl}`)
-        .then(res => res.data)
+    console.log(filterBy);
+    
+    return HttpService.get(`items`)
         .then(items => {
-            if (filterBy.searchValue) items = _filterItems(items, filterBy);
-
-            if (sortBy) items = compare(items, sortBy)
-
-            window.theItems = items;
+            // console.log(items);
+            // if (filterBy.searchValue) items = _filterItems(items, filterBy);
+            // if (sortBy) items = compare(items, sortBy)
+            // window.theItems = items;
             return items;
         })
 }
