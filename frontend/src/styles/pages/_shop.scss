@@ -1,6 +1,8 @@
 .shope-info {
     background-color: rgba(233, 228, 208, 0.493);
-    border: 1px solid black;
+    // border: 1px solid black;
+    border-radius: 8px;
+    width: 80%;
 
 }
 
@@ -24,12 +26,13 @@
     width: 250px;
 }
 
-
-
-
 .shop-rev {
     padding: 10px;
     border-bottom: 1px solid grey;
+    background-color: #FEFAE0;
+    border-radius: 12px;
+    width: 75vw;
+    margin-bottom: 5px;
 }
 
 .rev-span {
@@ -59,6 +62,8 @@
 }
 
 
+
+
 ///////////SHOP BUTTONS AND ACCORDION///////////////////
 .shop-btn {
     display: block;
@@ -77,30 +82,40 @@
     color: black;
 }
 
-
 .more-det {
-    //  max-height: 0;
-    //  transition: max-height 0.2s;
-    padding:0 15px;
-    background: #eeeeee;
-    display: none;
-     overflow: hidden;
+opacity: 0;
+max-height: 0;
+overflow-y: hidden;
+transition: all 0.4s ease;
 }
 
-.more-det-active {
-    //  max-height: 0;
-    //  transition: max-height 0.2s;
-    padding:0 15px;
-    background: #eeeeee;
-    display: block;
-     overflow: hidden;
+// .more-det::after{
+//     content: '';
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(50%);
+//     transition: all 0.4s ease;
+// }
+
+.more-det-active{
+opacity: 1;
 }
 
+// .more-det {
+//     //  max-height: 0;
+//      transition: max-height 0.2s;
+//     padding:0 15px;
+//     background: #eeeeee;
+//     display: none;
+//      overflow: hidden;
+// }
 
-.text-active{
-    display: none;
-}
+// .more-det-active {
+//     //  max-height: 0;
+//      transition: max-height 0.2s;
+//     padding:0 15px;
+//     background: #eeeeee;
+//     display: block;
+//      overflow: hidden;
+// }
 
-.none{
-    display: none;
-}
