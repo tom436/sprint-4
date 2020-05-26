@@ -4,9 +4,14 @@ import AddReview from './AddReview'
 
 function RevPrev(review, idx) {
     return (
-        <div key={idx} className="shop-rev flex column ">
-            <p className="rev-user">By: {review.user}</p>
+        <div key={idx} className="shop-rev flex space-around">
+            <div className="column">
+            <p className="rev-user">{review.user}</p>
+            <p>{review.time}</p>
             <p>{review.stars}</p>
+            </div>
+
+
             <p className="rev-txt">{review.txt}</p>
         </div>
     )

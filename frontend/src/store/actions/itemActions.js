@@ -7,6 +7,8 @@ export function loadItems(filterBy, sortBy=null) {
     return itemService.query(filterBy,sortBy)
       .then(items => {
         dispatch({ type: 'SET_ITEMS', items })
+        console.log(items);
+        
         return items
       })
   }

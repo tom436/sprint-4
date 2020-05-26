@@ -13,13 +13,13 @@ class ShopDetails extends React.Component {
     state = {
         shop: null,
         sortBy: null,
-        isMore: false
+        isMore: true
     }
 
     componentDidMount() {
         const id = this.props.match.params.id
         this.loadShop()
-        this.props.loadItems( id , this.state.sortBy);
+        this.props.loadItems(id, this.state.sortBy);
     }
 
     loadShop = () => {

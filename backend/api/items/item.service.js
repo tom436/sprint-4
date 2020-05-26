@@ -9,30 +9,98 @@ module.exports = {
     getById
 }
 
+// async function query(filterBy = {}) {
+
+//     console.log();
+//     let criteria
+//     if (filterBy.searchValue) {
+//          criteria = { $or: [] };
+//         let regex = new RegExp(filterBy.searchValue, 'i');
+//         criteria.$or.push({ title: regex })
+//         criteria.$or.push({ tags: regex })
+//         criteria.$or.push({ shopId: filterBy.searchValue })
+//     }
+//     else { criteria = {}}
+//     console.log(criteria);
+
+//     const collection = await dbService.getCollection('items')
+//     try {
+//         const items = await collection.find(criteria).toArray();
+//         return items
+//     } catch (err) {
+//         console.log('ERROR: cannot find items')
+//         throw err;
+//     }
+// }
+
+
+
 async function query(filterBy = {}) {
-
-    console.log();
-    let criteria = {}
-    if (filterBy.searchValue) {
-         criteria = { $or: [] };
-        let regex = new RegExp(filterBy.searchValue, 'i');
-        criteria.$or.push({ title: regex })
-        criteria.$or.push({ tags: regex })
-        criteria.$or.push({ shopId: filterBy.searchValue })
-        // criteria.$or.push({ ['shop.name']: regex })
-    }
-    else { criteria = {}}
-    console.log(criteria);
-
+    const criteria = _buildCriteria(filterBy)
+    console.log('critiria is:' ,criteria);
+    
     const collection = await dbService.getCollection('items')
+    // console.log(collection);
+
     try {
-        const items = await collection.find(criteria).toArray();
+        var items = await collection.aggregate([
+            {
+                $match: criteria
+            },
+            {
+                $lookup:
+                {
+                    from: 'shops',
+                    localField: 'shopId',
+                    foreignField: '_id',
+                    as: 'shop'
+                }
+            }, 
+            {
+                $unwind: '$shop'
+            }
+ 
+        ]).toArray()
+        console.log(items);
+        
+        items = items.map(item => {
+            delete item.shopId;
+            delete item.shop.about;
+            delete item.shop.aboutImg;
+            delete item.shop.location;
+            delete item.shop.reviews;
+            delete item.shop.tags;
+            delete item.shop.owner;
+            delete item.shop.orders;
+
+            return item;
+        })
         return items
     } catch (err) {
         console.log('ERROR: cannot find items')
         throw err;
     }
 }
+
+
+function _buildCriteria(filterBy) {
+    let criteria
+    if (filterBy.searchValue) {
+         criteria = { $or: [] };
+        let regex = new RegExp(filterBy.searchValue, 'i');
+        criteria.$or.push({ title: regex })
+        criteria.$or.push({ tags: regex })
+        criteria.$or.push({ shopId: filterBy.searchValue })
+    }
+    else { criteria = {}}
+    return criteria;
+}
+
+
+
+
+
+
 
 async function getById(itemId) {
 

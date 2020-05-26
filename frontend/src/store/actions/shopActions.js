@@ -27,13 +27,13 @@ export function loadShops(filterBy, sortBy=null) {
 //   }
 // }
 
-// export function saveShop(shop) {
-//   return dispatch => {
-//     const type = shop._id ? 'UPDATE_SHOP' : 'ADD_SHOP';
-//     shopService.save(shop)
-//       .then(savedShop => dispatch({ type, shop: savedShop }))
-//   }
-// }
+export function saveShop(shop) {
+  return dispatch => {
+    const type = shop._id ? 'UPDATE_SHOP' : 'ADD_SHOP';
+    shopService.save(shop)
+      .then(savedShop => dispatch({ type, shop: savedShop }))
+  }
+}
 
 // export function setFilter(filter) {
 //   return dispatch => {

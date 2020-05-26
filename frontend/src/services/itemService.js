@@ -63,11 +63,9 @@ function remove(itemId) {
 }
 
 function getById(itemId) {
-    console.log(itemId);
     
     return HttpService.get(`items/${itemId}`)
         .then(res => {
-            console.log(res);
             return res
             
         })
@@ -110,19 +108,20 @@ function compare(items, sortBy) {
 
 }
 
-// function queryCategories() {
+function queryCategories() {
 
-//     return axios.get(`http://localhost:3000/categories`)
-//         .then(res => res.data)
-//         .then(items => {
-//             return items;
-//         })
-// }
-// function queryDemoData() {
+    return axios.get(`http://localhost:3000/categories`)
+        .then(res => res.data)
+        .then(items => {
+            return items;
+        })
+}
 
-//     return axios.get(`http://localhost:3000/demoData`)
-//         .then(res => res.data)
-//         .then(items => {
-//             return items;
-//         })
-// }
+function queryDemoData() {
+
+    return axios.get(`http://localhost:3000/demoData`)
+        .then(res => res.data)
+        .then(items => {
+            return items;
+        })
+}

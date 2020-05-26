@@ -173,7 +173,6 @@
       "cretatedAt": 9898989,
       "shopperId": "33221",
       "totalPrice": 20,
-      "units": "kg",
       "shop": {
         "_id": "v102",
         "name": "Hapirat Hadebil",
@@ -198,7 +197,6 @@
       "cretatedAt": 9898989,
       "shopperId": "33221",
       "totalPrice": 20,
-      "units": "kg",
       "shop": {
         "_id": "v101",
         "name": "Hapirat Hadebil",
@@ -221,13 +219,6 @@
   ],
   "shops": [
     {
-      "mini-shop": {
-        "_id": "v101",
-        "name": "Galil Farm",
-        "title": "Fresh Lettuce and other",
-        "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
-        "rate": 4
-      },
       "_id": "v101",
       "name": "Galil Farm",
       "owner": {
@@ -238,6 +229,7 @@
       "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2017/05/13/17/18/spinach-2310134_960_720.jpg",
       "location": "Galil",
+      "orders":[],
       "reviews": [
         {
           "user": "Avi",
@@ -263,13 +255,6 @@
       "rate": 4
     },
     {
-      "mini-shop": {
-        "_id": "v102",
-        "name": "Meshek Moshik",
-        "title": "Organic fruits and olives",
-        "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
-        "rate": 5
-      },
       "_id": "v102",
       "name": "Meshek Moshik",
       "owner": {
@@ -280,6 +265,7 @@
       "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/09/04/20/34/plantation-4452538_960_720.jpg",
       "location": "Jerusalem",
+      "orders":[],
       "reviews": [
         {
           "user": "u105",
@@ -299,13 +285,6 @@
       "rate": 5
     },
     {
-      "mini-shop":{
-        "_id": "s102",
-        "name": "Dates Land",
-        "title": "Sweets of the desert",
-        "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
-        "rate":5
-      },
       "_id": "s102",
       "name": "Dates Land",
       "owner": {
@@ -316,6 +295,7 @@
       "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/02/13/03/49/palm-trees-3993615_960_720.jpg",
       "location": "jerusalem",
+      "orders":[],
       "reviews": [
         {
           "user": "u105",
@@ -334,13 +314,6 @@
       "rate": 5
     },
     {
-      "mini-shop":{
-        "_id": "s103",
-        "name": "Dayan Brothers",
-        "title": "Nuts and grains",
-        "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
-        "rate":4
-      },
       "_id": "s103",
       "name": "Dayan Brothers",
       "owner": {
@@ -351,6 +324,7 @@
       "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2013/09/25/17/11/pecan-tree-186328_960_720.jpg",
       "location": "Beit Yzhak",
+      "orders":[],
       "reviews": [
         {
           "user": "u105",
@@ -370,13 +344,6 @@
       "rate": 5
     },
     {
-      "mini-shop":{
-        "_id": "v109",
-      "name": "Hadar Fields",
-      "title": "Juicy citrus fruits",
-      "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
-      "rate":5
-      },
       "_id": "v109",
       "name": "Hadar Fields",
       "owner": {
@@ -387,6 +354,7 @@
       "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/10/21/14/54/oranges-4566275_960_720.jpg",
       "location": "Telmey Elazar",
+      "orders":[],
       "reviews": [
         {
           "user": "u106",
