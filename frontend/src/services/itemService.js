@@ -35,12 +35,24 @@ function save(itemToSave) {
     }
 }
 
-function query(filterBy = null, sortBy = null) {
+function query(filterBy = null, sortBy = null,isSingle) {
     
     if (!filterBy) filterBy = '';
-    
-    return HttpService.get(`items?searchValue=${filterBy}`)
+    if(isSingle){   
+        console.log(filterBy);
+             
+        return HttpService.get(`items?itemId=${filterBy}`)
         .then(items => {
+            // if (sortBy) items = compare(items, sortBy)
+            console.log(items);
+            
+            return items;
+        })
+    }
+    console.log(filterBy);
+
+    return HttpService.get(`items?searchValue=${filterBy}`)
+        .then(items => {            
             // if (sortBy) items = compare(items, sortBy)
             return items;
         })

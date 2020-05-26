@@ -13,6 +13,8 @@ export default {
 
 
 function query(filterBy = null, sortBy = null) {
+    console.log('pppp');
+    
     if (!filterBy) filterBy = {};
 
     return HttpService.get(`shops`)
