@@ -26,7 +26,7 @@ class ItemDetails extends React.Component {
             <div className="item-details-container">
                 <section className="flex">
                     <img src={item.img} />
-                    <div className="flex column item-details ">
+                    <div className="item-details flex column">
                         <h3>{item.title}</h3>
                         <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link>
                             <span><i className="far fa-star"></i>{item.shop.rate}</span></h4>
