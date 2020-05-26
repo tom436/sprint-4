@@ -25,7 +25,6 @@ class ItemsPage extends React.Component {
           }
     
     componentDidUpdate(prevProps, prevState) {
-        console.log('fdsfsdf');
         
         if (this.props.location.search !== prevProps.location.search) {
             const query = new URLSearchParams(this.props.location.search)

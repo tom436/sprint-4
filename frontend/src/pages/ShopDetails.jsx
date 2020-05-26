@@ -13,7 +13,7 @@ class ShopDetails extends React.Component {
     state = {
         shop: null,
         sortBy: null,
-        isMore: ""
+        isMore: false
     }
 
     componentDidMount() {
@@ -29,7 +29,28 @@ class ShopDetails extends React.Component {
                 console.log(shop);  
                 return this.setState({ shop })
             })
+
+
     }
+
+    addReview = (reviewToAdd) => {
+        // const id = this.props.match.params.id
+        // console.log(this.state.shop.reviews);
+        console.log(reviewToAdd);
+
+        const shop = this.state.shop
+        console.log(shop);
+        shop.reviews.push(reviewToAdd)
+        console.log(shop);
+
+
+        shopService.save(shop)
+            .then(res => this.loadShop())
+
+        // // shopService.addReview(shop, reviewToAdd)
+
+    }
+
 
     onHandleChange = (ev) => {
         const id = this.props.match.params.id
@@ -37,35 +58,32 @@ class ShopDetails extends React.Component {
     }
 
     getMoreDet = () => {
-        this.setState.isMore = "none"
-        console.log('change state', this.setState.isMore);
-
+        const currentState = this.state.isMore;
+        this.setState({ isMore: !currentState });
     }
 
 
     render() {
-
         const { shop } = this.state
-        const { isMore } = this.state
         if (!shop) return <div>Loading....</div>
 
-        return <section>
-            <section className="Shope-info flex column ">
-            
+        return <section className="">
+            <section className="shope-info flex column">
+
                 <img className="farm-photo" src={shop.aboutImg} />
                 <img className="shop-logo" src={shop.logo} />
                 <h2 className="center-item">Store Name: {shop.name}</h2>
                 <p className="shop-about center-item">{shop.about}</p>
 
 
-                <div className="shop-interact center-item">
-                    <button className="shop-btn" onClick={this.getMoreDet}>More</button>
-                    <button className="shop-btn">Send a Message</button>
-                    <div className={this.state.isMore}>
-                    <MoreDet  shop={shop} isMore={isMore} />
-                    </div>
+                <div className="shop-interact space-around">
+                    <button className="shop-btn " onClick={this.getMoreDet}>More</button>
+                    <button className="shop-btn ">Send a Message</button>
                 </div>
-                
+                <div className={"more-det" + (this.state.isMore ? "-active" : "")}>
+                    <MoreDet shop={shop} addReview={this.addReview} />
+                </div>
+
                 {/* <div className="shop-map">
                     <MapContainer />
                 </div> */}

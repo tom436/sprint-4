@@ -1,6 +1,6 @@
 import HttpService from './HttpService';
 
-const baseUrl = 'http://localhost:3030/api/items';
+const baseUrl = 'http://localhost:3000/items';
 const axios = require('axios').default;
 const STORAGE_KEY = 'items'
 var gItems = []
@@ -46,6 +46,15 @@ function query(filterBy = null, sortBy = null) {
             // if (sortBy) items = compare(items, sortBy)
             return items;
         })
+
+    // return HttpService.get(`items`)
+    //     .then(items => {
+    //         // console.log(items);
+    //         // if (filterBy.searchValue) items = _filterItems(items, filterBy);
+    //         // if (sortBy) items = compare(items, sortBy)
+    //         // window.theItems = items;
+    //         return items;
+    //     })
 }
 
 function _filterItems(items, filterBy) {
@@ -93,9 +102,20 @@ function compare(items, sortBy) {
             })
         case 'lowToHigh':
             return items.sort((a, b) => {
-
                 if (a.price < b.price) return -1
                 if (a.price > b.price) return 1
+                else return 0
+            })
+        case 'A-Z':
+            return items.sort((a, b) => {
+                if (a.name > b.name) return -1
+                if (a.name < b.name) return 1
+                else return 0
+            })
+        case 'Z-A':
+            return items.sort((a, b) => {
+                if (a.name < b.name) return -1
+                if (a.name > b.name) return 1
                 else return 0
             })
     }

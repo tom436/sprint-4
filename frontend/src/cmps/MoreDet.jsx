@@ -1,11 +1,12 @@
 import React from 'react';
 import MapContainer from '../cmps/MapContainer'
+import AddReview from './AddReview'
 
-function RevPrev(review) {
+function RevPrev(review, idx) {
     return (
-        <div className="shop-rev flex column " key={review.user}>
-            <p>{review.stars}</p>
+        <div key={idx} className="shop-rev flex column ">
             <p className="rev-user">By: {review.user}</p>
+            <p>{review.stars}</p>
             <p className="rev-txt">{review.txt}</p>
         </div>
     )
@@ -13,24 +14,22 @@ function RevPrev(review) {
 
 export default function MoreDet(props) {
 
-
-    const { shop } = props
-    const { isMore } = props
-    console.log(isMore);
+    const { shop, addReview } = props
 
     return (
         <section >
 
+            <AddReview addReview={addReview} />
+
             <p className="shop-tags">We are selling: {shop.tags}</p>
             <p className="shop-location">We are located at: {shop.location}</p>
-            <div className="reviews flex column">
+            <div className="reviews flex column justify-center">
                 <span className="rev-span">Reviews:</span>
-                <div>
-                    {shop.reviews.map(rev => RevPrev(rev))}
+                <div className="rev-box">
+                    {shop.reviews.map((rev, idx) => RevPrev(rev, idx))}
                 </div>
 
-            </div>   
-
+            </div>
 
             {/* <div className="shop-map">
                     <MapContainer />
