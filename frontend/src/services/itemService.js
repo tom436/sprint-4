@@ -36,10 +36,8 @@ function save(itemToSave) {
 }
 
 function query(filterBy = null, sortBy = null) {
-    console.log(filterBy);
     
     if (!filterBy) filterBy = '';
-    console.log(filterBy);
     
     return HttpService.get(`items?searchValue=${filterBy}`)
         .then(items => {
@@ -76,11 +74,9 @@ function remove(itemId) {
 }
 
 function getById(itemId) {
-    console.log(itemId);
     
     return HttpService.get(`items/${itemId}`)
         .then(res => {
-            console.log(res);
             return res
             
         })

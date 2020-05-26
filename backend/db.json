@@ -219,13 +219,6 @@
   ],
   "shops": [
     {
-      "mini-shop": {
-        "_id": "v101",
-        "name": "Galil Farm",
-        "title": "Fresh Lettuce and other",
-        "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
-        "rate": 4
-      },
       "_id": "v101",
       "name": "Galil Farm",
       "owner": {
@@ -262,13 +255,6 @@
       "rate": 4
     },
     {
-      "mini-shop": {
-        "_id": "v102",
-        "name": "Meshek Moshik",
-        "title": "Organic fruits and olives",
-        "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
-        "rate": 5
-      },
       "_id": "v102",
       "name": "Meshek Moshik",
       "owner": {
@@ -299,13 +285,6 @@
       "rate": 5
     },
     {
-      "mini-shop":{
-        "_id": "s102",
-        "name": "Dates Land",
-        "title": "Sweets of the desert",
-        "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
-        "rate":5
-      },
       "_id": "s102",
       "name": "Dates Land",
       "owner": {
@@ -335,13 +314,6 @@
       "rate": 5
     },
     {
-      "mini-shop":{
-        "_id": "s103",
-        "name": "Dayan Brothers",
-        "title": "Nuts and grains",
-        "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
-        "rate":4
-      },
       "_id": "s103",
       "name": "Dayan Brothers",
       "owner": {
@@ -372,13 +344,6 @@
       "rate": 5
     },
     {
-      "mini-shop":{
-        "_id": "v109",
-      "name": "Hadar Fields",
-      "title": "Juicy citrus fruits",
-      "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
-      "rate":5
-      },
       "_id": "v109",
       "name": "Hadar Fields",
       "owner": {
