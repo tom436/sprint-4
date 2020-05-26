@@ -62,9 +62,10 @@ class Header extends React.Component {
                 </form>
                 <ul className="main-nav flex">
                     <li><NavLink to="/" exact >Home</NavLink></li>
-                    <li><NavLink to="/items" exact>items</NavLink></li>
+                    <li><NavLink to="/items" exact>Items</NavLink></li>
+                    <li><NavLink to="/shops" exact>Shops</NavLink></li>
                     <li><NavLink to="/signup" exact>Login</NavLink></li>
-                    <li><NavLink to="/shop/manage/:id?" exact>add a shop</NavLink></li>
+                    <li><NavLink to="/shop/manage/:id?" exact>Add a shop</NavLink></li>
                     <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
                 </ul>
             </section>

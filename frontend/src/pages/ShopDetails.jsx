@@ -19,7 +19,7 @@ class ShopDetails extends React.Component {
     componentDidMount() {
         const id = this.props.match.params.id
         this.loadShop()
-        this.props.loadItems({ searchValue: id }, this.state.sortBy);
+        this.props.loadItems( id , this.state.sortBy);
     }
 
     loadShop = () => {

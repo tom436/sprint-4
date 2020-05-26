@@ -4,6 +4,7 @@ import './styles/global.scss'
 import ShopManage from './pages/ShopManage'
 import ShopDetails from './pages/ShopDetails'
 import ItemsPage from './pages/ItemsPage'
+// import ShopsPage from './pages/ShopsPage'
 import ItemDetails from './pages/ItemDetails'
 import Cart from './pages/Cart'
 import Header from './cmps/Header'
@@ -18,10 +19,11 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <CategoryBar/> */}
+      <CategoryBar/>
       <section className="main-container">
         <Switch>
           <Route component={ItemsPage} path="/items" />
+          {/* <Route component={ShopsPage} path="/shops" /> */}
           <Route component={ItemDetails} path="/item/:id" />
           <Route component={ShopManage} path="/shop/manage/:id?" />
           <Route component={ShopDetails} path="/shop/:id" />

@@ -9,9 +9,7 @@ export default {
     query,
     save,
     remove,
-    getById,
-    queryCategories,
-    queryDemoData
+    getById
 }
 
 function save(itemToSave) {
@@ -36,25 +34,14 @@ function save(itemToSave) {
 }
 
 function query(filterBy = null, sortBy = null) {
-    console.log(filterBy);
     
     if (!filterBy) filterBy = '';
-    console.log(filterBy);
     
     return HttpService.get(`items?searchValue=${filterBy}`)
         .then(items => {
-            // if (sortBy) items = compare(items, sortBy)
+            if (sortBy) items = compare(items, sortBy)
             return items;
         })
-
-    // return HttpService.get(`items`)
-    //     .then(items => {
-    //         // console.log(items);
-    //         // if (filterBy.searchValue) items = _filterItems(items, filterBy);
-    //         // if (sortBy) items = compare(items, sortBy)
-    //         // window.theItems = items;
-    //         return items;
-    //     })
 }
 
 function _filterItems(items, filterBy) {
@@ -123,19 +110,19 @@ function compare(items, sortBy) {
 
 }
 
-function queryCategories() {
+// function queryCategories() {
 
-    return axios.get(`http://localhost:3000/categories`)
-        .then(res => res.data)
-        .then(items => {
-            return items;
-        })
-}
-function queryDemoData() {
+//     return axios.get(`http://localhost:3000/categories`)
+//         .then(res => res.data)
+//         .then(items => {
+//             return items;
+//         })
+// }
+// function queryDemoData() {
 
-    return axios.get(`http://localhost:3000/demoData`)
-        .then(res => res.data)
-        .then(items => {
-            return items;
-        })
-}
+//     return axios.get(`http://localhost:3000/demoData`)
+//         .then(res => res.data)
+//         .then(items => {
+//             return items;
+//         })
+// }

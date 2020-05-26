@@ -18,10 +18,8 @@ export default {
 function query(filterBy = null, sortBy = null) {
     if (!filterBy) filterBy = {};
 
-    return axios.get(`${baseUrl}`)
-        .then(res => res.data)
+    return HttpService.get(`shops`)
         .then(shops => {
-            if (filterBy.searchValue) shops = _filter(shops, filterBy)
             if (sortBy) shops = compare(shops, sortBy)
             return shops;
         })
@@ -36,15 +34,12 @@ function _filter(shops, filterBy) {
 
 function getById(shopId) {
     console.log(`shops/${shopId}`);
-
     return HttpService.get(`shops/${shopId}`)
         .then(res => {
-            console.log(res)
-
             return res
         })
-
 }
+
 function compare(shops, sortBy) {
     switch (sortBy) {
         case 'A-Z':

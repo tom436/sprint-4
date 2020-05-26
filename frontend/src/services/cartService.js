@@ -13,7 +13,7 @@ _createCart()
 function addToCart(item, amount) {
     
     const shopIdx = gCart.findIndex(purchase => {
-        return purchase.shop === item.shop.name
+        return purchase.shop === item.shopId
     })
     if (shopIdx != -1) {
         const idx = gCart[shopIdx].items.findIndex(purchase => {
@@ -30,7 +30,7 @@ function addToCart(item, amount) {
         storageService.store('cart', gCart);
         return Promise.resolve(gCart)
     }
-    const purchase = { shop: item.shop.name, items: [{ ...item, totalPrice: amount * item.price, amount }] }
+    const purchase = { shop: item.shopId, items: [{ ...item, totalPrice: amount * item.price, amount }] }
     gCart.push(purchase);
     storageService.store('cart', gCart);
     return Promise.resolve(gCart)
