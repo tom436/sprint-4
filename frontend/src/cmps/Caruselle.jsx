@@ -3,6 +3,8 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import  ItemPreview  from '../cmps/ItemPreview.jsx'
+
 
 export default function Caruselle(props) {
     const { items , toShow,classN } = props;
@@ -17,14 +19,13 @@ export default function Caruselle(props) {
     return (
         <div className={classN}>
             {<Slider {...settings}>
-                {items.map((item, idx) => {
+                 {items.map((item, idx) => {
                     return <div key={idx} className="carusel-img">
-                        <Link to={`item/${item._id}`}>
-                        <img src={`${item.img}`} alt='cannot load' />
-                        </Link>
+                        <ItemPreview item={item}/>
                     </div>
                 })}
             </Slider>}
         </div>
     );
 }
+

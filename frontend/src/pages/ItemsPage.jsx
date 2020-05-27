@@ -8,7 +8,9 @@ import { loadItems } from '../store/actions/itemActions'
 class ItemsPage extends React.Component {
 
     state = {
-        sort: null
+        sort: null,
+        shop1:null,
+        shop2:null
     }
 
     componentDidMount() {
@@ -25,20 +27,24 @@ class ItemsPage extends React.Component {
         const query = new URLSearchParams(this.props.location.search)
         const searchValue = query.get('q')
         this.props.loadItems(searchValue, this.state.sort)
+            .then(this.setShopsToShow)
     }
 
     onHandleChange = ({ target }) => {
         this.setState({ sort : target.value },this.loadItems)
     }
 
-    getShopsToShow=()=>{
-        
+    setShopsToShow=()=>{
+        const shop1 = this.props.items[0].shop
+        const idx = this.props.items.findIndex(item=> item.shop._id !== shop1._id)
+        const shop2 = this.props.items[idx].shop
+        this.setState({shop1:shop1,shop2:shop2})
     }
 
     render() {
         const {items} =this.props
         
-        return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
+        return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
             <form>
                 <label>Sort by Price:
                     <select name="sort" onChange={this.onHandleChange}>
@@ -60,7 +66,7 @@ class ItemsPage extends React.Component {
                     Find similar products in these shops <i className="fas fa-angle-double-right"></i>
                 </Link>
             </section>
-            <ShopList shops={[items[0].shop, items[1].shop]}/>
+            <ShopList shops={[this.state.shop1, this.state.shop2]}/>
             
         </section>
     }

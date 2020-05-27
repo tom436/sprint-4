@@ -24,7 +24,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.state.tags.forEach(tag => {
-            this.props.loadItems( tag )
+            this.props.loadItems( {searchValue:tag })//check
                 .then(itemsSet => {
                     this.setState(prevState => ({ items: [...prevState.items, itemsSet] }))
                 })

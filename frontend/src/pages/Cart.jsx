@@ -37,7 +37,7 @@ class Cart extends React.Component {
                     <h1>CART</h1>
                     {cart.map((cartItem, idx) => {
                         return <ul key={idx}>
-                            <li className="shop-title">{cartItem.shop.name}</li>
+                            <li className="shop-title">{cartItem.shopId}</li>
                             <CartItemsList items={cartItem.items} remove={remove} />
                         </ul>
                     })}
