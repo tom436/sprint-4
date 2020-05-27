@@ -37,6 +37,7 @@ function query(filterBy = null, sortBy = null,isSingle) {
     
     if (!filterBy) filterBy = '';
     if(isSingle){   
+             
         return HttpService.get(`items?itemId=${filterBy}`)
         .then(items => {
             if (sortBy) items = compare(items, sortBy)

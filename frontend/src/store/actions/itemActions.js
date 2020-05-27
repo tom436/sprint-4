@@ -17,7 +17,6 @@ export function loadItem(id,isOne) {
    return itemService.query(id,null,isOne)
       .then(item => {
         dispatch({ type: 'SET_ITEM', item:item[0] })
-        console.log(item);
         
         return item
       })

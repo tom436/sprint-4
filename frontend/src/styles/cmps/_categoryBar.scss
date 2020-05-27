@@ -9,15 +9,11 @@
     top: 0;
     background-color: #666;
     margin: 0 auto;
-    :first-child{
-        padding-left:30px;
-    }
-    :last-child{
-        padding-right:30px;
-    }
+
 }
 .categorie-img {
     width: 3em;
+    font-weight: bold;
     img {
         width: 100%;
     }

@@ -20,10 +20,9 @@ class ItemDetails extends React.Component {
         this.setState({ amount: target.value })
     }
 
-    render(){
-        const { item } = this.props        
-        
-        return (!item) ? <p>Loading</p> :
+    render(){        
+        const { item } = this.props
+        return (!item || !item.shop) ? <p>Loading</p> :
             <div className="item-details-container">
                 <section className="flex">
                     <img src={item.img} />
