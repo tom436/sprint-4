@@ -17,8 +17,12 @@ export function loadItem(id,isOne) {
    return itemService.query(id,null,isOne)
       .then(item => {
         dispatch({ type: 'SET_ITEM', item:item[0] })
+<<<<<<< HEAD
+        console.log(item[0]);
+=======
+>>>>>>> 3e16374e10b51fe6d4f32df58a0634a8cc337e0d
         
-        return item
+        return item[0]
       })
   }
 }
