@@ -5,10 +5,12 @@ import { CartItemsList } from '../cmps/CartItemsList'
 import { loadCart, remove, getTotalPrice, checkout } from '../store/actions/userActions'
 import CartService from '../services/cartService'
 import storageService from '../services/storageService'
-
+import {Modal} from '../cmps/Modal'
 class Cart extends React.Component {
 
-
+    state = {
+        class: ''
+    }
     componentDidMount() {
         this.props.loadCart()
         this.props.getTotalPrice()
@@ -18,13 +20,23 @@ class Cart extends React.Component {
     }
     componentWillUnmount() {
     }
-
+    onOpenModal = () => {
+        this.setState({
+            class: 'block'
+        })
+    }
 
     onSetModal() {
         console.log('changing modal');
         const currentState = this.state.modal;
         this.setState({ modal: !currentState })
     }
+    onCloseModal=()=> {
+        this.setState({
+            class: ''
+        })
+    }
+
 
     render() {
         const { cart, remove, totalPrice } = this.props
@@ -32,17 +44,23 @@ class Cart extends React.Component {
 
         return (
             <section className="cart-container flex space-around">
-
+    
                 <section className='items-container flex column'>
                     <h1>CART</h1>
                     {cart.map((cartItem, idx) => {
+                        console.log(cartItem);
+                        
                         return <ul key={idx}>
+<<<<<<< HEAD
                             <li className="shop-title">{cartItem.shopId}</li>
+=======
+                            <li className="shop-title">{cartItem&&cartItem.items[0].shop.name}</li>
+>>>>>>> 3e16374e10b51fe6d4f32df58a0634a8cc337e0d
                             <CartItemsList items={cartItem.items} remove={remove} />
                         </ul>
                     })}
                 </section>
-
+                    <Modal onCloseModal={this.onCloseModal}  showMode={this.state.class}/>
                 <section className="payment-container flex column space-between">
                     <h1>TOTAL</h1>
                     <h3>Sub-total: {totalPrice ? `$${totalPrice}` : '0'}</h3>
@@ -52,7 +70,9 @@ class Cart extends React.Component {
                         <option value="">Express - Up to 3 days ($5)</option>
                         <option value="">Next day - Will arrive tomorrow ($15)</option>
                     </select>
-                    <button onClick={() => CartService.newOrder}>Checkout</button>
+                    <button onClick={() => {
+                    this.onOpenModal()
+                }}>Checkout</button>
                     <div>
                         <h3>WE ACCEPT:</h3>
                     </div>
