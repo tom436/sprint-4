@@ -51,7 +51,7 @@ function addToCart(item, amount) {
 
 function remove(item) {
     const itemId = item._id
-    const shopIdx = gCart.findIndex((purchase) => purchase.shop === item.shop.name)
+    const shopIdx = gCart.findIndex((purchase) => purchase.shop === item.shopId)
     const itemIdx = gCart[shopIdx].items.findIndex((currItem => currItem._id === itemId))
     gCart[shopIdx].items.splice(itemIdx, 1)
     if (gCart[shopIdx].items.length === 0) {
@@ -123,7 +123,7 @@ function newOrder() {
         console.log(shopOrder);
         // HttpService.post(`orders`, shopOrder);
     })
-    // localStorage.clear()
+    localStorage.clear()
 }
 
 

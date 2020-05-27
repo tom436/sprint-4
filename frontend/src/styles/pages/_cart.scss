@@ -2,20 +2,23 @@
     background-color: $clr4;
     height: 100vh;
     padding-top: 20px;
-    h1{
+
+    h1 {
         margin-left: 10px;
- 
+
     }
 }
+
 .items-container {
     min-width: 300px;
     height: fit-content;
-
+    overflow: scroll;
     background-color: white;
     -webkit-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
 }
+
 .payment-container {
     width: 300px;
     height: 200px;
@@ -34,14 +37,16 @@ li {
 
         width: 110px;
     }
+
     img {
-        width:120px;
+        width: 120px;
     }
-    &.shop-title{
-        border-bottom:  1px solid #ebe5e5;
+
+    &.shop-title {
+        border-bottom: 1px solid #ebe5e5;
     }
 }
+
 .edit-amount {
     width: 50px;
 }
-

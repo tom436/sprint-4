@@ -24,13 +24,13 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.state.tags.forEach(tag => {
-            this.props.loadItems( tag )
+            this.props.loadItems({ searchValue: tag })
                 .then(itemsSet => {
                     this.setState(prevState => ({ items: [...prevState.items, itemsSet] }))
                 })
         })
         this.props.loadShops()//set amount 
-        .then( shops=>this.setState({shops:shops}))
+            .then(shops => this.setState({ shops: shops }))
     }
 
     render() {
@@ -40,7 +40,7 @@ class Home extends React.Component {
             slidesToScroll: 1,
             speed: 500,
         }
-        const { shops,items, tags } = this.state
+        const { shops, items, tags } = this.state
         // const { demoData } = this.state
         return (
             (!items.length >= 3) ? <p>loading</p> :
@@ -60,15 +60,15 @@ class Home extends React.Component {
                         <Link to={`/items?q=${tags[2]}`}>Fruits<i className="fas fa-angle-double-right"></i> </Link>
                         {items[2] && <Caruselle toShow={4} classN={'items-carusel'} items={items[2]} />}
                     </section>
-                    {shops &&<div className="news">
+                    {shops && <div className="news">
                         <Link to={`/shops`}>Featured Farms<i className="fas fa-angle-double-right"></i> </Link>
                         {/* <Caruselle toShow={1} classN={'news'} shops={shops} /> */}
                         <div className={'news'}>
                             {<Slider {...settings}>
                                 {shops.map(shop => {
-                                   return <div key={shop._id} > {shop.name} {shop.title}
-                                   <img src={shop.logo}/>
-                                   </div>
+                                    return <div key={shop._id} > {shop.name} {shop.title}
+                                        <img src={shop.logo} />
+                                    </div>
                                 })}
                             </Slider>}
                         </div>
@@ -89,4 +89,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
-   

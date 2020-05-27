@@ -32,7 +32,11 @@ function App() {
           <Route component={Home} path="/" />
         </Switch>
         <Footer />
+        
+      
       </section>
+
+    {/* modal and creating event bus  changing from functoin to component  creating a new modal component*/}
     </div>
   );
 }
