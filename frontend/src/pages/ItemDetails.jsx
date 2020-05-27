@@ -20,17 +20,16 @@ class ItemDetails extends React.Component {
         this.setState({ amount: target.value })
     }
 
-    render(){
+    render(){        
         const { item } = this.props
-        const { shop } = item
-        return (!item || !shop) ? <p>Loading</p> :
+        return (!item || !item.shop) ? <p>Loading</p> :
             <div className="item-details-container">
                 <section className="flex">
                     <img src={item.img} />
                     <div className="item-details flex column">
                         <h3>{item.title}</h3>
-                        <h4>From <Link to={`/shop/${shop._id}`}>{shop.name}</Link>
-                            <span><i className="far fa-star"></i>{shop.rate}</span></h4>
+                        <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link>
+                            <span><i className="far fa-star"></i>{item.shop.rate}</span></h4>
                         <p className="description">{item.description}</p>
                         <p>Price: {item.price}/ {item.unit}</p>
                         <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
@@ -38,7 +37,7 @@ class ItemDetails extends React.Component {
                     </div>
                 </section>
                 <h5>Visit our Farm!</h5>
-                <ShopPreview shop={shop} />
+                <ShopPreview shop={item.shop} />
             </div>
     }
 }

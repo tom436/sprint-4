@@ -15,7 +15,7 @@ _createCart()
 function addToCart(item, amount) {
 
     const shopIdx = gCart.findIndex(purchase => {
-        return purchase.shop === item.shopId
+        return purchase.shopId === item.shop._id
     })
     if (shopIdx != -1) {
         const idx = gCart[shopIdx].items.findIndex(purchase => {
@@ -37,7 +37,7 @@ function addToCart(item, amount) {
         return Promise.resolve(gCart)
     }
     const purchase = {
-        shop: item.shopId,
+        shopId: item.shop._id,
         items: [{
             ...item,
             totalPrice: amount * item.price,
@@ -51,7 +51,7 @@ function addToCart(item, amount) {
 
 function remove(item) {
     const itemId = item._id
-    const shopIdx = gCart.findIndex((purchase) => purchase.shop === item.shop.name)
+    const shopIdx = gCart.findIndex((purchase) => purchase.shop === item.shopId)
     const itemIdx = gCart[shopIdx].items.findIndex((currItem => currItem._id === itemId))
     gCart[shopIdx].items.splice(itemIdx, 1)
     if (gCart[shopIdx].items.length === 0) {
