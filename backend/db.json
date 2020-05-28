@@ -1,6 +1,5 @@
 {
-  "items": [
-    {
+  "items": [{
       "_id": "i100",
       "title": "Romaine Lettuce",
       "price": 10,
@@ -12,6 +11,93 @@
         "organic",
         "greens",
         "vegetables"
+      ]
+    },
+    {
+      "_id": "i194",
+      "title": "Dates",
+      "price": 15,
+      "unit": "kg",
+      "shopId": "s102",
+      "description": "The best dates in the middle east",
+      "img": "https://cdn.pixabay.com/photo/2011/03/16/16/25/dates-5404_1280.jpg",
+      "tags": [
+        "sweet",
+        "fruit"
+      ]
+    },
+    {
+      "_id": "i172",
+      "title": "Flower Honey",
+      "price": 25,
+      "unit": "kg",
+      "shopId": "s102",
+      "description": "Honey made from flowers only",
+      "img": "https://cdn.pixabay.com/photo/2015/06/27/16/35/honey-823614_1280.jpg",
+      "tags": [
+        "sweet"
+      ]
+    },
+    {
+      "_id": "i172",
+      "title": "Dates Honey",
+      "price": 25,
+      "unit": "kg",
+      "shopId": "s102",
+      "description": "Honey made from dates, it our newest product!",
+      "img": "https://cdn.pixabay.com/photo/2015/07/21/10/36/food-853751_1280.jpg",
+      "tags": [
+        "sweet",
+        "fruits"
+      ]
+    },
+    {
+      "_id": "m935",
+      "title": "Pecan Nuts",
+      "price": 7,
+      "unit": "kg",
+      "shopId": "s103",
+      "description": "Carfully groomed pecans, we grow them in the best weather!",
+      "img": "https://cdn.pixabay.com/photo/2020/05/20/19/50/pecan-nuts-5197958_1280.jpg",
+      "tags": [
+        "nuts",
+        "grains"
+      ]
+    },
+    {
+      "_id": "m938",
+      "title": "Lentils",
+      "price": 5,
+      "unit": "kg",
+      "shopId": "s103",
+      "description": "The best lentils in the holyland",
+      "img": "https://cdn.pixabay.com/photo/2017/09/26/23/33/lentils-2790516_1280.jpg",
+      "tags": [
+        "grains"
+      ]
+    },
+    {
+      "_id": "m760",
+      "title": "Chickpeas",
+      "price": 5,
+      "unit": "kg",
+      "shopId": "s103",
+      "description": "For making the best Hummus!",
+      "img": "https://cdn.pixabay.com/photo/2016/12/04/23/38/chickpeas-1882839_1280.jpg",
+      "tags": [
+        "grains"
+      ]
+    },
+    {
+      "_id": "m746",
+      "title": "Green Pease",
+      "price": 8,
+      "unit": "kg",
+      "shopId": "s103",
+      "description": "Green, big and healthy!",
+      "img": "https://cdn.pixabay.com/photo/2020/04/04/09/40/peas-5001525_1280.jpg",
+      "tags": [
+        "grains"
       ]
     },
     {
@@ -33,7 +119,7 @@
       "title": "Kale",
       "price": 19,
       "unit": "kg",
-      "shopId": "v101", 
+      "shopId": "v101",
       "description": "delicious blueberries",
       "img": "https://cdn.pixabay.com/photo/2016/04/13/07/18/blueberry-1326154_960_720.jpg",
       "tags": [
@@ -62,7 +148,7 @@
       "title": "Blueberries",
       "price": 19,
       "unit": "kg",
-      "shopId":  "v101",
+      "shopId": "v101",
       "description": "delicious blueberries",
       "img": "https://cdn.pixabay.com/photo/2016/04/13/07/18/blueberry-1326154_960_720.jpg",
       "tags": [
@@ -76,7 +162,7 @@
       "title": "potato",
       "price": 10,
       "unit": "kg",
-      "shopId": "v102", 
+      "shopId": "v102",
       "description": "chips",
       "img": "https://cdn.pixabay.com/photo/2019/07/12/02/19/potatoes-4331742_960_720.jpg",
       "tags": [
@@ -103,7 +189,7 @@
       "title": "banana",
       "price": 12,
       "unit": "100g",
-      "shopId":"v102",
+      "shopId": "v102",
       "description": "banana",
       "img": "https://cdn.pixabay.com/photo/2016/09/03/20/48/bananas-1642706_960_720.jpg",
       "tags": [
@@ -167,8 +253,7 @@
       ]
     }
   ],
-  "orders": [
-    {
+  "orders": [{
       "_id": "v1225",
       "cretatedAt": 9898989,
       "shopperId": "33221",
@@ -180,8 +265,7 @@
         "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
         "rate": 5
       },
-      "items": [
-        {
+      "items": [{
           "_id": "v140",
           "amount": 2
         },
@@ -204,8 +288,7 @@
         "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
         "rate": 5
       },
-      "items": [
-        {
+      "items": [{
           "_id": "v140",
           "amount": 2
         },
@@ -217,8 +300,7 @@
       "status": "pending"
     }
   ],
-  "shops": [
-    {
+  "shops": [{
       "_id": "v101",
       "name": "Galil Farm",
       "owner": {
@@ -229,9 +311,8 @@
       "logo": "https://cdn.pixabay.com/photo/2015/10/28/22/27/plant-1011492_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2017/05/13/17/18/spinach-2310134_960_720.jpg",
       "location": "Galil",
-      "orders":[],
-      "reviews": [
-        {
+      "orders": [],
+      "reviews": [{
           "user": "Avi",
           "txt": "Great lettuce",
           "stars": 5
@@ -265,9 +346,8 @@
       "logo": "https://cdn.pixabay.com/photo/2017/08/09/09/54/olive-2614000_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/09/04/20/34/plantation-4452538_960_720.jpg",
       "location": "Jerusalem",
-      "orders":[],
-      "reviews": [
-        {
+      "orders": [],
+      "reviews": [{
           "user": "u105",
           "txt": "the veggies are great!!!!",
           "stars": 5
@@ -294,10 +374,9 @@
       "about": "bla bla blah blah",
       "logo": "https://cdn.pixabay.com/photo/2015/12/13/14/59/date-1091228_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/02/13/03/49/palm-trees-3993615_960_720.jpg",
-      "location": "jerusalem",
-      "orders":[],
-      "reviews": [
-        {
+      "location": "Arad",
+      "orders": [],
+      "reviews": [{
           "user": "u105",
           "txt": "the veggies are great!!!!",
           "stars": 5
@@ -320,13 +399,12 @@
         "mini.user": "get the mini user"
       },
       "title": "Nuts and grains",
-      "about": "We sell top quality nuts and grains. At our shop you can find pecans,cheakpeas, red, black, and green lentils",
+      "about": "We sell top quality nuts and grains. At our shop you can find pecans,chickpeas, red, black, and green lentils",
       "logo": "https://cdn.pixabay.com/photo/2017/01/08/21/42/pecans-1964088_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2013/09/25/17/11/pecan-tree-186328_960_720.jpg",
       "location": "Beit Yzhak",
-      "orders":[],
-      "reviews": [
-        {
+      "orders": [],
+      "reviews": [{
           "user": "u105",
           "txt": "the pecans are great!",
           "stars": 5
@@ -354,9 +432,8 @@
       "logo": "https://cdn.pixabay.com/photo/2017/01/20/15/06/orange-1995056_960_720.jpg",
       "aboutImg": "https://cdn.pixabay.com/photo/2019/10/21/14/54/oranges-4566275_960_720.jpg",
       "location": "Telmey Elazar",
-      "orders":[],
-      "reviews": [
-        {
+      "orders": [],
+      "reviews": [{
           "user": "u106",
           "txt": "sweet fruits,perfect!",
           "stars": 5
@@ -373,8 +450,7 @@
       "rate": 5
     }
   ],
-  "categories": [
-    {
+  "categories": [{
       "name": "veg",
       "img": "https://image.flaticon.com/icons/svg/2916/2916169.svg"
     },
@@ -395,8 +471,7 @@
       "img": "https://image.flaticon.com/icons/svg/2972/2972053.svg"
     }
   ],
-  "demoData": [
-    {
+  "demoData": [{
       "name": "tomato",
       "img": "https://image.flaticon.com/icons/svg/2909/2909922.svg"
     },

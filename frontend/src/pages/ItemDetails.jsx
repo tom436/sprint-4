@@ -3,7 +3,6 @@ import React from 'react';
 import { ShopPreview } from '../cmps/ShopPreview.jsx'
 import { connect } from 'react-redux';
 import { loadItem} from '../store/actions/itemActions'
-import { loadShop } from '../store/actions/shopActions'
 import { addToCart } from '../store/actions/userActions'
 
 class ItemDetails extends React.Component {
@@ -22,7 +21,8 @@ class ItemDetails extends React.Component {
 
     render(){        
         const { item } = this.props
-        return (!item || !item.shop) ? <p>Loading</p> :
+        console.log('item',item);
+        return (!item ) ? <p>Loading</p> :
             <div className="item-details-container">
                 <section className="flex">
                     <img src={item.img} />

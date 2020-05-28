@@ -16,7 +16,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <section className="main-container">
         <Header />
         <Switch>
@@ -29,9 +29,8 @@ function App() {
           <Route component={Cart} path="/cart" />
           <Route component={Home} path="/" />
         </Switch>
-
-        <Footer />
       </section>
+        <Footer />
     </div>
   );
 }

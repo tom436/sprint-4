@@ -1,121 +1,109 @@
 .shope-info {
-    background-color: rgba(233, 228, 208, 0.493);
-    // border: 1px solid black;
-    border-radius: 8px;
-    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 100px);
 
 }
 
-.shop-about{
-    color: #6e6e6e;
+.shop-about {
+    grid-row: 3/4;
+    grid-column: 3/5;
 }
+
 .shop-logo {
-    position: center;
-    align-self: center;
-    width: 88px;
-    height: 88px;
+    position: relative;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     box-shadow: 0 0 0 3px #fff;
-    background-color: white;
+    background-color: #f4f4f4;
     object-fit: cover;
-    border: 3px solid #B9C384;
+    grid-column: 2/3;
+    grid-row: 2/4;
+    margin-top: 5rem;
 }
 
-.shop-map {
-    height: 250px;
-    width: 250px;
+.shop-front {
+
+    grid-row: 3/4;
+    grid-column: 3/5;
 }
 
-.shop-rev {
-    padding: 10px;
-    border-bottom: 1px solid grey;
-    background-color: #FEFAE0;
-    border-radius: 12px;
-    width: 75vw;
-    margin-bottom: 5px;
+.shop-name {
+    grid-row: 3/4;
+    grid-column: 3/5;
+
+}
+.sort{
+    background-color: white;
+    width: 13rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+    text-align-last: center;
 }
 
-.rev-span {
-    text-decoration: underline;
-    align-self: center;
-    
-}
 
-.rev-txt{
-    align-self: center;
-    margin-bottom: 10px;
-}
+
+
+
+
 
 .farm-photo {
-    background: 50% 50% no-repeat;
+    grid-column: 1 / 6;
+    grid-row: 1 / 3;
+    overflow: hidden;
     width: 100%;
-    height: 200px;
-    max-height: 200px;
-    background-color: #f4f4f4;
-    display: inline-block;
-    object-fit: cover;
-    // border-bottom: 3px solid white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
-
-.center-item {
-    align-self: center;
-}
-
-
-
 
 ///////////SHOP BUTTONS AND ACCORDION///////////////////
-.shop-btn {
-    display: block;
-    padding: 15px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: #333333;
-    color: #ffffff;
-    text-align: left;
-    transition: background 0.2s;
-    
+
+
+
+.msg{
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
 }
 
-.shop-btn:hover {
-    color: black;
+
+.more{
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+.review{
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
 }
 
-.more-det {
-opacity: 0;
-max-height: 0;
-overflow-y: hidden;
-transition: all 0.4s ease;
+.shop-details-btn {
+    height: 3rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    width: 90%;
+    align-self: center;
+    justify-self: center;
+    background: white;
+
 }
 
-// .more-det::after{
-//     content: '';
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(50%);
-//     transition: all 0.4s ease;
-// }
-
-.more-det-active{
-opacity: 1;
+.msg-btn:active {
+    background-color: yellowgreen;
+    transform: translateY(5px);
 }
 
-// .more-det {
-//     //  max-height: 0;
-//      transition: max-height 0.2s;
-//     padding:0 15px;
-//     background: #eeeeee;
-//     display: none;
-//      overflow: hidden;
-// }
 
-// .more-det-active {
-//     //  max-height: 0;
-//      transition: max-height 0.2s;
-//     padding:0 15px;
-//     background: #eeeeee;
-//     display: block;
-//      overflow: hidden;
-// }
 
+
+
+.reviews {
+    opacity: 1;
+    grid-column:2/6 ;
+    grid-row: 5/6;
+    p{
+        margin-top: 1.3rem;
+    }
+}

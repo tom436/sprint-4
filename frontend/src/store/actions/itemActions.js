@@ -18,7 +18,7 @@ export function loadItem(id,isOne) {
       .then(item => {
         dispatch({ type: 'SET_ITEM', item:item[0] })
         
-        return item
+        return item[0]
       })
   }
 }
