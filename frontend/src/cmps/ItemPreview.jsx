@@ -24,7 +24,7 @@ class ItemPreview extends React.Component {
                 <Link to={`/shop/${shop._id}`}>{shop.name}<span><i className="far fa-star"></i>{shop.rate}</span></Link>
                 <p>Price:  &#36; {item.price}/ {item.unit}</p>
                 <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
-                <button onClick={() => this.props.addToCart(item, +this.state.amount)}><i className="fas fa-shopping-cart"></i></button>
+                <button  className="fas fa-shopping-cart add-to-cart" onClick={() => this.props.addToCart(item, +this.state.amount)}> Add to cart</button>
             </div>
     }
 }

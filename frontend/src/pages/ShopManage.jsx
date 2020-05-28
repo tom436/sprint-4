@@ -7,7 +7,6 @@ import shopService from '../services/shopService'
 // import { SellerProfile, SellerOrders, ItemsEdit } from '../cmps/ShopEdit'
 import   ItemsEdit  from '../cmps/ItemsEdit'
 import   {ItemList}  from '../cmps/ItemList'
-import MoreDet from '../cmps/MoreDet'
 import { connect } from 'react-redux';
 
 class ShopManage extends React.Component {

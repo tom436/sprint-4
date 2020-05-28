@@ -2,6 +2,7 @@
     background-color: $clr4;
     height: 100vh;
     padding-top: 20px;
+
     h1 {
         margin-left: 10px;
     }
@@ -9,21 +10,115 @@
 
 .items-container {
     min-width: 300px;
-    height:500px;
+    height: 500px;
     overflow-y: scroll;
     background-color: white;
     -webkit-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
+
+    button {
+        padding: 0 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: 1px solid #5c5c5c;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    button:active {
+        color: white;
+        ;
+        background-color: rgb(165, 46, 46);
+    }
+}
+
+
+.delivery-options {
+    font-family: sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    // background: rgb(128, 196, 128);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #5c5c5c;
+}
+
+
+
+
+
+
+
+
+
+
+$green : rgb(35, 107, 47);
+
+
+@mixin buttonBG($bg) {
+    border: 2px solid $bg;
+    color: $bg;
+
+    &:hover {
+        background-color: $bg;
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+
+.checkout-btn {
+    align-self: center;
+    width: 90%;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato", sans-serif;
+
+    &:hover {
+        border: none;
+        color: white;
+        font-size: 28px;
+        transform: scale(1.1);
+    }
+}
+
+//   }
+
+.green {
+    @include buttonBG($green);
+}
+
+
+.payment-method {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .payment-container {
     width: 300px;
-    height: 200px;
+    height: 400px;
     background-color: white;
     -webkit-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
+h3{
+    margin-left: 2rem;
+    margin-left: 2rem;
+    border-bottom: 1px solid;
+    margin-right: 50px;
+    text-align: center;
+}
+
+}
+
+.totale-pay{
+    margin-left: 35px;
+    margin-right: 10px;
+    border-bottom: 1px solid black;
 }
 
 li {
@@ -38,6 +133,7 @@ li {
     img {
         width: 120px;
     }
+
     &.shop-title {
         border-bottom: 1px solid #ebe5e5;
     }
@@ -59,13 +155,15 @@ li {
     background-color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
 }
+
 .block {
     display: block;
 }
+
 /* Modal Content */
 .modal-content {
 
-border-radius: 22px;
+    border-radius: 22px;
     font-family: cursive;
     text-align: center;
     position: relative;
@@ -91,6 +189,7 @@ border-radius: 22px;
         top: -300px;
         opacity: 0;
     }
+
     to {
         top: 0;
         opacity: 1;
@@ -102,11 +201,13 @@ border-radius: 22px;
         top: -300px;
         opacity: 0;
     }
+
     to {
         top: 0;
         opacity: 1;
     }
 }
+
 .close {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -120,6 +221,7 @@ border-radius: 22px;
     background-color: #fff;
 
 }
+
 .modal-header {
     color: #12b668;
     padding: 15px 16px;
@@ -143,6 +245,7 @@ border-radius: 22px;
     border-bottom-right-radius: 20px;
 
 }
+
 .basket {
     width: 20%;
 }
@@ -154,15 +257,27 @@ border-radius: 22px;
     border-top: 16px solid #3498db;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
     animation: spin 2s linear infinite;
-  }
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
