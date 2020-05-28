@@ -44,16 +44,16 @@ class ItemsPage extends React.Component {
         this.setState({shop1:shop1,shop2:shop2})
     }
 
-    showDetails=(item)=>{
+    showDetails=(item,isHidden)=>{
         console.log('got to show details',item);
-        this.setState({isModalHidden:false, modalItem:item})//
+        this.setState({isModalHidden:isHidden, modalItem:item})//
     }
 
     render() {
         const {items} =this.props
         console.log('state modal item',this.state.modalItem);
         
-        return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
+        return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="items-page" >
             <form>
                 <label>Sort by Price:
                     <select name="sort" onChange={this.onHandleChange}>
@@ -80,7 +80,7 @@ class ItemsPage extends React.Component {
                 <ShopList shops={[this.state.shop1, this.state.shop2]}/>
                 </div>
             </section> }
-            {!this.state.isModalHidden &&this.state.modalItem &&<ItemModal item={this.state.modalItem}/>}
+            {!this.state.isModalHidden &&this.state.modalItem &&<ItemModal item={this.state.modalItem} showDetails={this.showDetails}/>}
         </section>
     }
 }

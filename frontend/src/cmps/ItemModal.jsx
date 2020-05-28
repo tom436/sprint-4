@@ -23,7 +23,9 @@ class ItemModal extends React.Component {//props= item,
         const { item } = this.props
         console.log('itemModal got', this.props);
         return (!item) ? <p>Loading</p> :
-            <div className="item-details-container modal block flex ">
+            <div className="item-details-container modal block flex " onClick={()=>{
+               this.props.showDetails('',true)
+            }}>
                 <div className="item-details-modal flex align-center  space-evenly">
                     <div className="img-container"><img src={item.img} /></div>
                     <div className="item-details flex column">
