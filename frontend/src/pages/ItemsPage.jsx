@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 import { ItemList } from '../cmps/ItemList.jsx'
+import  ItemModal  from '../cmps/ItemModal.jsx'
 import { ShopList } from '../cmps/ShopList.jsx'
 import { loadItems } from '../store/actions/itemActions'
 
@@ -10,7 +11,9 @@ class ItemsPage extends React.Component {
     state = {
         sort: null,
         shop1:null,
-        shop2:null
+        shop2:null,
+        isModalHidden:false,
+        modalItem:null
     }
 
     componentDidMount() {
@@ -41,8 +44,14 @@ class ItemsPage extends React.Component {
         this.setState({shop1:shop1,shop2:shop2})
     }
 
+    showDetails=(item)=>{
+        console.log('got to show details',item);
+        this.setState({isModalHidden:false, modalItem:item})//
+    }
+
     render() {
         const {items} =this.props
+        console.log('state modal item',this.state.modalItem);
         
         return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="items-page">
             <form>
@@ -60,14 +69,18 @@ class ItemsPage extends React.Component {
                     <input name="minPrice" type="number"/>
                 </label> */}
             </form> 
-            <ItemList items={this.props.items} />
+            <ItemList items={this.props.items} showDetails={this.showDetails}/>
             <section className="shops-link">
                 <Link to={`/shops`}>
                     Find similar products in these shops <i className="fas fa-angle-double-right"></i>
                 </Link>
             </section>
-            <ShopList shops={[this.state.shop1, this.state.shop2]}/>
-            
+            {this.state.shop1&& <section className="shops-of-item">
+                <div className="flex">
+                <ShopList shops={[this.state.shop1, this.state.shop2]}/>
+                </div>
+            </section> }
+            {!this.state.isModalHidden &&this.state.modalItem &&<ItemModal item={this.state.modalItem}/>}
         </section>
     }
 }

@@ -9,22 +9,32 @@ class ItemPreview extends React.Component {
         amount: 1,
     }
 
-    onHandleChange = ({ target }) => {
-        this.setState({ amount: target.value })
+    onHandleChange = (ev) => {
+        ev.preventDefault()
+        this.setState({ amount: ev.target.value })
+    }
+
+    onShowDetails=()=>{
+
+    }
+
+    onAddToCart = (ev) => {
+        ev.stopPropagation()
+        this.props.addToCart(this.props.item, +this.state.amount)
     }
 
     render() {
         const { item } = this.props
-        console.log('item',item);
-        
-        const {shop} = item
+        const { shop } = item
         return (!item) ? <p>Loading</p> :
-            <div className="item-preview">
-                <Link to={`/item/${item._id}`}><img src={item.img} /><p>{item.title}</p></Link>
+            <div className="item-preview" onClick={() => this.props.showDetails(item)}>
+                <div className="img-container"><img src={item.img} /></div>
+                <p>{item.title}</p>
                 <Link to={`/shop/${shop._id}`}>{shop.name}<span><i className="far fa-star"></i>{shop.rate}</span></Link>
                 <p>Price:  &#36; {item.price}/ {item.unit}</p>
                 <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
-                <button onClick={() => this.props.addToCart(item, +this.state.amount)}><i className="fas fa-shopping-cart"></i></button>
+                <button className="fas fa-shopping-cart" onClick={this.onAddToCart}>
+                </button>
             </div>
     }
 }

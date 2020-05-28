@@ -51,11 +51,7 @@ class Cart extends React.Component {
                         console.log(cartItem);
                         
                         return <ul key={idx}>
-<<<<<<< HEAD
-                            <li className="shop-title">{cartItem.shopId}</li>
-=======
                             <li className="shop-title">{cartItem&&cartItem.items[0].shop.name}</li>
->>>>>>> 3e16374e10b51fe6d4f32df58a0634a8cc337e0d
                             <CartItemsList items={cartItem.items} remove={remove} />
                         </ul>
                     })}
