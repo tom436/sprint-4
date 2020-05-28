@@ -15,7 +15,6 @@ class ItemPreview extends React.Component {
 
     render() {
         const { item } = this.props
-        console.log('item',item);
         
         const {shop} = item
         return (!item) ? <p>Loading</p> :

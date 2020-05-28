@@ -9,7 +9,6 @@ import ItemDetails from './pages/ItemDetails'
 import Cart from './pages/Cart'
 import Header from './cmps/Header'
 import { Footer } from './cmps/Footer'
-import { CategoryBar } from './cmps/CategoryBar'
 
 import { Route, Switch, Link } from 'react-router-dom';
 // import { createBrowserHistory } from 'history';
@@ -18,9 +17,8 @@ import { Route, Switch, Link } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <CategoryBar/>
       <section className="main-container">
+        <Header />
         <Switch>
           <Route component={ItemsPage} path="/items" />
           {/* <Route component={ShopsPage} path="/shops" /> */}
@@ -31,6 +29,7 @@ function App() {
           <Route component={Cart} path="/cart" />
           <Route component={Home} path="/" />
         </Switch>
+
         <Footer />
       </section>
     </div>
