@@ -52,7 +52,7 @@ class Cart extends React.Component {
                         console.log(cartItem);
 
                         return <ul key={idx}>
-                            <li className="shop-title">{cartItem && cartItem.items[0].shop.name}</li>
+                            <li className="shop-title">{cartItem&&cartItem.items[0].shop.name}</li>
                             <CartItemsList items={cartItem.items} remove={remove} />
                         </ul>
                     })}

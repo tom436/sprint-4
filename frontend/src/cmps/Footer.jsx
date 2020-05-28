@@ -7,13 +7,13 @@ import history from '../history'
 
 export function Footer() {
     return (
-        <section >
+        <footer>
             <ul className="footer flex align-center justify-center">
                 <li><NavLink to="/" exact >Home</NavLink></li>
                 <li><NavLink to="/items" exact>items</NavLink></li>
                 <li><NavLink to="/cart" exact>Cart</NavLink></li>
                 <li><NavLink to="/signup" exact>Login</NavLink></li>
             </ul>
-        </section>
+        </footer>
     );
 }

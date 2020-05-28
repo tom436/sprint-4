@@ -21,7 +21,8 @@ class ItemDetails extends React.Component {
 
     render(){        
         const { item } = this.props
-        return (!item || !item.shop) ? <p>Loading</p> :
+        console.log('item',item);
+        return (!item ) ? <p>Loading</p> :
             <div className="item-details-container">
                 <section className="flex">
                     <img src={item.img} />

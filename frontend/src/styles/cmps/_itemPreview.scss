@@ -1,48 +1,90 @@
-.item-preview{
-    width : 250px;
-    input{
-        width: 30px;
-    }
-}
-
-.items-page{
+.items-page {
     padding: 30px 0;
     display: grid;
-    grid-template-columns: minmax(20px,1fr) 1050px minmax(20px,1fr);
-    grid-template-rows: 100px auto 60px 150px;
     grid-row-gap: 20px;
-    form{
+    grid-template-rows: 100px auto 60px 150px;
+
+    @include for-mobile-layout {
+        grid-template-columns: minmax(20px, 1fr) $mobile-breakpoint minmax(20px, 1fr);
+    }
+
+    @include for-narrow-layout {
+        grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+    }
+
+    @include for-wide-layout {
+        grid-template-columns: minmax(20px, 1fr) $normal-breakpoint minmax(20px, 1fr);
+    }
+
+    & > * {
         grid-column: 2;
+    }
+
+    form {
         grid-row: 1;
     }
-    
-    .item-list{
-        grid-column: 2;
+
+    .item-list {
         grid-row: 2;
     }
-    .shops-link{
-        grid-column: 2;
-        grid-row: 3; 
+
+    .shops-link {
+        grid-row: 3;
     }
-    .shops-of-item{
-        grid-column: 2;
+
+    .shops-of-item {
         grid-row: 4;
     }
 }
 
-.item-list{
-    img{
-        height: 190px;
-        width:100%;
+.item-preview {
+    // width: 100%;
+    input {
+        width: 30px;
     }
-    display: grid;
-    grid-template-columns: repeat(4,250px);
-    grid-auto-rows: 300px;
-    gap:15px;
+
+    @include for-narrow-layout {
+        display: flex;
+        grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
+        .img-container {
+            width: 50px;
+        }
+    }
 }
 
-.shops-link{
-    font-size:1.5rem ;
+.item-list {
+    img {
+        
+        height: 190px;
+        width: 100%;
+    }
+    display: grid;
+    gap: 15px;
+
+    @include for-wide-layout {
+        grid-template-columns: repeat(4, 250px);
+        grid-auto-rows: 300px;
+    }
+    @include for-normal-layout {
+        grid-template-columns: repeat(3, 200px);
+        grid-auto-rows: 300px;
+    }
+    @include for-narrow-layout {
+        grid-template-columns: auto;
+        grid-auto-rows: 150px;
+    }
+    @include for-mobile-layout {
+        grid-template-columns: 400px;
+        grid-auto-rows: 150px;
+    }
+}
+
+.shops-link {
+    font-size: 1.5rem;
 }
 .add-to-cart{
     cursor: pointer;
