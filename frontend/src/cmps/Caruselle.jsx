@@ -7,25 +7,43 @@ import  ItemPreview  from '../cmps/ItemPreview.jsx'
 
 
 export default function Caruselle(props) {
-    const { items , toShow,classN } = props;
+    const { items } = props;
 
     const settings = {
-        infinite: true,
-        slidesToShow: toShow,
-        slidesToScroll: 1,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         speed: 500,
+        responsive:[
+            {
+                breakpoint: 720,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1
+                }
+              },
+            {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+        ]
     }
 
     return (
-        <div className={classN}>
-            {<Slider {...settings}>
+            <Slider {...settings}>
                  {items.map((item, idx) => {
-                    return <div key={idx} className="carusel-img">
-                        <ItemPreview item={item}/>
+                    return <div className="ppp"><div key={idx} className="carusel-img">
+                        <img src={`${item.img}`} alt=""/>
+
+                    </div>
+                 <h4>{`${item.title}`}</h4>
+                 <h4>{`$${item.price}`}</h4>
+
                     </div>
                 })}
-            </Slider>}
-        </div>
-    );
+            </Slider>
+    )
 }
 

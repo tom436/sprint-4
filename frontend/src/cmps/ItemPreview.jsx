@@ -10,7 +10,9 @@ class ItemPreview extends React.Component {
     }
 
     onHandleChange = (ev) => {
+
         ev.preventDefault()
+
         this.setState({ amount: ev.target.value })
     }
 
