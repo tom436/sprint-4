@@ -1,43 +1,59 @@
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link, withRouter } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadItems } from '../store/actions/itemActions.js'
 import { setFilter } from '../store/actions/itemActions.js'
 import history from '../history'
-import { withRouter } from 'react-router-dom';
-
+import { Search } from './Search'
 class Header extends React.Component {
 
     state = {
         class: '',
+        menu:'',
         filter: {
             searchValue: ''
         }
     }
     componentDidMount() {
+        console.log(this.props)
         window.addEventListener('scroll', this.getWindowHeight);
 
     }
     componentWillUnmount() {
         window.removeEventListener('scroll', this.getWindowHeight);
     }
+    componentDidUpdate() {
+
+    }
 
     getWindowHeight = () => {
         const distanceY = window.pageYOffset
-        const shrinkOn = 0;
-        
-        if (distanceY >shrinkOn) {
+        const shrinkOn = 300;
+
+        if (distanceY > shrinkOn) {
             this.setState({
-                class: "smaller"
+                class: "smaller",
             })
         }
+        if (distanceY > 500) {
+            this.setState({
+                class: "smaller white"
+            })
+        }
+
         else if (distanceY < 100) {
             this.setState({
                 class: ''
             })
         }
     }
-
+    toggleMenu=(pos)=>{
+        console.log(pos);
+        
+        this.setState({
+            menu:pos
+        })
+    }
     handleChange = (ev) => {
         let { name, value } = ev.target;
         this.setState(prevState => ({ filter: { ...prevState.filter, [name]: value } }));
@@ -46,28 +62,34 @@ class Header extends React.Component {
         ev.preventDefault()
         this.props.setFilter(this.state.filter)
         history.push({
-            pathname:'/items',
-            search:`?q=${this.state.filter.searchValue}`
+            pathname: '/items',
+            search: `?q=${this.state.filter.searchValue}`
         })
     }
 
     render() {
         return (
-            <section className={`main-header ${this.state.class} flex align-center space-between`}>
-                <Link to="/"><h1>Farm To You</h1></Link>
-                
-                <form action="" onSubmit={this.handleSubmit}>
-                    <input name="searchValue" type="text" placeholder="Search products or farms" onChange={this.handleChange} value={this.state.filter.searchValue} />
-                    <button>GO</button>
-                </form>
-                <ul className="main-nav flex">
-                    <li><NavLink to="/" exact >Home</NavLink></li>
-                    <li><NavLink to="/items" exact>Items</NavLink></li>
-                    <li><NavLink to="/shops" exact>Shops</NavLink></li>
-                    <li><NavLink to="/signup" exact>Login</NavLink></li>
-                    <li><NavLink to="/shop/manage/:id?" exact>Add a shop</NavLink></li>
-                    <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
-                </ul>
+                <section className={`container flex align-center space-between main-header ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
+                  <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
+                        this.toggleMenu('')
+                    }}></div>
+                    <h1><Link to="/">Farm To You</Link></h1>
+                    <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue}/>
+                    <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev)=>{
+                        this.toggleMenu('')
+                    }}>
+                        <li><NavLink to="/items" exact>Items</NavLink></li>
+                        <li><NavLink to="/shops" exact>Farms</NavLink></li>
+                        <li><NavLink to="/shop/manage/:id?" exact>Add a Farm</NavLink></li>
+                        <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
+                        <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
+                        <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
+                    </ul>
+                    <button onClick={(ev)=>{
+                        ev.stopPropagation()
+                        this.toggleMenu('menu-open')
+                    }} className="fas fa-bars btn-menu"></button>
+
             </section>
         );
     }
@@ -83,4 +105,4 @@ const mapDispatchToProps = {
     setFilter
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header))

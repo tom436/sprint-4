@@ -27,7 +27,7 @@ class ItemPreview extends React.Component {
         const { item } = this.props
         const { shop } = item
         return (!item) ? <p>Loading</p> :
-            <div className="item-preview" onClick={() => this.props.showDetails(item)}>
+            <div className="item-preview" onClick={() => this.props.showDetails(item,false)}>
                 <div className="img-container"><img src={item.img} /></div>
                 <p>{item.title}</p>
                 <Link to={`/shop/${shop._id}`}>{shop.name}<span><i className="far fa-star"></i>{shop.rate}</span></Link>

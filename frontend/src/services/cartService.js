@@ -123,7 +123,7 @@ function newOrder() {
         console.log(shopOrder);
         // HttpService.post(`orders`, shopOrder);
     })
-    // localStorage.clear()
+    localStorage.clear()
 }
 
 

@@ -4,6 +4,7 @@
 
 @import "./basics/layouts.scss";
 @import "./basics/basic.scss";
+@import "./cmps/search.scss";
 @import "./basics/typography.scss";
 
 @import "./cmps/header.scss";
@@ -20,11 +21,13 @@
 
 @import "./pages/home.scss";
 * {
-    margin: 0;  
     box-sizing: border-box;
 
 }
 .main-container{
     background-color:white;
 
+}
+button{
+    cursor: pointer;
 }
