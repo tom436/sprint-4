@@ -46,12 +46,15 @@
     input {
         width: 30px;
     }
+    .img-container{
+    @include aspect-ratio(1.4, 1);
+    }
 
     @include for-narrow-layout {
         display: flex;
         grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
         .img-container {
-            width: 50px;
+            width: 100px;
         }
     }
 }
