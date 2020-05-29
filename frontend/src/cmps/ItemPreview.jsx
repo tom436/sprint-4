@@ -14,7 +14,7 @@ class ItemPreview extends React.Component {
         this.setState({ amount: ev.target.value })
     }
 
-    onShowDetails=()=>{
+    onShowDetails = () => {
 
     }
 
@@ -27,14 +27,18 @@ class ItemPreview extends React.Component {
         const { item } = this.props
         const { shop } = item
         return (!item) ? <p>Loading</p> :
-            <div className="item-preview" onClick={() => this.props.showDetails(item,false)}>
+            <div className="item-preview" onClick={() => this.props.showDetails(item, false)}>
                 <div className="img-container"><img src={item.img} /></div>
                 <p>{item.title}</p>
                 <Link to={`/shop/${shop._id}`}>{shop.name}<span><i className="far fa-star"></i>{shop.rate}</span></Link>
-                <p>Price:  &#36; {item.price}/ {item.unit}</p>
-                <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
-                <button className="fas fa-shopping-cart" onClick={this.onAddToCart}>
-                </button>
+                <div className="flex space-between align-center">
+                    <p>Price:  &#36; {item.price}/ {item.unit}</p>
+                    <div>
+                        <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
+                        <button className="fas fa-shopping-cart" onClick={this.onAddToCart}>
+                        </button>
+                    </div>
+                </div>
             </div>
     }
 }

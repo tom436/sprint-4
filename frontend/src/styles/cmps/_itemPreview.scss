@@ -17,7 +17,7 @@
     }
 
     @include for-wide-layout {
-        grid-template-columns: minmax(20px, 1fr) $normal-breakpoint minmax(20px, 1fr);
+        grid-template-columns: minmax(20px, 1fr) auto minmax(20px, 1fr);
     }
 
     & > * {
@@ -45,6 +45,9 @@
     // width: 100%;
     input {
         width: 30px;
+    }
+    .img-container{
+    @include aspect-ratio(1.4, 1);
     }
 
     @include for-narrow-layout {
