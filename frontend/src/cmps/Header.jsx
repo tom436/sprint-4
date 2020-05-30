@@ -80,7 +80,7 @@ class Header extends React.Component {
                     }}>
                         <li><NavLink to="/items" exact>Items</NavLink></li>
                         <li><NavLink to="/farms" exact>Farms</NavLink></li>
-                        <li><NavLink to="/shop/manage/:id?" exact>Add a Farm</NavLink></li>
+                        <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
                         <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
                         <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
                         <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>

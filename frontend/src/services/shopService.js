@@ -65,15 +65,13 @@ function addReview(shop, review) {
 function save(shop) {
     if (shop._id) {
         // UPDATE
-        return axios.put(`${baseUrl}/${shop._id}`, shop)
-            .then(res => res.data)
+        return HttpService.put(`shops/`, shop)
             .then(savedItem => {
                 return savedItem
             })
     } else {
         // CREATE
-        return axios.post(baseUrl, shop)
-            .then(res => res.data)
+        return HttpService.post(`shops/`, shop)
             .then(savedItem => {
                 return savedItem
             })

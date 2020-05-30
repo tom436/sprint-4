@@ -1,6 +1,5 @@
 import HttpService from './HttpService';
 import storageService from './storageService'
-
 export default {
     addToCart,
     loadCart,
@@ -109,21 +108,18 @@ function _getOrderTotal(items){
 }
 function newOrder() {
     const cart = storageService.load('cart')
-    console.log(cart);
-    cart.map(order => {
-        //  console.log(order);
-        let shopOrder = {
+    let orders=cart.map(order => {
+        return  {
             _id: _makeId(),
             createdAt: new Date().toLocaleString(),
             shopperId: 'guest',
             totalPrice:_getOrderTotal(order.items),
-            ...order,
-            
+            ...order
         }
-        console.log(shopOrder);
-        // HttpService.post(`orders`, shopOrder);
     })
     localStorage.clear()
+    return Promise.resolve(orders)
+
 }
 
 
