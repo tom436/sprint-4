@@ -31,12 +31,13 @@ export default class Review extends Component {
         const {addReview}= this.props
         return (
             <section className="main-section" >
-                <h1>this is add review modal</h1>
 
                 <form className="flex column" onSubmit={this.onSubmit}>
                     <textarea className="user-txt" name="txt" onChange={this.handleChange} value={this.state.reviewToEdit.txt}></textarea>
+                    <label >Rank this shop:
                     <input  className="user-rate" type="number" name="stars" value={this.state.reviewToEdit.stars} onChange={this.handleChange} />
-                    <button>Submit</button>
+                    </label>
+                    <button className="submit-btn">Submit</button>
                 </form>
             </section >
 

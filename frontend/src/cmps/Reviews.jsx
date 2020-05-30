@@ -2,17 +2,20 @@ import React from 'react';
 import MapContainer from './MapContainer'
 import AddReview from './AddReview'
 import { Link } from 'react-router-dom';
+import {Stars} from './Stars'
 
 function RevPrev(review, idx) {
     return (
-        <div key={idx} className="shop-rev flex space-around">
-            <div className="user-rev column">
-                <p className="rev-user">Name: {review.user}</p>
+        <div key={idx} className="shop-rev flex align-center">
+            <div className="column rev-det">
+                <h3 >{review.user}</h3>
                 <p>{review.time}</p>
-                <p>{review.stars}</p>
+                <div className="stars">
+                <Stars count={review.stars}/>
+                </div>
             </div>
             <div className="user-rev">
-                <h2 className="rev-txt"> {review.txt}</h2>
+                <p className="rev-txt"> {review.txt}</p>
             </div>
         </div>
     )
@@ -35,13 +38,11 @@ export default function Reviews(props) {
             <button className="add-review-btn" onClick={getAddReview}>Add Review</button>
             {isAddReview && <AddReview addReview={addReview} />}
 
-            <div className="reviews flex column justify-center">
-                <span className="rev-span">Reviews:</span>
-                <div className="rev-box">
+            <h3 className="reviews">Reviews:</h3>
+                <div className="rev-box flex column">
                     {shop.reviews.map((rev, idx) => RevPrev(rev, idx))}
                 </div>
 
-            </div>
 
         </section>
     )

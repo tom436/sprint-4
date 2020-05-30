@@ -38,6 +38,7 @@ class Cart extends React.Component {
         this.setState({
             class: 'block'
         })
+       
     }
     onCloseModal = () => {
         this.setState({
@@ -65,6 +66,7 @@ class Cart extends React.Component {
                         <h2 >TOTAL: {totalPrice ? `$${totalPrice}` : '0'} </h2>
                         <h4>You are supporting {cart.length} farms!</h4>
                         <button className="checkout-btn green" onClick={() => {
+                            
                             this.onOpenModal()
                         }}>Checkout</button>
 
