@@ -1,11 +1,12 @@
 .shope-info {
     display: grid;
     grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-rows: repeat(2, 100px) 150px 100px;
 
 }
 
 .shop-about {
+    margin: 0em;
     grid-row: 3/4;
     grid-column: 3/5;
 }
@@ -34,7 +35,8 @@
     grid-column: 3/5;
 
 }
-.sort{
+
+.sort {
     background-color: white;
     width: 13rem;
     border-radius: 10px;
@@ -64,20 +66,22 @@
 
 
 
-.msg{
+.msg {
     grid-column: 3 / 4;
     grid-row: 4 / 5;
 }
 
 
-.more{
+.more {
     grid-column: 2 / 3;
     grid-row: 4 / 5;
 }
-.review{
-    grid-column: 4 / 5;
+
+.review {
+    grid-column: 2 / 3;
     grid-row: 4 / 5;
 }
+
 
 .shop-details-btn {
     height: 3rem;
@@ -95,15 +99,35 @@
     transform: translateY(5px);
 }
 
+.shop-rev {
+    width: 80%;
+    border-bottom: 1px solid gray;
 
+    div:not(:last-child) {
+        border-right: 1px solid black;
+
+    }
+
+
+}
+
+
+.user-rev {
+    width: 40%;
+
+
+}
+
+.rev-box {
+    // width: 80%;
+}
 
 
 
 .reviews {
     opacity: 1;
-    grid-column:2/6 ;
-    grid-row: 5/6;
-    p{
+
+    p {
         margin-top: 1.3rem;
     }
 }

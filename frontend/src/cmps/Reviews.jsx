@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 function RevPrev(review, idx) {
     return (
         <div key={idx} className="shop-rev flex space-around">
-            <div className="column">
-                <p className="rev-user">{review.user}</p>
+            <div className="user-rev column">
+                <p className="rev-user">Name: {review.user}</p>
                 <p>{review.time}</p>
                 <p>{review.stars}</p>
             </div>
-            <p className="rev-txt">{review.txt}</p>
+            <div className="user-rev">
+            <h2 className="rev-txt"> {review.txt}</h2>
+            </div>
         </div>
     )
 }
@@ -29,7 +31,7 @@ export default function Reviews(props) {
     const { shop, addReview } = props
 
     return (
-        <section >
+        <section className="rev-box">
 
             {/* <AddReview addReview={addReview} /> */}
             {/* <div className="det-shop flex column">

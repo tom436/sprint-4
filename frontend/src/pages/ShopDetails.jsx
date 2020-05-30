@@ -76,12 +76,9 @@ class ShopDetails extends React.Component {
 
                 <button className="shop-details-btn msg ">Send a Message</button>
                 <button className="shop-details-btn review " onClick={this.getReviews}>Reviews</button>
-                <div className="reviews" >
-                    {this.state.getReviews && <Reviews shop={shop} addReview={this.addReview} />}
-                </div>
-
         
             </section>
+                    {this.state.getReviews && <Reviews shop={shop} addReview={this.addReview} />}
             <section className=" flex column align-center">
                 <form>
                     <select className="sort" name="sort" onChange={this.onHandleChange}>
