@@ -6,11 +6,12 @@ const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
-    getById
+    getById,
+    add,
+    update
 }
 
 async function query(filterBy = {}) {
-    console.log(filterBy);
 
     const criteria = {};
     if (filterBy._id) {
@@ -36,12 +37,10 @@ async function query(filterBy = {}) {
 }
 
 async function getById(shopId) {
-    console.log('here',shopId);
     
     const collection = await dbService.getCollection('shops')
     try {
         const shop = await collection.findOne({"_id":shopId})
-        console.log('in',shop);
         
         return shop
     } catch (err) {
@@ -52,7 +51,8 @@ async function getById(shopId) {
 
 
 async function add(shop) {
-    const collection = await dbService.getCollection('shop')
+    const collection = await dbService.getCollection('shops')
+    
     try {
         await collection.insertOne(shop);
         return shop;
@@ -62,9 +62,10 @@ async function add(shop) {
     }
 }
 
+
 async function update(shop) {
-    const collection = await dbService.getCollection('shop')
-    shop._id = ObjectId(shop._id);
+    const collection = await dbService.getCollection('shops')
+    shop._id = shop._id;
 
     try {
         await collection.replaceOne({"_id":shop._id}, {$set : shop})

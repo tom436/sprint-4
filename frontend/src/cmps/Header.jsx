@@ -69,7 +69,7 @@ class Header extends React.Component {
 
     render() {
         return (
-                <section className={`container flex align-center space-between main-header ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
+                <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
                   <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
                         this.toggleMenu('')
                     }}></div>
@@ -79,8 +79,8 @@ class Header extends React.Component {
                         this.toggleMenu('')
                     }}>
                         <li><NavLink to="/items" exact>Items</NavLink></li>
-                        <li><NavLink to="/shops" exact>Farms</NavLink></li>
-                        <li><NavLink to="/shop/manage/:id?" exact>Add a Farm</NavLink></li>
+                        <li><NavLink to="/farms" exact>Farms</NavLink></li>
+                        <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
                         <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
                         <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
                         <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>

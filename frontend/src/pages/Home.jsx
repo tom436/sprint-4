@@ -16,9 +16,8 @@ class Home extends React.Component {
     state = {
         demoData: '',
         tags: [
-            'organic',
-            'fruit',//greens
-            'fruit'//Exotic
+            'fruits',
+            'organic',//greens
         ],
         items: [],
         shops: [],
@@ -29,7 +28,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         this.state.tags.forEach(tag => {
-            this.props.loadItems({ searchValue: tag })
+            this.props.loadItems( tag )
                 .then(itemsSet => {
                     this.setState(prevState => ({ items: [...prevState.items, itemsSet] }))
                 })
@@ -68,29 +67,42 @@ class Home extends React.Component {
                     </section>
                     <section className="grid-container">
 
+                        <Link className="category" to={`/items?q=${tags[0]}`}>{`${tags[0]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right arrow"></span> </Link>
+                        {items[0] && <Caruselle toShow={4} classN={'items-carusel'} items={items[0]} />}
+                        <Link className="category" to={`/items?q=${tags[1]}`}>{`${tags[1]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right arrow"></span> </Link>
+                        {items[1] && <Caruselle items={items[1]} />}
                         <div className="offers-container">
                             <div className="img-container meat-img">
+                            <Link to="/items?q=meat">
+                                </Link>
+                                <h2>Meat</h2>
                             </div>
                             <div className="img-container cheese-img">
+                            <Link to="/items?q=cheese">
+                                </Link>
+                                <h2>Cheese</h2>
+
                             </div>
-  
                             <div className="img-container bread-img">
+                                <Link to="/items?q=bread">
+                                </Link>
+                                <h2>Bread</h2>
                             </div>
                         </div>
+                        <Link to="/items?q=root">
+                            <div className="collage-container">
+                                <div className="img-container main-img">
+                                    <h2>Find Your Roots</h2>
+                                </div>
+                                <div className="img-container second-img">
 
-                        <div className="collage-container">
-                            <div className="img-container main-img">
-                                <h2>Find Your Roots</h2>
+                                </div>
+                                <div className="img-container third-img">
+                                </div>
                             </div>
-                            <div className="img-container second-img">
-
-                            </div>
-                            <div className="img-container third-img">
-                            </div>
-                        </div>
+                        </Link>
 
                     </section>
-                    {/* <CategoryBar /> */}
 
                     {/* <section>
                         <Link to={`/items?q=${tags[0]}`}>Organic<i className="fas fa-angle-double-right"></i> </Link>

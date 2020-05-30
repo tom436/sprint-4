@@ -5,15 +5,16 @@ import { ItemList } from '../cmps/ItemList.jsx'
 import ItemModal from '../cmps/ItemModal.jsx'
 import { ShopList } from '../cmps/ShopList.jsx'
 import { loadItems } from '../store/actions/itemActions'
-
+import {CategoryBar} from '../cmps/CategoryBar'
 class ItemsPage extends React.Component {
 
     state = {
         sort: null,
-        shop1: null,
-        shop2: null,
-        isModalHidden: false,
-        modalItem: null
+        shop1:null,
+        shop2:null,
+        isModalHidden:false,
+        modalItem:null,
+        category:''
     }
 
     componentDidMount() {
@@ -54,14 +55,15 @@ class ItemsPage extends React.Component {
     }
 
     render() {
-        const { items } = this.props
-        console.log('state modal item', this.state.modalItem);
-
-        return (!items[0] ) ? <p>sorry, we don't have it yet...</p> : <section className="items-page" >
+        const {items} =this.props
+        console.log('state modal item',this.state.modalItem);
+        
+        return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
+           <CategoryBar/>
             <form>
-                <label>Sort by Price:
+                <label>Sort by:
                     <select name="sort" onChange={this.onHandleChange}>
-                        <option value="" >sort by</option>
+                        <option value="" >-</option>
                         <option value="lowToHigh" >Low to High</option>
                         <option value="highToLow" >High to Low</option>
                     </select>

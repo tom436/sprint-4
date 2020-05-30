@@ -1,5 +1,7 @@
 @import "./basics/helpers.scss";
 @import "./basics/vars.scss";
+@import "./basics/animations.scss";
+
 @import "./basics/mixins.scss";
 
 @import "./basics/layouts.scss";
@@ -13,6 +15,8 @@
 @import "./cmps/itemDetails.scss";
 @import "./cmps/shopPreview.scss";
 @import "./cmps/categoryBar.scss";
+@import "./cmps/cartModal.scss";
+@import './pages/shopsPage.scss';
 
 @import './pages/home.scss';
 @import './pages/shop.scss';
@@ -30,4 +34,8 @@
 }
 button{
     cursor: pointer;
+}
+body{
+    font-family: 'Overlock', cursive;
+    margin: 0;
 }

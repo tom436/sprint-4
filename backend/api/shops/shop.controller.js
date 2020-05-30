@@ -20,7 +20,6 @@ async function getShops(req, res) {
 async function getShop(req, res) {
     
     const shop = await shopService.getById(req.params.id)
-    console.log(shop);
     
     res.send(shop)
 }
@@ -34,7 +33,11 @@ async function deleteShop(req, res) {
         res.status(500).send({ error: 'cannot delete shop' })
     }
 }
-
+async function updateShop(req, res) {
+    const shop = req.body;
+    await shopService.update(shop)
+    res.send(shop)
+}
 async function addShop(req, res) {
     var shop = req.body;
     shop = await shopService.add(shop)
@@ -45,5 +48,6 @@ module.exports = {
     getShops,
     deleteShop,
     addShop,
-    getShop
+    getShop,
+    updateShop
 }
