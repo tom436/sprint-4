@@ -13,7 +13,8 @@ class ShopDetails extends React.Component {
     state = {
         shop: null,
         sortBy: null,
-        getReviews: false
+        getReviews: false,
+        isAddReview: false
     }
 
     componentDidMount() {
@@ -39,6 +40,8 @@ class ShopDetails extends React.Component {
         shop.reviews.push(reviewToAdd)
         shopService.save(shop)
             .then(res => this.loadShop())
+            this.setState({ isAddReview: false })
+
     }
 
 
@@ -48,37 +51,43 @@ class ShopDetails extends React.Component {
     }
 
     getReviews = () => {
-        const currentState =this.state.getReviews
+        const currentState = this.state.getReviews
         this.setState({ getReviews: !currentState });
         console.log('getting', currentState);
     }
 
-        
-        
+
+    getAddReview = () => {
+        const currentState = this.state.isAddReview
+        this.setState({ isAddReview: true })
+
+    }
 
 
 
     render() {
-        const { shop } = this.state
+        const { shop, isAddReview } = this.state
         if (!shop) return <div>Loading....</div>
 
-        return <section className="">
-            <section className="shope-info">
-                <div className="farm-photo" style={{ backgroundImage: `url(${shop.aboutImg})` }}>
-                </div>
+        return <section className="grid-container">
+            <div className="hero-img full">
                 <img className="shop-logo " src={shop.logo} />
+            </div>
+            <section className="">
+                <div className="" style={{ backgroundImage: `url(${shop.aboutImg})` }}>
+                </div>
+
                 <div className="shop-front flex column">
                     <h2 className="shop-name">{shop.name}</h2>
                     <p className="shop-about">{shop.about}</p>
                     <p>stars!.........</p>
                 </div>
 
-
                 <button className="shop-details-btn msg ">Send a Message</button>
                 <button className="shop-details-btn review " onClick={this.getReviews}>Reviews</button>
-        
+
             </section>
-                    {this.state.getReviews && <Reviews shop={shop} addReview={this.addReview} />}
+            {this.state.getReviews && <Reviews isAddReview={isAddReview} getAddReview={this.getAddReview} shop={shop} addReview={this.addReview} />}
             <section className=" flex column align-center">
                 <form>
                     <select className="sort" name="sort" onChange={this.onHandleChange}>
@@ -87,14 +96,9 @@ class ShopDetails extends React.Component {
                         <option value="lowToHigh" >By Lowest Price</option>
                     </select>
                 </form>
-                {/* <ItemList items={this.props.items} /> */}
             </section>
-            {/* <form action="" onSubmit={this.onSearchSub}>
-                <input type="text" placeholder="Search item In Shop" />
-                <button>Search</button>
-            </form> */}
-
-
+                <ItemList items={this.props.items} />
+           
         </section>
     }
 }
