@@ -34,14 +34,10 @@ export default function Caruselle(props) {
     return (
             <Slider {...settings}>
                  {items.map((item, idx) => {
-                    return <div className="ppp"><div key={idx} className="carusel-img">
-                        <img src={`${item.img}`} alt=""/>
+                    return  <ItemPreview key={idx} showDetails={()=>{}}  item={item}/>
+                      
+                   
 
-                    </div>
-                 <h4>{`${item.title}`}</h4>
-                 <h4>{`$${item.price}`}</h4>
-
-                    </div>
                 })}
             </Slider>
     )

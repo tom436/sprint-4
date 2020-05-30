@@ -20,21 +20,21 @@
     }
     @include for-narrow-layout {
         grid-template-columns:
-            minmax(20px, 1fr)
-            minmax(auto, $mobile-breakpoint)
-            minmax(20px, 1fr);
+        minmax(0, 1fr)
+        minmax(auto, $narrow-breakpoint)
+        minmax(0, 1fr);
     }
 
     @include for-normal-layout {
         grid-template-columns:
-            minmax(1.6rem, 1fr)
-            minmax(auto, $narrow-breakpoint)
-            minmax(1.6rem, 1fr);
+        minmax(0, 1fr)
+        minmax(auto, $narrow-breakpoint)
+        minmax(0, 1fr);
     }
     @include for-wide-layout {
         grid-template-columns:
             minmax(1.6rem, 1fr)
-            minmax(auto, $normal-breakpoint)
+            minmax(auto, $wide-breakpoint)
             minmax(1.6rem, 1fr);
     }
 
@@ -79,20 +79,19 @@
             grid-row: 1/3;
             background-image: url("https://images.unsplash.com/photo-1550081699-79c1c2e48a77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
             border-right: 0.5rem solid white;
+            height: 50rem;
 
         }
         &.second-img {
             grid-row: 1/2;
             background-image: url("https://images.unsplash.com/photo-1524641619328-f3b7444f7afa?ixlib=rb-1.2.1&auto=format&fit=crop&w=664&q=80");
-            height: 20rem;
             border-bottom: 0.5rem solid white;
         }
         &.third-img {
             grid-row: 2/3;
             background-image: url("https://images.unsplash.com/photo-1504945005722-33670dcaf685?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
-            height: 20rem;
         }
-        @include for-narrow-layout {
+        @include for-mobile-layout {
             &.main-img {
                 grid-column: 1/-1;
                 grid-row: 1/-1;
@@ -106,25 +105,21 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    margin-bottom: 2rem;
     gap: 8px;
-    @include for-narrow-layout {
+    margin-bottom: 8rem;
+
+    @include for-mobile-layout {
         grid-template-columns: 1fr 1fr;
 
     }
-    @include for-mobile-layout {
-        // grid-template-columns: 1fr;
-        // grid-template-rows: 1fr 1fr 1fr;
-        // gap: 2rem;
 
-    }
     .img-container {
         color:  black ;
 
         &.meat-img {
             grid-column: 1/2;
             background-image: url("https://images.unsplash.com/photo-1560781290-7dc94c0f8f4f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
-            height: 30rem;
+            height: 40rem;
 
         }
         &.cheese-img {
@@ -136,7 +131,7 @@
             grid-column: 3/4;
             background-image: url("https://images.unsplash.com/photo-1573504241177-69684aba8fa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
         }
-        @include for-narrow-layout {
+        @include for-mobile-layout {
             &.meat-img {
                display: none;;
             }

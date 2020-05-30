@@ -68,9 +68,9 @@ class Home extends React.Component {
                     </section>
                     <section className="grid-container">
 
-                        <Link className="category" to={`/items?q=${tags[0]}`}>{`${tags[0]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right"></span> </Link>
+                        <Link className="category" to={`/items?q=${tags[0]}`}>{`${tags[0]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right arrow"></span> </Link>
                         {items[0] && <Caruselle toShow={4} classN={'items-carusel'} items={items[0]} />}
-                        <Link className="category" to={`/items?q=${tags[1]}`}>{`${tags[1]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right"></span> </Link>
+                        <Link className="category" to={`/items?q=${tags[1]}`}>{`${tags[1]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right arrow"></span> </Link>
                         {items[1] && <Caruselle items={items[1]} />}
                         <div className="offers-container">
                             <div className="img-container meat-img">

@@ -1,281 +1,87 @@
 .cart-container {
-    background-color: $clr4;
-    height: 100vh;
-    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    @include for-mobile-layout {
+        grid-template-columns: 1fr ;
 
-    h1 {
-        margin-left: 10px;
-    }
-    li {
-        margin-bottom: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-    
-        input {
-            width: 110px;
-        }
-    
-        img {
-            width: 120px;
-        }
-    
-        &.shop-title {
-            border-bottom: 1px solid #ebe5e5;
-        }
     }
 }
 
 .items-container {
-    min-width: 300px;
-    height: 500px;
+    height: 60vh;
+    padding: 0 1rem;
     overflow-y: scroll;
     background-color: white;
     -webkit-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
-
-    button {
-        padding: 0 20px;
-        height: 20px;
-        border-radius: 5px;
-        border: 1px solid #5c5c5c;
-        background-color: white;
-        cursor: pointer;
+    .shop-title {
+        border-bottom: 1px solid #ebe5e5;
     }
-
-    button:active {
-        color: white;
-        ;
-        background-color: rgb(165, 46, 46);
-    }
-}
-
-
-.delivery-options {
-    font-family: sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    // background: rgb(128, 196, 128);
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #5c5c5c;
-}
-
-
-
-
-
-
-
-
-
-
-$green : rgb(35, 107, 47);
-
-
-@mixin buttonBG($bg) {
-    border: 2px solid $bg;
-    color: $bg;
-
-    &:hover {
-        background-color: $bg;
-        transition: all 0.3s ease-in-out;
+    .cart-item {
+        margin-bottom: 1rem;
+        height: 10rem;
+        position: relative;
+        border-bottom: 1px solid #ebe5e5;
+        .img-container {
+            width: 120px;
+            img {
+                width: 100%;
+            }
+        }
+        p {
+            margin: 0;
+            line-height: 1.4rem;
+        }
+        button {
+            background-color: white;
+            border: none;
+            font-size: 1.5rem;
+            top: 0;
+            outline: none;
+        }
+        button:hover {
+            color: red;
+        }
     }
 }
 
 
-.checkout-btn {
-    align-self: center;
-    width: 90%;
-    outline: none;
-    cursor: pointer;
-    background: none;
-    transition: .5s;
-    font-size: 24px;
-    border-radius: 5px;
-    font-family: "Lato", sans-serif;
-
-    &:hover {
-        border: none;
-        color: white;
-        font-size: 28px;
-        transform: scale(1.1);
-    }
-}
-
-//   }
-
-.green {
-    @include buttonBG($green);
-}
-
-
-.payment-method {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-}
 
 .payment-container {
-    width: 300px;
-    height: 400px;
-    background-color: white;
+    height:fit-content;
     -webkit-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
     box-shadow: -2px 1px 61px -19px rgba(0, 0, 0, 0.75);
-h3{
-    margin-left: 2rem;
-    margin-left: 2rem;
-    border-bottom: 1px solid;
-    margin-right: 50px;
-    text-align: center;
-}
+    padding: 0 1rem;
 
-}
+    h2{
+        border-bottom: 1px solid #ebe5e5;
 
-.totale-pay{
-    margin-left: 35px;
-    margin-right: 10px;
-    border-bottom: 1px solid black;
-}
-
-
-
-.edit-amount {
-    width: 50px;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.block {
-    display: block;
-}
-
-/* Modal Content */
-.modal-content {
-    border-radius: 22px;
-    font-family: cursive;
-    text-align: center;
-    position: relative;
-    background-color: #ffffff;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    height: 70vh;
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0;
     }
 
-    to {
-        top: 0;
-        opacity: 1;
+    .checkout-btn {
+        outline: none;
+        cursor: pointer;
+        background-color: rgb(64, 175, 41);
+        font-size: 1.7rem;
+        color: white;
+        border: none;
     }
-}
-
-@keyframes animatetop {
-    from {
-        top: -300px;
-        opacity: 0;
+    .payment-method {
+        font-size: 1.5rem;
+        span{
+            margin-right: 1rem;
+        }
     }
-
-    to {
-        top: 0;
-        opacity: 1;
+    .totale-pay {
+        margin-left: 35px;
+        margin-right: 10px;
+        border-bottom: 1px solid #ebe5e5;
     }
+    
 }
 
-.close {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-    font-size: 1.5rem;
-    border-radius: 999px;
-    padding: 10px 5px;
-    border: none;
-    cursor: pointer;
-    display: block;
-    color: #b35034;
-    background-color: #fff;
-
-}
-
-.modal-header {
-    color: #12b668;
-    padding: 15px 16px;
-    height: 60px;
-}
-
-.modal-body {
-    color: #b35034;
-    padding: 2px 16px;
-}
-
-.modal-footer {
-    height: 20%;
-    padding: 2px 16px;
-    background-color: #12b668;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-}
-
-.basket {
-    width: 20%;
-}
-.loader {
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    /* Safari */
-    animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}

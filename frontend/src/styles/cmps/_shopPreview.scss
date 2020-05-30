@@ -1,11 +1,25 @@
-.shop-preview{
-    font-size: 1.4rem;
-    img{
-        width:180px;
-        margin-right: 20px;
+.shop-list {
+    width: 100%;
+    display: grid;
+    gap: 8px;
+
+    grid-template-columns: 1fr 1fr;
+    @include for-mobile-layout {
+        grid-template-columns: 1fr;
     }
-    h5{
-        margin-right: 20px;
-        text-decoration: underline olive;
+}
+
+.shop-preview {
+    font-size: 1.4rem;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    width: 100%;
+    @include for-narrow-layout {
+    }
+    .img-container {
+        margin-right: 1rem;
+        @include aspect-ratio(2, 1);
+        img {
+            width: 100%;
+        }
     }
 }

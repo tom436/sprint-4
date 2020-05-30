@@ -1,17 +1,24 @@
 import { Link } from "react-router-dom";
 import React from 'react';
+import {Stars} from './Stars'
+
 export function ShopPreview({ shop }) {
     return (!shop) ? <p>Loading</p> :
-        <div className="shop-preview flex">
+        <div key={shop._id} className="shop-preview flex ">   
+               
+            <div className="img-container">
             <img src={shop.logo} />
+            </div>
             <div>
-                <Link to={`/shop/${shop._id}`}>
-                    <div className="flex space-between">
+                    <div className="flex column space-evenly">
                         <h5>{shop.name}</h5>
-                        <span><i className="far fa-star"></i>{shop.rate}</span>
+                        <div className="flex">
+                        <Stars count={shop.rate}/>
+                        </div>
                     </div>
-                </Link>
+              
                 <p>{shop.title}</p>
             </div>
+            
         </div>
 }
