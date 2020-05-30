@@ -42,11 +42,10 @@ class ItemsPage extends React.Component {
         const shop1 = this.props.items[0].shop
         const idx = this.props.items.findIndex(item => item.shop._id !== shop1._id)
         this.setState({ shop1: shop1 })
-        if (idx !== -1) {
+        if (idx !== -1&&idx !==0) {
             const shop2 = this.props.items[idx].shop
             this.setState({ shop2: shop2 })
         }
-
     }
 
     showDetails = (item, isHidden) => {
@@ -56,9 +55,7 @@ class ItemsPage extends React.Component {
 
     render() {
         const {items} =this.props
-        console.log('state modal item',this.state.modalItem);
-        
-        return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
+        return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
            <CategoryBar/>
             <form>
                 <label>Sort by:
@@ -81,7 +78,7 @@ class ItemsPage extends React.Component {
                     Find similar products in these shops <i className="fas fa-angle-double-right"></i>
                 </Link>
             </section>
-            {this.state.shop1 && <section className="shops-of-item">
+            {this.state.shop1 && !this.state.shop2 && <section className="shops-of-item">
                 <div className="flex">
                     <ShopList shops={[this.state.shop1]} />
                 </div>
