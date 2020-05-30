@@ -18,7 +18,6 @@ async function getShops(req, res) {
     }
 }
 async function getShop(req, res) {
-    console.log(req.params);
     
     const shop = await shopService.getById(req.params.id)
     console.log(shop);

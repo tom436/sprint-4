@@ -1,5 +1,6 @@
 {
-  "items": [{
+  "items": [
+    {
       "_id": "i100",
       "title": "Romaine Lettuce",
       "price": 10,
@@ -253,7 +254,8 @@
       ]
     }
   ],
-  "orders": [{
+  "orders": [
+    {
       "_id": "v1225",
       "cretatedAt": 9898989,
       "shopperId": "33221",
@@ -265,7 +267,8 @@
         "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
         "rate": 5
       },
-      "items": [{
+      "items": [
+        {
           "_id": "v140",
           "amount": 2
         },
@@ -288,7 +291,8 @@
         "logo": "https://blog.ed.gov/files/2019/08/AdobeStock_221344370.jpeg",
         "rate": 5
       },
-      "items": [{
+      "items": [
+        {
           "_id": "v140",
           "amount": 2
         },
@@ -300,7 +304,8 @@
       "status": "pending"
     }
   ],
-  "shops": [{
+  "shops": [
+    {
       "_id": "v101",
       "name": "Galil Farm",
       "owner": {
@@ -312,7 +317,8 @@
       "aboutImg": "https://cdn.pixabay.com/photo/2017/05/13/17/18/spinach-2310134_960_720.jpg",
       "location": "Galil",
       "orders": [],
-      "reviews": [{
+      "reviews": [
+        {
           "user": "Avi",
           "txt": "Great lettuce",
           "stars": 5
@@ -347,7 +353,8 @@
       "aboutImg": "https://cdn.pixabay.com/photo/2019/09/04/20/34/plantation-4452538_960_720.jpg",
       "location": "Jerusalem",
       "orders": [],
-      "reviews": [{
+      "reviews": [
+        {
           "user": "u105",
           "txt": "the veggies are great!!!!",
           "stars": 5
@@ -376,7 +383,8 @@
       "aboutImg": "https://cdn.pixabay.com/photo/2019/02/13/03/49/palm-trees-3993615_960_720.jpg",
       "location": "Arad",
       "orders": [],
-      "reviews": [{
+      "reviews": [
+        {
           "user": "u105",
           "txt": "the veggies are great!!!!",
           "stars": 5
@@ -404,7 +412,8 @@
       "aboutImg": "https://cdn.pixabay.com/photo/2013/09/25/17/11/pecan-tree-186328_960_720.jpg",
       "location": "Beit Yzhak",
       "orders": [],
-      "reviews": [{
+      "reviews": [
+        {
           "user": "u105",
           "txt": "the pecans are great!",
           "stars": 5
@@ -433,7 +442,8 @@
       "aboutImg": "https://cdn.pixabay.com/photo/2019/10/21/14/54/oranges-4566275_960_720.jpg",
       "location": "Telmey Elazar",
       "orders": [],
-      "reviews": [{
+      "reviews": [
+        {
           "user": "u106",
           "txt": "sweet fruits,perfect!",
           "stars": 5
@@ -450,42 +460,44 @@
       "rate": 5
     }
   ],
-  "categories": [{
-      "name": "veg",
-      "img": "https://image.flaticon.com/icons/svg/2916/2916169.svg"
+  "users": [
+    {
+      "_id": "u1056",
+      "fullName": "Orly Amdadi",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "isAdmin": true,
+      "isSeller": true,
+      "msgs": [
+        {
+          "sender": {
+            "_id": "u1057",
+            "name": "Avigail Yehieli"
+          },
+          "txt": "someone ordered from you",
+          "isRead": "",
+          "sentAt": 132134334
+        }
+      ]
     },
     {
-      "name": "meat",
-      "img": "https://image.flaticon.com/icons/svg/2916/2916184.svg"
-    },
-    {
-      "name": "dairy ",
-      "img": "https://image.flaticon.com/icons/svg/604/604813.svg"
-    },
-    {
-      "name": "organic",
-      "img": "https://image.flaticon.com/icons/svg/497/497393.svg"
-    },
-    {
-      "name": "flowers",
-      "img": "https://image.flaticon.com/icons/svg/2972/2972053.svg"
-    }
-  ],
-  "demoData": [{
-      "name": "tomato",
-      "img": "https://image.flaticon.com/icons/svg/2909/2909922.svg"
-    },
-    {
-      "name": "fish",
-      "img": "https://image.flaticon.com/icons/svg/2885/2885062.svg"
-    },
-    {
-      "name": "bread",
-      "img": "https://image.flaticon.com/icons/svg/2915/2915863.svg"
-    },
-    {
-      "name": "cheese",
-      "img": "https://image.flaticon.com/icons/svg/575/575410.svg"
+      "_id": "u1057",
+      "fullName": "Avigail Yehieli",
+      "email": "avigail@gmail.com",
+      "password": "avigail",
+      "isAdmin": false,
+      "isSeller": false,
+      "msgs": [
+        {
+          "sender": {
+            "_id": "u1056",
+            "name": "Orly Amdadi"
+          },
+          "txt": "your order is ready",
+          "isRead": "",
+          "sentAt": 132134334
+        }
+      ]
     }
   ]
 }

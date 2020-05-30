@@ -6,6 +6,7 @@ import ShopDetails from './pages/ShopDetails'
 import ItemsPage from './pages/ItemsPage'
 // import ShopsPage from './pages/ShopsPage'
 import ItemDetails from './pages/ItemDetails'
+import Login from './pages/Login'
 import Cart from './pages/Cart'
 import Header from './cmps/Header'
 import { Footer } from './cmps/Footer'
@@ -25,7 +26,7 @@ function App() {
           <Route component={ItemDetails} path="/item/:id" />
           <Route component={ShopManage} path="/shop/manage/:id?" />
           <Route component={ShopDetails} path="/shop/:id" />
-          {/* <Route component={Login} path="/signup" /> */}
+          <Route component={Login} path="/signup" />
           <Route component={Cart} path="/cart" />
           <Route component={Home} path="/" />
         </Switch>

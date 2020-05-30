@@ -15,6 +15,8 @@ export default {
         return ajax(endpoint, 'GET', data)
     },
     post(endpoint, data){
+        console.log('got to http post');
+        
         return ajax(endpoint, 'POST', data)
     },
     put(endpoint, data){
@@ -22,7 +24,7 @@ export default {
     },
     delete(endpoint, data){
         return ajax(endpoint, 'DELETE', data)
-    }
+    } 
 }
 
 
@@ -33,6 +35,8 @@ async function ajax(endpoint, method='get', data=null) {
             method,
             data
         })
+        console.log('ajax got',res.data);
+        
         return res.data;
     } catch (err) {
         console.log(`Had Issues ${method}ing to the backend, endpoint: ${endpoint}, with data: ${data}`);

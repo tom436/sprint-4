@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 import { ItemList } from '../cmps/ItemList.jsx'
-import  ItemModal  from '../cmps/ItemModal.jsx'
+import ItemModal from '../cmps/ItemModal.jsx'
 import { ShopList } from '../cmps/ShopList.jsx'
 import { loadItems } from '../store/actions/itemActions'
 
@@ -10,10 +10,10 @@ class ItemsPage extends React.Component {
 
     state = {
         sort: null,
-        shop1:null,
-        shop2:null,
-        isModalHidden:false,
-        modalItem:null
+        shop1: null,
+        shop2: null,
+        isModalHidden: false,
+        modalItem: null
     }
 
     componentDidMount() {
@@ -26,7 +26,7 @@ class ItemsPage extends React.Component {
         }
     }
 
-    loadItems=()=> {
+    loadItems = () => {
         const query = new URLSearchParams(this.props.location.search)
         const searchValue = query.get('q')
         this.props.loadItems(searchValue, this.state.sort)
@@ -34,26 +34,30 @@ class ItemsPage extends React.Component {
     }
 
     onHandleChange = ({ target }) => {
-        this.setState({ sort : target.value },this.loadItems)
+        this.setState({ sort: target.value }, this.loadItems)
     }
 
-    setShopsToShow=()=>{
+    setShopsToShow = () => {
         const shop1 = this.props.items[0].shop
-        const idx = this.props.items.findIndex(item=> item.shop._id !== shop1._id)
-        const shop2 = this.props.items[idx].shop
-        this.setState({shop1:shop1,shop2:shop2})
+        const idx = this.props.items.findIndex(item => item.shop._id !== shop1._id)
+        this.setState({ shop1: shop1 })
+        if (idx !== -1) {
+            const shop2 = this.props.items[idx].shop
+            this.setState({ shop2: shop2 })
+        }
+
     }
 
-    showDetails=(item,isHidden)=>{
-        console.log('got to show details',item);
-        this.setState({isModalHidden:isHidden, modalItem:item})//
+    showDetails = (item, isHidden) => {
+        console.log('got to show details', item);
+        this.setState({ isModalHidden: isHidden, modalItem: item })//
     }
 
     render() {
-        const {items} =this.props
-        console.log('state modal item',this.state.modalItem);
-        
-        return (!items[0]||!this.state.shop2) ? <p>sorry, we don't have it yet...</p> : <section className="items-page" >
+        const { items } = this.props
+        console.log('state modal item', this.state.modalItem);
+
+        return (!items[0] ) ? <p>sorry, we don't have it yet...</p> : <section className="items-page" >
             <form>
                 <label>Sort by Price:
                     <select name="sort" onChange={this.onHandleChange}>
@@ -68,19 +72,24 @@ class ItemsPage extends React.Component {
                 <label>Maximum Price: 
                     <input name="minPrice" type="number"/>
                 </label> */}
-            </form> 
-            <ItemList items={this.props.items} showDetails={this.showDetails}/>
+            </form>
+            <ItemList items={this.props.items} showDetails={this.showDetails} />
             <section className="shops-link">
                 <Link to={`/shops`}>
                     Find similar products in these shops <i className="fas fa-angle-double-right"></i>
                 </Link>
             </section>
-            {this.state.shop1&& <section className="shops-of-item">
+            {this.state.shop1 && <section className="shops-of-item">
                 <div className="flex">
-                <ShopList shops={[this.state.shop1, this.state.shop2]}/>
+                    <ShopList shops={[this.state.shop1]} />
                 </div>
-            </section> }
-            {!this.state.isModalHidden &&this.state.modalItem &&<ItemModal item={this.state.modalItem} showDetails={this.showDetails}/>}
+            </section>}
+            {this.state.shop2 && <section className="shops-of-item">
+                <div className="flex">
+                    <ShopList shops={[this.state.shop1, this.state.shop2]} />
+                </div>
+            </section>}
+            {!this.state.isModalHidden && this.state.modalItem && <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
         </section>
     }
 }

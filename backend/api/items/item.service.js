@@ -36,7 +36,6 @@ async function query(filterBy = {}) {
             }
  
         ]).toArray()
-        console.log(items);
         
         items = items.map(item => {
             delete item.shopId;
