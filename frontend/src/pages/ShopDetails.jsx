@@ -48,13 +48,13 @@ class ShopDetails extends React.Component {
     }
 
     getReviews = () => {
-        const currentState =this.state.getReviews
+        const currentState = this.state.getReviews
         this.setState({ getReviews: !currentState });
         console.log('getting', currentState);
     }
 
-        
-        
+
+
 
 
 
@@ -62,36 +62,39 @@ class ShopDetails extends React.Component {
         const { shop } = this.state
         if (!shop) return <div>Loading....</div>
 
-        return <section className="">
-            <section className="shope-info">
-                <div className="farm-photo" style={{ backgroundImage: `url(${shop.aboutImg})` }}>
-                </div>
-                <img className="shop-logo " src={shop.logo} />
-                <div className="shop-front flex column">
-                    <h2 className="shop-name">{shop.name}</h2>
-                    <p className="shop-about">{shop.about}</p>
-                    <p>stars!.........</p>
-                </div>
+        return <section className="grid-container">
 
+            <div className="farm-photo full" style={{ backgroundImage: `url(${shop.aboutImg})` }}>
+            </div>
+            <div className="shope-info">
 
+            <div className="shop-title flex">
+                <div className="logo-container">
+                    <img className="shop-logo " src={shop.logo} />
+                </div>
+                <div >
+                    <h2 >{shop.name}</h2>
+                    <p >{shop.about}</p>
+                </div>
+            </div>
+
+        <div className="flex buttons-container">
                 <button className="shop-details-btn msg ">Send a Message</button>
                 <button className="shop-details-btn review " onClick={this.getReviews}>Reviews</button>
+                </div>
                 <div className="reviews" >
                     {this.state.getReviews && <Reviews shop={shop} addReview={this.addReview} />}
                 </div>
-
-        
-            </section>
-            <section className=" flex column align-center">
-                <form>
+                <form className="flex"> 
                     <select className="sort" name="sort" onChange={this.onHandleChange}>
                         <option value="" >Sort By</option>
                         <option value="highToLow" >By Highest Price</option>
                         <option value="lowToHigh" >By Lowest Price</option>
                     </select>
                 </form>
-                {/* <ItemList items={this.props.items} /> */}
-            </section>
+            </div>
+
+            <ItemList items={this.props.items} />
             {/* <form action="" onSubmit={this.onSearchSub}>
                 <input type="text" placeholder="Search item In Shop" />
                 <button>Search</button>
