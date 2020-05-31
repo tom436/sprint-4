@@ -51,9 +51,11 @@ class ItemsPage extends React.Component {
         }
     }
 
-    showDetails = (item, isHidden) => {
-        console.log('got to show details', item);
-        this.setState({ isModalHidden: isHidden, modalItem: item })//
+    showDetails = (item) => {
+        if (item) {this.setState({ isModalHidden: false, modalItem: item },()=>{
+            console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
+        })}
+        else this.setState({ isModalHidden: true, modalItem: null })
     }
 
     render() {
@@ -91,7 +93,8 @@ class ItemsPage extends React.Component {
                     <ShopList shops={[this.state.shop1, this.state.shop2]} />
                 </div>
             </section>}
-            {!this.state.isModalHidden && this.state.modalItem && <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
+            {!this.state.isModalHidden && this.state.modalItem &&
+                <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
         </section>
     }
 }

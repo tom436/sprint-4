@@ -1,26 +1,59 @@
 .item-details-container {
-    border: 1px solid #888;
-    padding: 30px 0;
-    background-color: #ebe5e5;
-
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    .input {
+        display: flex;
+        justify-content:space-evenly;
+        input {
+            width: 50%;
+        }
+    }
+   
     button {
         background-color: #333333;
         color: white;
         border: 2px solid black;
     }
     .item-details > * {
-        margin-bottom: 20px;
+        margin: 0 15px 15px 15px;
         a {
             text-decoration: underline olive;
         }
+    } 
+    .close-btn {
+        width: 50px;
+        align-self: flex-end;
+        background: white;
+        color: #333333;
+        border: none;
+        font-size: 1.5rem;
+        margin: 10px;
+        @include for-mobile-layout {
+            order: 5;
+            }
     }
 
     .item-details-modal {
-        border-radius: 22px;
+        h3 {
+            font-size: 1.5rem;
+        }
         width: 60vw;
+        border-radius: 22px;
         text-align: center;
         background-color: #ffffff;
-        margin: auto;
+        margin: 200px auto;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         height: fit-content;
         animation-name: animatetop;
@@ -32,6 +65,14 @@
         img {
             width: 100%;
         }
+        @include for-mobile-layout {
+            flex-direction: column;
+            width: 70vw;
+            img{
+                border-radius: 22px 22px 0 0;
+            }
+        }
+
     }
 
     .modal-shop {
@@ -45,8 +86,12 @@
     .description {
         flex-grow: 1;
     }
-    
+
     h5 {
         font-size: 1.4rem;
+    }
+    
+    @include for-mobile-layout {
+        
     }
 }

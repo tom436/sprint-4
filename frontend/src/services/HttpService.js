@@ -35,7 +35,6 @@ async function ajax(endpoint, method='get', data=null) {
             method,
             data
         })
-        console.log('ajax got',res.data);
         
         return res.data;
     } catch (err) {

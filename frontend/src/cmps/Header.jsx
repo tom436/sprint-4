@@ -2,6 +2,7 @@ import { NavLink, Link, withRouter } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadItems } from '../store/actions/itemActions.js'
+import userService from '../services/userService'
 import { setFilter } from '../store/actions/itemActions.js'
 import history from '../history'
 import { Search } from './Search'
@@ -15,7 +16,6 @@ class Header extends React.Component {
         }
     }
     componentDidMount() {
-        console.log(this.props)
         window.addEventListener('scroll', this.getWindowHeight);
 
     }
@@ -28,7 +28,7 @@ class Header extends React.Component {
 
     getWindowHeight = () => {
         const distanceY = window.pageYOffset
-        const shrinkOn = 300;
+        const shrinkOn = 500;
 
         if (distanceY > shrinkOn) {
             this.setState({
@@ -41,7 +41,7 @@ class Header extends React.Component {
             })
         }
 
-        else if (distanceY < 100) {
+        else if (distanceY < 50) {
             this.setState({
                 class: ''
             })
@@ -70,10 +70,11 @@ class Header extends React.Component {
     render() {
         return (
                 <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
+                    
                   <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
                         this.toggleMenu('')
                     }}></div>
-                    <h1><Link to="/">Farm To You</Link></h1>
+                    <h1><Link to="/"><img src={require('../imgs/logoFarm.png')}/></Link></h1>
                     <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue}/>
                     <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev)=>{
                         this.toggleMenu('')

@@ -17,13 +17,11 @@ class ItemPreview extends React.Component {
 
         this.setState({ amount: ev.target.value })
     }
-    addAnimation = () => {
-        this.setState({ animation: 'animated fadeIn' })
-        setTimeout(() => {
-            this.setState({ animation: '' })
-
-        }, 1000)
-
+    addAnimation=()=>{
+        this.setState({animation:'animated fadeIn'})
+        setTimeout(()=>{
+            this.setState({animation:''})
+        },400)
     }
 
     onAddToCart = (ev) => {
@@ -38,7 +36,10 @@ class ItemPreview extends React.Component {
         const { shop } = item
         const { animation } = this.state
         return (!item) ? <p>Loading</p> :
-            <div className={`item-preview ${animation}`} onClick={() => this.props.showDetails(item, false)}>
+            <div className={`item-preview ${animation}`} onClick={(ev) =>{
+                ev.stopPropagation()
+                this.props.showDetails(item)
+            } }>
                 <div className="img-container"><img src={item.img} /></div>
                 <div className="preview-detailes">
                     <h3>{item.title}</h3>

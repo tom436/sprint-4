@@ -5,6 +5,8 @@ export function loadShop(id) {
     return shopService.getById(id)
       .then(shop => {
         dispatch({ type: 'SET_SHOP', shop })
+        console.log(shop);
+        
         return shop
       })
   }
@@ -18,6 +20,10 @@ export function loadShops(filterBy, sortBy=null) {
         return shops
       })
   }
+}
+
+export function loadOrders(userId){
+  loadShops()
 }
 
 // export function removeShop(shopId) {

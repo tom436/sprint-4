@@ -34,7 +34,7 @@ export default function Caruselle(props) {
   return (
     <Slider {...settings}>
       {items.map((item, idx) => {
-        return <ItemPreview key={idx} showDetails={() => { }} item={item} />
+        return <ItemPreview key={idx} item={item} showDetails={props.showDetails}/>
       })}
     </Slider>
   )

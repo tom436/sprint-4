@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-import { ShopPreview } from '../cmps/ShopPreview.jsx'
 import { connect } from 'react-redux';
 import { loadItem } from '../store/actions/itemActions'
 import { addToCart } from '../store/actions/userActions'
+import { Stars } from "./Stars.jsx";
 
 class ItemModal extends React.Component {//props= item, 
 
@@ -11,39 +11,36 @@ class ItemModal extends React.Component {//props= item,
         amount: 1
     }
 
-    // componentDidMount() {
-    //     const { id } = this.props.match.params
-    //     this.props.loadItem(id,true)
-    // }
     onHandleChange = ({ target }) => {
         this.setState({ amount: target.value })
     }
 
     render() {
         const { item } = this.props
-        console.log('itemModal got', this.props);
         return (!item) ? <p>Loading</p> :
-            <div className="item-details-container modal block flex " >
+            <div className="item-details-container block flex "  onClick={() => { this.props.showDetails(null) }}>
                 <div className="item-details-modal flex align-center  space-evenly">
                     <div className="img-container"><img src={item.img} /></div>
                     <div className="item-details flex column">
+                        <button className="close-btn"onClick={() => { this.props.showDetails(null) }}>x</button>
                         <h3>{item.title}</h3>
-                        <button onClick={() => {
-                            this.props.showDetails('', true)
-                        }}>x</button>
                         <div className="modal-shop">
-                            <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link>
-                                <span><i className="far fa-star"></i>{item.shop.rate}</span></h4>
+                            <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link></h4>
+                                <Stars count={item.shop.rate}/>
                             <p>{item.shop.title}</p>
                             <img src={item.shop.logo} />
                         </div>
                         <p className="description">{item.description}</p>
-                        <p>Price: {item.price}/ {item.unit}</p>
+                        <p>Price: &#36;{item.price}/ {item.unit}</p>
+                        <p className="input">
+                        <label>quantity:</label>
                         <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
-                        <button onClick={() => this.props.addToCart(item, this.state.amount)}>Add to Cart</button>
+                        </p>
+                        <button onClick={() => {
+                            this.props.addToCart(item, this.state.amount)
+                            this.props.showDetails(null)
+                        }}>Add to Cart</button>
                     </div>
-
-
                 </div>
             </div>
     }
