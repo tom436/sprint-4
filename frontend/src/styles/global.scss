@@ -18,6 +18,7 @@
 @import "./cmps/cartModal.scss";
 @import './pages/shopsPage.scss';
 
+@import './pages/login.scss';
 @import './pages/home.scss';
 @import './pages/shop.scss';
 @import './pages/shopManage.scss';
@@ -26,7 +27,6 @@
 @import "./pages/home.scss";
 * {
     box-sizing: border-box;
-
 }
 .main-container{
     background-color:white;

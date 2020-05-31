@@ -1,8 +1,9 @@
 
 import React from 'react';
+import { Link } from "react-router-dom";
 
 
-export  function Modal(props) {
+export function Modal(props) {
 
     return (
         <div id="myModal" className={`modal ${props.showMode}`} onClick={() => {
@@ -21,13 +22,16 @@ export  function Modal(props) {
 
                 </div>
                 <div className="modal-footer">
-                    <h3>
-                        <button className="close" onClick={() => {
-                            props.onCloseModal()
-                        }}>Continue Shopping</button></h3>
+                    <Link to="/">
+                        <h3>
+
+                            <button className="close" to={`/items`} onClick={() => {
+                                props.onCloseModal()
+                            }}>Continue Shopping</button></h3>
+                    </Link>
                 </div>
             </div>
-                    
+
         </div>
     )
 }

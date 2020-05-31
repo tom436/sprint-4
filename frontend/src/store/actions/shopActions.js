@@ -22,6 +22,10 @@ export function loadShops(filterBy, sortBy=null) {
   }
 }
 
+export function loadOrders(userId){
+  loadShops()
+}
+
 // export function removeShop(shopId) {
 //   return dispatch => {
 //     shopService.remove(shopId)

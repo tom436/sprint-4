@@ -11,6 +11,7 @@
 .shope-info {
     display: grid;
     gap: 16px;
+
     .shop-title {
         margin-bottom: 2rem;
     }
@@ -42,10 +43,46 @@
         border: 1px solid black;
         width: 10rem;
         background: white;
+
         &.msg {
             margin-right: 1rem;
         }
-        
+
+    }
+
+    .add-review-btn {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 10rem;
+        background: white;
+        margin-bottom: 1rem;
+    }
+
+    .submit-btn {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 10rem;
+        background: white;
+
+    }
+
+    .user-rate {
+        width: 2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 0.5rem; 
+        margin-left: 1rem;       
+    }
+
+    .user-txt {
+        width: 30rem;
+        height: 10rem;
+        border: 1px solid black;
+        border-radius: 12px;
+        font-family: 'Overlock', cursive;
+margin-bottom: 0.5rem;        
     }
 
     .msg-btn:active {
@@ -58,23 +95,27 @@
 
 
     }
-    .rev-det{
+
+    .rev-det {
         margin-right: 3rem;
         min-width: fit-content;
     }
+
     .shop-rev {
         border-bottom: 1px solid #ebe5e5;
         padding: 1rem 0;
     }
+
     @include for-mobile-layout {
         .buttons-container {
             justify-content: space-around;
         }
     }
+
     @include for-mobile-layout {
         form {
             justify-content: center;
-           
+
         }
     }
 

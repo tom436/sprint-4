@@ -10,7 +10,7 @@ class Header extends React.Component {
 
     state = {
         class: '',
-        menu:'',
+        menu: '',
         filter: {
             searchValue: ''
         }
@@ -47,11 +47,11 @@ class Header extends React.Component {
             })
         }
     }
-    toggleMenu=(pos)=>{
+    toggleMenu = (pos) => {
         console.log(pos);
-        
+
         this.setState({
-            menu:pos
+            menu: pos
         })
     }
     handleChange = (ev) => {
@@ -74,7 +74,7 @@ class Header extends React.Component {
                   <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
                         this.toggleMenu('')
                     }}></div>
-                    <h1><Link to="/">Farm To You</Link></h1>
+                    <h1><Link to="/"><img src={require('../imgs/logoFarm.png')}/></Link></h1>
                     <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue}/>
                     <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev)=>{
                         this.toggleMenu('')
