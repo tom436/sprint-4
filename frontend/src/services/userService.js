@@ -45,7 +45,8 @@ function _handleLogin(user) {
     return user;
 }
 
-function getUser() {
-    const user=sessionStorage['user']
+function getUser( defaultValue = []) {
+    var user=sessionStorage['user']
+    if(!user) return defaultValue;
     return JSON.parse(user)
 }

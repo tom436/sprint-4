@@ -8,6 +8,7 @@
     padding: 0.5rem;
     width: 13rem;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28)
+    ;
 }
 .search-btn {
     position: absolute;
@@ -21,13 +22,14 @@
     color: #757575;
 }
 .home-search{
-    width: fit-content;
+    width: 40vw;
     .search{
+        width: 100%;
         font-size: 1.2rem;
-        width: 22rem;
         padding: 1.2rem ;
         color: black !important;
         background-color: rgba(255, 255, 255, 0.877);
+
 
     }
     .search-btn {
@@ -36,6 +38,10 @@
 
         top: 20px;
         right: 15px;
+
+    }
+    @include for-mobile-layout {
+        width: 60vw;
 
     }
 }

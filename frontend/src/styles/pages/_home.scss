@@ -52,6 +52,7 @@
     transform: translate(-50%, -50%);
     color: white;
     font-size: 2rem;
+
 }
 
 .featured {
@@ -88,4 +89,14 @@
         font-size: 1em;
     }
     border: 3px solid white;
+}
+.slogen{
+    margin:0;
+    font-size: 3rem;
+    margin-bottom: .4rem;
+    max-width: 16ch;
+    color: rgb(255, 255, 255);
+    @include for-mobile-layout {
+        font-size: 1.8rem;
+    }
 }

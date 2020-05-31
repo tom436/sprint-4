@@ -23,7 +23,6 @@ class Cart extends React.Component {
 
     onOpenModal = () => {
         cartService.newOrder().then(orders => {
-            console.log(orders);
             orders.map(order => {
                 this.props.shops.map(shop => {
                     if (order.shopId === shop._id) {                        
@@ -34,7 +33,6 @@ class Cart extends React.Component {
             })
 
         })
-
         this.setState({
             class: 'block'
         })

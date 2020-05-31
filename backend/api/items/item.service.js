@@ -13,11 +13,8 @@ module.exports = {
 
 
 async function query(filterBy = {}) {
-    
     const criteria = _buildCriteria(filterBy)
-    
     const collection = await dbService.getCollection('items')
-
     try {
         var items = await collection.aggregate([
             {
@@ -31,13 +28,11 @@ async function query(filterBy = {}) {
                     foreignField: '_id',
                     as: 'shop'
                 }
-            }, 
+            },
             {
                 $unwind: '$shop'
             }
- 
         ]).toArray()
-        
         items = items.map(item => {
             delete item.shopId;
             delete item.shop.about;
@@ -47,7 +42,6 @@ async function query(filterBy = {}) {
             delete item.shop.tags;
             delete item.shop.owner;
             delete item.shop.orders;
-
             return item;
         })
         return items
@@ -59,20 +53,20 @@ async function query(filterBy = {}) {
 
 
 function _buildCriteria(filterBy) {
-    
-    let criteria={}
-    if(filterBy.itemId){
-        criteria._id=filterBy.itemId;
+
+    let criteria = {}
+    if (filterBy.itemId) {
+        criteria._id = filterBy.itemId;
     }
     else if (filterBy.searchValue) {
-        
-         criteria = { $or: [] };
+
+        criteria = { $or: [] };
         let regex = new RegExp(filterBy.searchValue, 'i');
         criteria.$or.push({ title: regex })
         criteria.$or.push({ tags: regex })
         criteria.$or.push({ shopId: filterBy.searchValue })
     }
-    else { criteria = {}}
+    else { criteria = {} }
 
     return criteria;
 }
@@ -101,7 +95,7 @@ async function getById(itemId) {
 
 async function remove(itemId) {
     const collection = await dbService.getCollection('items')
-    
+
     try {
         await collection.deleteOne({ "_id": itemId })
     } catch (err) {

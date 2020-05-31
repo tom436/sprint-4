@@ -1,8 +1,8 @@
 import React from 'react';
 
 export function OrderList(props) {
-    
-    return  <div className="table-container"> <table className="manage-table" >
+
+    return <div className="table-container"> <table className="manage-table" >
         <thead>
             <tr>
                 <th>Items</th>
@@ -19,7 +19,7 @@ export function OrderList(props) {
 
                     <td>
                         <ul>
-                            {order.items.map((item)=>{
+                            {order.items.map((item) => {
                                 return <li key={item._id}>{item.title},</li>
                             })}
                         </ul>
@@ -34,12 +34,15 @@ export function OrderList(props) {
                         <h3>{order.status} </h3>
                     </td>
                     <td>
-                        <button className="accept" onClick={()=>{
-                           order.status="approved"
+                        <button className={"accept"} onClick={() => {
+                            if (order.status != 'pending') return
+                            order.status = "approved"
                             props.save(props.shop)
                         }}>Accept</button>
-                        <button className="decline" onClick={()=>{
-                           order.status="declined"
+                        <button className="decline" onClick={() => {
+                            if (order.status != 'pending') return
+
+                            order.status = "declined"
                             props.save(props.shop)
                         }}>Decline</button>
 

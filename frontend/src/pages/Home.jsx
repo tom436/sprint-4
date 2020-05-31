@@ -17,8 +17,8 @@ class Home extends React.Component {
     state = {
         demoData: '',
         tags: [
-            'fruits',
-            'organic',//greens
+            'dairy',
+            'fruits',//greens
         ],
         items: [],
         shops: [],
@@ -61,7 +61,6 @@ class Home extends React.Component {
             ()=>{}
         )}
         else this.setState({ isModalHidden: true, modalItem: null })
-        console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
     }
 
     handleKey = (ev) => {
@@ -84,6 +83,8 @@ class Home extends React.Component {
                 <section className="home-page" onKeyUp={this.handleKeyUp}>
                     <section className="hero-image" >
                         <div className="hero-text">
+                        <h1 className="slogen">Straight from the land, to your hands.</h1>
+
                             <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue} isHome='home-search' />
                         </div>
                     </section>

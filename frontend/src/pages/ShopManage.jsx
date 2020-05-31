@@ -24,7 +24,6 @@ class ShopManage extends React.Component {
     }
     componentDidUpdate() {
 
-        console.log('hi');
         
     }
     onHandleChange = (ev) => {
@@ -33,7 +32,7 @@ class ShopManage extends React.Component {
 
     render() {
         const { shop, items } = this.props
-        return !shop ? 'loading' : <section className="grid-container">
+        return !shop ? 'You dont have a shop' : <section className="grid-container">
             <h2>{shop.name}</h2>
             <h3>Orders</h3>
             <OrderList shop={shop} save={this.props.saveShop}/>
