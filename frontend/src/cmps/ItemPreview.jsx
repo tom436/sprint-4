@@ -12,9 +12,7 @@ class ItemPreview extends React.Component {
     }
 
     onHandleChange = (ev) => {
-
-        ev.preventDefault()
-
+        ev.stopPropagation()
         this.setState({ amount: ev.target.value })
     }
     addAnimation = () => {
@@ -43,13 +41,15 @@ class ItemPreview extends React.Component {
                 this.props.showDetails(item)
             } }>
                 <div className="img-container"><img src={item.img} /></div>
-                <div className="preview-detailes">
+                <div className="preview-details">
                     <h3>{item.title}</h3>
                     <Link to={`/shop/${shop._id}`}>{shop.name} <Stars count={shop.rate} /></Link>
                     <div className="flex space-between align-center no-padding">
                         <div className="no-padding">Price: &#36;{item.price}/ {item.unit}</div>
                         <div>
-                            <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
+                            <input type="number" name="amount" value={this.state.amount} 
+                            onChange={this.onHandleChange} onClick={(ev)=>console.log(ev)} />
+                        
                             <button className="fas fa-shopping-cart add-to-cart" onClick={this.onAddToCart}>
                             </button>
                         </div>
