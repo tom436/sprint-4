@@ -9,7 +9,7 @@ class Header extends React.Component {
 
     state = {
         class: '',
-        menu:'',
+        menu: '',
         filter: {
             searchValue: ''
         }
@@ -47,11 +47,11 @@ class Header extends React.Component {
             })
         }
     }
-    toggleMenu=(pos)=>{
+    toggleMenu = (pos) => {
         console.log(pos);
-        
+
         this.setState({
-            menu:pos
+            menu: pos
         })
     }
     handleChange = (ev) => {

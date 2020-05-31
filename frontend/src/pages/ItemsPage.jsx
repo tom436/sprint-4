@@ -18,10 +18,12 @@ class ItemsPage extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.loadItems()
     }
 
     componentDidUpdate(prevProps, prevState) {
+
         if (this.props.location.search !== prevProps.location.search) {
             this.loadItems()
         }
@@ -32,6 +34,7 @@ class ItemsPage extends React.Component {
         const searchValue = query.get('q')
         this.props.loadItems(searchValue, this.state.sort)
             .then(this.setShopsToShow)
+
     }
 
     onHandleChange = ({ target }) => {
@@ -58,10 +61,6 @@ class ItemsPage extends React.Component {
     render() {
         const { items } = this.props
         return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
-            {!this.state.isModalHidden && this.state.modalItem &&
-                <div className="screen " onClick={()=>{this.showDetails(null)}}></div>}
-            {!this.state.isModalHidden && this.state.modalItem &&
-                <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
             <CategoryBar />
             <form>
                 <label>Sort by:
@@ -94,6 +93,8 @@ class ItemsPage extends React.Component {
                     <ShopList shops={[this.state.shop1, this.state.shop2]} />
                 </div>
             </section>}
+            {!this.state.isModalHidden && this.state.modalItem &&
+                <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
         </section>
     }
 }

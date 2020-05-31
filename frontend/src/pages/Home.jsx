@@ -30,6 +30,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+    
         this.state.tags.forEach(tag => {
             this.props.loadItems(tag)
                 .then(itemsSet => {

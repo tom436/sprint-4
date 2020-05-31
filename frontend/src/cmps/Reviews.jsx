@@ -2,7 +2,7 @@ import React from 'react';
 import MapContainer from './MapContainer'
 import AddReview from './AddReview'
 import { Link } from 'react-router-dom';
-import {Stars} from './Stars'
+import { Stars } from './Stars'
 
 function RevPrev(review, idx) {
     return (
@@ -11,7 +11,7 @@ function RevPrev(review, idx) {
                 <h3 >{review.user}</h3>
                 <p>{review.time}</p>
                 <div className="stars">
-                <Stars count={review.stars}/>
+                    <Stars count={review.stars} />
                 </div>
             </div>
             <div className="user-rev">
@@ -39,9 +39,9 @@ export default function Reviews(props) {
             {isAddReview && <AddReview addReview={addReview} />}
 
             <h3 className="reviews">Reviews:</h3>
-                <div className="rev-box flex column">
-                    {shop.reviews.map((rev, idx) => RevPrev(rev, idx))}
-                </div>
+            <div className="rev-box flex column">
+                {shop.reviews.map((rev, idx) => RevPrev(rev, idx))}
+            </div>
 
 
         </section>
