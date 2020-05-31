@@ -44,6 +44,7 @@ class Cart extends React.Component {
         this.setState({
             class: ''
         })
+        
     }
 
 
