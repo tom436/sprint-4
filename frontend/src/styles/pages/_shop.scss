@@ -1,109 +1,122 @@
-.shope-info {
-    display: grid;
-    grid-template-columns: repeat(5, 20%);
-    grid-template-rows: repeat(5, 100px);
-
-}
-
-.shop-about {
-    grid-row: 3/4;
-    grid-column: 3/5;
-}
-
-.shop-logo {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px #fff;
-    background-color: #f4f4f4;
-    object-fit: cover;
-    grid-column: 2/3;
-    grid-row: 2/4;
-    margin-top: 5rem;
-}
-
-.shop-front {
-
-    grid-row: 3/4;
-    grid-column: 3/5;
-}
-
-.shop-name {
-    grid-row: 3/4;
-    grid-column: 3/5;
-
-}
-.sort{
-    background-color: white;
-    width: 13rem;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin-bottom: 2rem;
-    padding: 0.5rem;
-    text-align-last: center;
-}
-
-
-
-
-
-
-
 .farm-photo {
-    grid-column: 1 / 6;
-    grid-row: 1 / 3;
-    overflow: hidden;
     width: 100%;
+    height: 30vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
+    margin-bottom: 2rem;
 }
 
-///////////SHOP BUTTONS AND ACCORDION///////////////////
+.shope-info {
+    display: grid;
+    gap: 16px;
 
-
-
-.msg{
-    grid-column: 3 / 4;
-    grid-row: 4 / 5;
-}
-
-
-.more{
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-}
-.review{
-    grid-column: 4 / 5;
-    grid-row: 4 / 5;
-}
-
-.shop-details-btn {
-    height: 3rem;
-    border-radius: 10px;
-    border: 1px solid black;
-    width: 90%;
-    align-self: center;
-    justify-self: center;
-    background: white;
-
-}
-
-.msg-btn:active {
-    background-color: yellowgreen;
-    transform: translateY(5px);
-}
-
-
-
-
-
-.reviews {
-    opacity: 1;
-    grid-column:2/6 ;
-    grid-row: 5/6;
-    p{
-        margin-top: 1.3rem;
+    .shop-title {
+        margin-bottom: 2rem;
     }
+
+    .shop-logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px #fff;
+        background-color: #f4f4f4;
+        object-fit: cover;
+        margin-right: 1rem;
+    }
+
+    .sort {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 10rem;
+        background: white;
+        text-align-last: center;
+        margin-bottom: 1rem;
+
+    }
+
+    .shop-details-btn {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 10rem;
+        background: white;
+
+        &.msg {
+            margin-right: 1rem;
+        }
+
+    }
+
+    .add-review-btn {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 10rem;
+        background: white;
+        margin-bottom: 1rem;
+    }
+
+    .submit-btn {
+        height: 3rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        width: 10rem;
+        background: white;
+
+    }
+
+    .user-rate {
+        width: 2rem;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-bottom: 0.5rem; 
+        margin-left: 1rem;       
+    }
+
+    .user-txt {
+        width: 30rem;
+        height: 10rem;
+        border: 1px solid black;
+        border-radius: 12px;
+        font-family: 'Overlock', cursive;
+margin-bottom: 0.5rem;        
+    }
+
+    .msg-btn:active {
+        background-color: yellowgreen;
+        transform: translateY(5px);
+    }
+
+    .reviews {
+        border-bottom: 1px solid #ebe5e5;
+
+
+    }
+
+    .rev-det {
+        margin-right: 3rem;
+        min-width: fit-content;
+    }
+
+    .shop-rev {
+        border-bottom: 1px solid #ebe5e5;
+        padding: 1rem 0;
+    }
+
+    @include for-mobile-layout {
+        .buttons-container {
+            justify-content: space-around;
+        }
+    }
+
+    @include for-mobile-layout {
+        form {
+            justify-content: center;
+
+        }
+    }
+
 }

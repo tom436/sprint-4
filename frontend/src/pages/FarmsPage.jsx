@@ -24,7 +24,7 @@ class FarmsPage extends React.Component {
             <h2>Our Farms</h2>
             <div className="farms-container">
             {shops&&shops.map((shop,idx)=>{
-                return<ShopPreview key={idx} shop={shop}/>
+                return<Link key={idx} to={`/shop/${shop._id}`}><ShopPreview   shop={shop} /></Link>
             })}
             </div>
         </section>
