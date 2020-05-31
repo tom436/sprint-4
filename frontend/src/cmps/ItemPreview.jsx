@@ -21,9 +21,7 @@ class ItemPreview extends React.Component {
         this.setState({animation:'animated fadeIn'})
         setTimeout(()=>{
             this.setState({animation:''})
-
-        },1000)
-
+        },400)
     }
 
     onAddToCart = (ev) => {     

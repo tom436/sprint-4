@@ -1,5 +1,6 @@
 import HttpService from './HttpService';
 import storageService from './storageService'
+import userService from './userService'
 export default {
     addToCart,
     loadCart,
@@ -27,7 +28,10 @@ function addToCart(item, amount) {
             return Promise.resolve(gCart)
         }
         const purchase = {
-            ...item,
+            img:item.img,
+            _id: item._id,
+            title:item.title,
+            price:item.price,
             totalPrice: amount * item.price,
             amount
         }
@@ -37,8 +41,12 @@ function addToCart(item, amount) {
     }
     const purchase = {
         shopId: item.shop._id,
+        shopName: item.shop.name,
         items: [{
-            ...item,
+            img:item.img,
+            _id: item._id,
+            title:item.title,
+            price:item.price,
             totalPrice: amount * item.price,
             amount
         }]
@@ -98,22 +106,23 @@ function _makeId(length = 6) {
 }
 
 
-function _getOrderTotal(items){
+function _getOrderTotal(items) {
 
-    var total=0;
-    items.forEach(item=>{
-        total+=item.totalPrice;
+    var total = 0;
+    items.forEach(item => {
+        total += item.totalPrice;
     })
     return total
 }
 function newOrder() {
     const cart = storageService.load('cart')
-    let orders=cart.map(order => {
-        return  {
+    let orders = cart.map(order => {
+        return {
             _id: _makeId(),
+            status:'pending',
             createdAt: new Date().toLocaleString(),
-            shopperId: 'guest',
-            totalPrice:_getOrderTotal(order.items),
+            shopperId: userService.getUser()._id,
+            totalPrice: _getOrderTotal(order.items),
             ...order
         }
     })

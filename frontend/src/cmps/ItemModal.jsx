@@ -21,7 +21,6 @@ class ItemModal extends React.Component {//props= item,
 
     render() {
         const { item } = this.props
-        console.log('itemModal got', this.props);
         return (!item) ? <p>Loading</p> :
             <div className="item-details-container modal block flex " >
                 <div className="item-details-modal flex align-center  space-evenly">

@@ -24,6 +24,7 @@ export default function ShopReducer(state = initialState, action) {
         case 'UPDATE_SHOP':
             return {
                 ...state,
+                currShop:action.shop,
                 shops: state.shops.map(shop => {
                     if(shop._id === action.shop._id) return action.shop;
                     return shop;
