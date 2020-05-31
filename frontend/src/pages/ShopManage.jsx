@@ -1,12 +1,12 @@
 import React from 'react';
 
-import {Route, Switch,  NavLink, Link } from "react-router-dom";
 import { loadItems } from '../store/actions/itemActions.js'
-import { loadShop } from '../store/actions/shopActions.js'
-import shopService from '../services/shopService'
-// import { SellerProfile, SellerOrders, ItemsEdit } from '../cmps/ShopEdit'
-import   ItemsEdit  from '../cmps/ItemsEdit'
-import   {ItemList}  from '../cmps/ItemList'
+import { removeItem } from '../store/actions/itemActions.js'
+import { loadShop,saveShop } from '../store/actions/shopActions.js'
+import userService from '../services/userService'
+import {BackItemList} from '../cmps/BackItemList'
+import {OrderList} from '../cmps/OrderList'
+
 import { connect } from 'react-redux';
 
 class ShopManage extends React.Component {
@@ -16,37 +16,45 @@ class ShopManage extends React.Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id
-        this.props.loadShop()
-    }
+        const user = userService.getUser()
+        this.props.loadShop(user.shopId)
+        this.props.loadItems(user.shopId)
+        
 
+    }
+    componentDidUpdate() {
+
+        console.log('hi');
+        
+    }
     onHandleChange = (ev) => {
-        // const id = this.props.match.params.id
-        // this.props.loadItems({ searchValue: id }, ev.target.value)
     }
 
 
     render() {
-        const { shop,items } = this.state
-        // const { isMore } = this.state
-        return <section>
-
-            </section>
+        const { shop, items } = this.props
+        return !shop ? 'loading' : <section className="grid-container">
+            <h2>{shop.name}</h2>
+            <h3>Orders</h3>
+            <OrderList shop={shop} save={this.props.saveShop}/>
+            <h3>Edit Shop</h3>
+            <BackItemList remove={this.props.removeItem} items={items}/>
+        </section>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        // items: state.item.items,
-        shop: state.shop.currShop
+        items: state.item.items,
+        shop: state.shop.currShop,
     }
 }
 
 const mapDispatchToProps = {
     loadItems,
-    loadShop
-    // removeItem,
-    // addItem
+    loadShop,
+    removeItem,
+     saveShop
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopManage)

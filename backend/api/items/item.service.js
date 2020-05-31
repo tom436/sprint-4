@@ -6,7 +6,8 @@ const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
-    getById
+    getById,
+    remove
 }
 
 
@@ -98,10 +99,11 @@ async function getById(itemId) {
 
 
 
-async function remove(itemsId) {
+async function remove(itemId) {
     const collection = await dbService.getCollection('items')
+    
     try {
-        await collection.deleteOne({ "_id": ObjectId(itemId) })
+        await collection.deleteOne({ "_id": itemId })
     } catch (err) {
         console.log(`ERROR: cannot remove item ${itemId}`)
         throw err;

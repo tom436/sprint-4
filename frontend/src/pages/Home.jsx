@@ -30,7 +30,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-    
+
         this.state.tags.forEach(tag => {
             this.props.loadItems(tag)
                 .then(itemsSet => {
@@ -57,11 +57,13 @@ class Home extends React.Component {
     }
 
     showDetails = (item) => {
-        if (item) {this.setState({ isModalHidden: false, modalItem: item },
-            ()=>{}
-        )}
+        if (item) {
+            this.setState({ isModalHidden: false, modalItem: item },
+                () => { }
+            )
+        }
         else this.setState({ isModalHidden: true, modalItem: null })
-        console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
+        console.log('got to show details', this.state.isModalHidden, this.state.modalItem)
     }
 
     handleKey = (ev) => {
@@ -121,10 +123,10 @@ class Home extends React.Component {
                             </div>
                         </Link>
                     </section>
-                    {!this.state.isModalHidden && this.state.modalItem && 
-                    <ItemModal item={this.state.modalItem} showDetails={this.showDetails} /> }
+                    {!this.state.isModalHidden && this.state.modalItem &&
+                        <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
                 </section>
-         )
+        )
     }
 }
 

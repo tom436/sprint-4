@@ -51,22 +51,12 @@ function query(filterBy = null, sortBy = null,isSingle) {
         })
 }
 
-function _filterItems(items, filterBy) {
 
-    return items.filter(item => {
-        return item.title.includes(filterBy.searchValue) ||
-            item.tags.includes(filterBy.searchValue) ||
-            item.shopId.includes(filterBy.searchValue)
-    })
-}
 
 function remove(itemId) {
     
-    return axios.delete(`${baseUrl}/${itemId}`)
-        .then(() => {
-            const itemIdx = _getIdxById(itemId)
-            gItems.splice(itemIdx, 1)
-        })
+    return HttpService.delete(`items/${itemId}`)
+
 }
 
 function getById(itemId) {
@@ -115,20 +105,3 @@ function compare(items, sortBy) {
 
 }
 
-function queryCategories() {
-
-    return axios.get(`http://localhost:3000/categories`)
-        .then(res => res.data)
-        .then(items => {
-            return items;
-        })
-}
-
-function queryDemoData() {
-
-    return axios.get(`http://localhost:3000/demoData`)
-        .then(res => res.data)
-        .then(items => {
-            return items;
-        })
-}

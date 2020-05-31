@@ -1,10 +1,62 @@
-.edit-items{
-    table{
-        tr{
-            height: 100px;
-            &:first-child{
-                width: 100px;
-            }
+.table-container {
+    max-height: 50vh;
+    overflow: scroll;
+}
+
+.manage-table,
+.orders-container {
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        
+
+    }
+    th {
+        background-color: #383732;
+        color: white;
+    }
+
+    button {
+        border: none;
+        background-color: inherit;
+        font-size: 1.3rem;
+        color: rgb(211, 64, 64);
+        &.edit,
+        &.accept {
+            color: rgb(36, 185, 23);
+        }
+    }
+    .buttons {
+        text-align: center;
+    }
+    .approved {
+        color: rgb(36, 185, 23);
+    }
+    .declined {
+        color: rgb(211, 64, 64);
+    }
+
+    .pending::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f192";
+        color: red;
+        
+    }
+    @include for-mobile-layout {
+        .accept,.decline {
+           font-size: .8rem;
+        }
+        .approved,.declined,.pending{
+            font-size: .8rem;
+        }
+        .date{
+            font-size: .8rem;
+
         }
     }
 }

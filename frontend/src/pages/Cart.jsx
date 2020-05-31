@@ -17,17 +17,17 @@ class Cart extends React.Component {
         this.props.loadShops();
     }
     componentDidUpdate() {
+        this.props.loadCart()
         this.props.getTotalPrice()
     }
-    componentWillUnmount() {
-    }
+
     onOpenModal = () => {
         cartService.newOrder().then(orders => {
             console.log(orders);
             orders.map(order => {
                 this.props.shops.map(shop => {
                     if (order.shopId === shop._id) {                        
-                        shop.orders.push(order)
+                        shop.orders.unshift(order)
                         this.props.saveShop(shop)
                     }
                 })
@@ -44,19 +44,20 @@ class Cart extends React.Component {
         this.setState({
             class: ''
         })
+        
     }
 
 
     render() {
         const { cart, remove, totalPrice } = this.props
-        return (
+        return ( 
             <section className="grid-container flex space-around">
                 <h2>CART</h2>
                 <div className="cart-container">
                     <div className='items-container flex column'>
                         {cart.map((cartItem, idx) => {
                             return <ul key={idx}>
-                                <li className="shop-title">{cartItem.items[0] && cartItem.items[0].shop.name}</li>
+                                <li className="shop-title">{cartItem.items && cartItem.shopName}</li>
                                 <CartItemsList items={cartItem.items} remove={remove} />
                             </ul>
                         })}

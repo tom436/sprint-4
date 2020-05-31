@@ -15,13 +15,11 @@ class ItemPreview extends React.Component {
         ev.stopPropagation()
         this.setState({ amount: ev.target.value })
     }
-    addAnimation = () => {
-        this.setState({ animation: 'animated fadeIn' })
-        setTimeout(() => {
-            this.setState({ animation: '' })
-
-        }, 1000)
-
+    addAnimation=()=>{
+        this.setState({animation:'animated fadeIn'})
+        setTimeout(()=>{
+            this.setState({animation:''})
+        },400)
     }
 
     onAddToCart = (ev) => {

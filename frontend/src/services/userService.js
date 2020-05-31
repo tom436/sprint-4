@@ -7,7 +7,8 @@ export default {
     getUsers,
     getById,
     remove,
-    update
+    update,
+    getUser
 }
 async function signup(userCred) {
     const user = await HttpService.post('auth/signup', userCred)
@@ -42,4 +43,9 @@ function update(user) {
 function _handleLogin(user) {
     sessionStorage.setItem('user', JSON.stringify(user))
     return user;
+}
+
+function getUser() {
+    const user=sessionStorage['user']
+    return JSON.parse(user)
 }
