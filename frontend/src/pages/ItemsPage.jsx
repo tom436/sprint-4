@@ -5,16 +5,16 @@ import { ItemList } from '../cmps/ItemList.jsx'
 import ItemModal from '../cmps/ItemModal.jsx'
 import { ShopList } from '../cmps/ShopList.jsx'
 import { loadItems } from '../store/actions/itemActions'
-import {CategoryBar} from '../cmps/CategoryBar'
+import { CategoryBar } from '../cmps/CategoryBar'
 class ItemsPage extends React.Component {
 
     state = {
         sort: null,
-        shop1:null,
-        shop2:null,
-        isModalHidden:false,
-        modalItem:null,
-        category:''
+        shop1: null,
+        shop2: null,
+        isModalHidden: false,
+        modalItem: null,
+        category: ''
     }
 
     componentDidMount() {
@@ -42,21 +42,27 @@ class ItemsPage extends React.Component {
         const shop1 = this.props.items[0].shop
         const idx = this.props.items.findIndex(item => item.shop._id !== shop1._id)
         this.setState({ shop1: shop1 })
-        if (idx !== -1&&idx !==0) {
+        if (idx !== -1 && idx !== 0) {
             const shop2 = this.props.items[idx].shop
             this.setState({ shop2: shop2 })
         }
     }
 
-    showDetails = (item, isHidden) => {
-        console.log('got to show details', item);
-        this.setState({ isModalHidden: isHidden, modalItem: item })//
+    showDetails = (item) => {
+        if (item) {this.setState({ isModalHidden: false, modalItem: item },()=>{
+            console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
+        })}
+        else this.setState({ isModalHidden: true, modalItem: null })
     }
 
     render() {
-        const {items} =this.props
+        const { items } = this.props
         return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
-           <CategoryBar/>
+            {!this.state.isModalHidden && this.state.modalItem &&
+                <div className="screen " onClick={()=>{this.showDetails(null)}}></div>}
+            {!this.state.isModalHidden && this.state.modalItem &&
+                <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
+            <CategoryBar />
             <form>
                 <label>Sort by:
                     <select name="sort" onChange={this.onHandleChange}>
@@ -88,7 +94,6 @@ class ItemsPage extends React.Component {
                     <ShopList shops={[this.state.shop1, this.state.shop2]} />
                 </div>
             </section>}
-            {!this.state.isModalHidden && this.state.modalItem && <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
         </section>
     }
 }

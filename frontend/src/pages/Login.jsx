@@ -11,6 +11,8 @@ import {
 
 class Test extends Component {
   state = {
+    isLoginShown: true,
+    isSignupShown: false,
     msg: '',
     loginCred: {
       email: '',
@@ -68,29 +70,26 @@ class Test extends Component {
   removeUser = (userId) => {
     this.props.removeUser(userId);
   };
+
+  onToggleLogin = () => {
+    const isLogin = this.state.isLoginShown
+    const isSignup = this.state.isSignupShown
+    this.setState({ isLoginShown: !isLogin, isSignupShown: !isSignup });
+  }
+
+
+
+
   render() {
     let signupSection = (
       <form onSubmit={this.doSignup}>
-        <input
-          type="text"
-          name="email"
-          value={this.state.signupCred.email}
-          onChange={this.signupHandleChange}
-          placeholder="Email"
-        />
+        <input type="text" name="email" value={this.state.signupCred.email}
+          onChange={this.signupHandleChange} placeholder="Email" />
         <br />
-        <input
-          name="password"
-          type="password"
-          value={this.state.signupCred.password}
-          onChange={this.signupHandleChange}
-          placeholder="Password"
-        />
+        <input name="password" type="password" value={this.state.signupCred.password}
+          onChange={this.signupHandleChange} placeholder="Password" />
         <br />
-        <input
-          type="text"
-          name="username"
-          value={this.state.signupCred.username}
+        <input type="text" name="username" value={this.state.signupCred.username}
           onChange={this.signupHandleChange}
           placeholder="Username"
         />
@@ -99,22 +98,14 @@ class Test extends Component {
       </form>
     );
     let loginSection = (
+
       <form onSubmit={this.doLogin}>
         <input
-          type="text"
-          name="email"
-          value={this.state.loginCred.email}
-          onChange={this.loginHandleChange}
-          placeholder="Email"
-        />
+          type="text" name="email" value={this.state.loginCred.email}
+          onChange={this.loginHandleChange} placeholder="Email" />
         <br />
-        <input
-          type="password"
-          name="password"
-          value={this.state.loginCred.password}
-          onChange={this.loginHandleChange}
-          placeholder="Password"
-        />
+        <input type="password" name="password" value={this.state.loginCred.password}
+          onChange={this.loginHandleChange} placeholder="Password" />
         <br />
         <button>Login</button>
       </form>
@@ -122,29 +113,33 @@ class Test extends Component {
 
     const { loggedInUser } = this.props;
     return (
-      <div className="login">
-        <h2>{this.state.msg}</h2>
+      <section className="">
         {loggedInUser && (
           <div>
             <h2>Welcome: {loggedInUser.username} </h2>
             <button onClick={this.props.logout}>Logout</button>
           </div>
         )}
-        {!loggedInUser && loginSection}
-        {!loggedInUser && signupSection}
-        {loggedInUser&& loggedInUser.isAdmin && <button onClick={this.props.loadUsers}>Get All Users</button>}
+        {!loggedInUser&&<h2>{this.state.msg}</h2>}
+        {!loggedInUser&&<div className="login-container">
+          <div className={(this.state.isLoginShown)?"login shown":"login"} onClick={this.onToggleLogin}>Log in</div>
+          <div className={(this.state.isSignupShown)?"signup shown":"signup"} onClick={this.onToggleLogin}>Sign up</div>
+          {this.state.isLoginShown && loginSection}
+          {this.state.isSignupShown && signupSection}
+        </div>}
+        {loggedInUser && loggedInUser.isAdmin && <button onClick={this.props.loadUsers}>Get All Users</button>}
         {/* {this.props.isLoading && 'Loading...' } */}
         {this.props.users && <ul>
           {this.props.users.map(user => (
             <li key={user._id}>
               <pre>{JSON.stringify(user, null, 2)}</pre>
-              <button onClick={() => {this.removeUser(user._id)}}>
+              <button onClick={() => { this.removeUser(user._id) }}>
                 Remove {user.username}
               </button>
             </li>
           ))}
         </ul>}
-      </div>
+      </section>
     );
   }
 }
