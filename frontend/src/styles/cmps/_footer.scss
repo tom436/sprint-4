@@ -1,8 +1,12 @@
-.footer{
+.footer {
+    height: 50px;
+    margin-bottom: 0;
     background-color: rgb(56, 55, 50);
-    a{
-        color:$clr6;
-        &:hover{
+
+    a {
+        color: $clr6;
+
+        &:hover {
             color: olive;
         }
     }

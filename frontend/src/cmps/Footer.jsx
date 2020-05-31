@@ -8,7 +8,7 @@ import history from '../history'
 export function Footer() {
     return (
         <footer>
-            <ul className="footer flex space-around">
+            <ul className="footer flex space-around align-center">
                 <li><NavLink to="/" exact >Home</NavLink></li>
                 <li><NavLink to="/items" exact>items</NavLink></li>
                 <li><NavLink to="/cart" exact>Cart</NavLink></li>

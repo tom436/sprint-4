@@ -9,7 +9,7 @@ class Header extends React.Component {
 
     state = {
         class: '',
-        menu:'',
+        menu: '',
         filter: {
             searchValue: ''
         }
@@ -47,11 +47,11 @@ class Header extends React.Component {
             })
         }
     }
-    toggleMenu=(pos)=>{
+    toggleMenu = (pos) => {
         console.log(pos);
-        
+
         this.setState({
-            menu:pos
+            menu: pos
         })
     }
     handleChange = (ev) => {
@@ -69,26 +69,26 @@ class Header extends React.Component {
 
     render() {
         return (
-                <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
-                  <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
-                        this.toggleMenu('')
-                    }}></div>
-                    <h1><Link to="/">Farm To You</Link></h1>
-                    <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue}/>
-                    <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev)=>{
-                        this.toggleMenu('')
-                    }}>
-                        <li><NavLink to="/items" exact>Items</NavLink></li>
-                        <li><NavLink to="/farms" exact>Farms</NavLink></li>
-                        <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
-                        <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
-                        <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
-                        <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
-                    </ul>
-                    <button onClick={(ev)=>{
-                        ev.stopPropagation()
-                        this.toggleMenu('menu-open')
-                    }} className="fas fa-bars btn-menu"></button>
+            <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname === '/' ? 'transparent' : ''}`}>
+                <div className={`screen ${this.state.menu}`} onClick={(ev) => {
+                    this.toggleMenu('')
+                }}></div>
+                <h1><Link to="/">Farm To You</Link></h1>
+                <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue} />
+                <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev) => {
+                    this.toggleMenu('')
+                }}>
+                    <li><NavLink to="/items" exact>Items</NavLink></li>
+                    <li><NavLink to="/farms" exact>Farms</NavLink></li>
+                    <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
+                    <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
+                    <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
+                    <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
+                </ul>
+                <button onClick={(ev) => {
+                    ev.stopPropagation()
+                    this.toggleMenu('menu-open')
+                }} className="fas fa-bars btn-menu"></button>
 
             </section>
         );

@@ -34,7 +34,7 @@ class ItemsEdit extends React.Component {
                 <tbody>
                     {items.map(item => {
                         return <tr key={item._id}>
-                            <td><img src={item.img}/></td>
+                            <td><img src={item.img} /></td>
                             <td>{item.title}</td>
                             <td>{item.description}</td>
                             <td>{item.tags}</td>

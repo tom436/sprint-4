@@ -28,9 +28,9 @@ class ItemModal extends React.Component {//props= item,
                     <div className="img-container"><img src={item.img} /></div>
                     <div className="item-details flex column">
                         <h3>{item.title}</h3>
-                        <button onClick={()=>{
-               this.props.showDetails('',true)
-            }}>x</button>
+                        <button onClick={() => {
+                            this.props.showDetails('', true)
+                        }}>x</button>
                         <div className="modal-shop">
                             <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link>
                                 <span><i className="far fa-star"></i>{item.shop.rate}</span></h4>

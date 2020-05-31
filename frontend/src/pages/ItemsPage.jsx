@@ -5,23 +5,25 @@ import { ItemList } from '../cmps/ItemList.jsx'
 import ItemModal from '../cmps/ItemModal.jsx'
 import { ShopList } from '../cmps/ShopList.jsx'
 import { loadItems } from '../store/actions/itemActions'
-import {CategoryBar} from '../cmps/CategoryBar'
+import { CategoryBar } from '../cmps/CategoryBar'
 class ItemsPage extends React.Component {
 
     state = {
         sort: null,
-        shop1:null,
-        shop2:null,
-        isModalHidden:false,
-        modalItem:null,
-        category:''
+        shop1: null,
+        shop2: null,
+        isModalHidden: false,
+        modalItem: null,
+        category: ''
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.loadItems()
     }
 
     componentDidUpdate(prevProps, prevState) {
+
         if (this.props.location.search !== prevProps.location.search) {
             this.loadItems()
         }
@@ -32,6 +34,7 @@ class ItemsPage extends React.Component {
         const searchValue = query.get('q')
         this.props.loadItems(searchValue, this.state.sort)
             .then(this.setShopsToShow)
+
     }
 
     onHandleChange = ({ target }) => {
@@ -42,7 +45,7 @@ class ItemsPage extends React.Component {
         const shop1 = this.props.items[0].shop
         const idx = this.props.items.findIndex(item => item.shop._id !== shop1._id)
         this.setState({ shop1: shop1 })
-        if (idx !== -1&&idx !==0) {
+        if (idx !== -1 && idx !== 0) {
             const shop2 = this.props.items[idx].shop
             this.setState({ shop2: shop2 })
         }
@@ -54,9 +57,9 @@ class ItemsPage extends React.Component {
     }
 
     render() {
-        const {items} =this.props
+        const { items } = this.props
         return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
-           <CategoryBar/>
+            <CategoryBar />
             <form>
                 <label>Sort by:
                     <select name="sort" onChange={this.onHandleChange}>
