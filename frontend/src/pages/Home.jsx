@@ -56,11 +56,11 @@ class Home extends React.Component {
     }
 
     showDetails = (item) => {
-        if (item) {this.setState({ isModalHidden: false, modalItem: item },()=>{
-            console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
-        })}
+        if (item) {this.setState({ isModalHidden: false, modalItem: item },
+            ()=>{}
+        )}
         else this.setState({ isModalHidden: true, modalItem: null })
-        // prevState => ({ items: [...prevState.items, itemsSet] })
+        console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
     }
 
     handleKey = (ev) => {
@@ -84,11 +84,9 @@ class Home extends React.Component {
                     <section className="hero-image" >
                         <div className="hero-text">
                             <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue} isHome='home-search' />
-
                         </div>
                     </section>
                     <section className="grid-container">
-
                         <Link className="category" to={`/items?q=${tags[0]}`}>{`${tags[0]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right arrow"></span> </Link>
                         {items[0] && <Caruselle toShow={4} classN={'items-carusel'} items={items[0]} showDetails={this.showDetails} />}
                         <Link className="category" to={`/items?q=${tags[1]}`}>{`${tags[1]} `} <span className="see-all">See All</span> <span className="fas fa-arrow-right arrow"></span> </Link>
@@ -103,7 +101,6 @@ class Home extends React.Component {
                                 <Link to="/items?q=cheese">
                                 </Link>
                                 <h2>Cheese</h2>
-
                             </div>
                             <div className="img-container bread-img">
                                 <Link to="/items?q=bread">
@@ -123,11 +120,10 @@ class Home extends React.Component {
                             </div>
                         </Link>
                     </section>
-                    {!this.state.isModalHidden && this.state.modalItem && <>
-                    <div className="screen " onClick={()=>this.showDetails(null)}></div> 
-                    <ItemModal item={this.state.modalItem} showDetails={this.showDetails} /> </>}
+                    {!this.state.isModalHidden && this.state.modalItem && 
+                    <ItemModal item={this.state.modalItem} showDetails={this.showDetails} /> }
                 </section>
-        );
+         )
     }
 }
 

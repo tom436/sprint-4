@@ -43,7 +43,7 @@ class ItemPreview extends React.Component {
                 this.props.showDetails(item)
             } }>
                 <div className="img-container"><img src={item.img} /></div>
-                <div className="preview-detailes">
+                <div className="preview-details">
                 <h3>{item.title}</h3>
                 <Link to={`/shop/${shop._id}`}>{shop.name} <Stars count={shop.rate}/></Link>
                 <div className="flex space-between align-center no-padding">

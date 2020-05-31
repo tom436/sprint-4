@@ -73,7 +73,7 @@ class Header extends React.Component {
                   <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
                         this.toggleMenu('')
                     }}></div>
-                    <h1><Link to="/">Farm To You</Link></h1>
+                    <h1><Link to="/"><img src={require('../imgs/logoFarm.png')}/></Link></h1>
                     <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue}/>
                     <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev)=>{
                         this.toggleMenu('')
