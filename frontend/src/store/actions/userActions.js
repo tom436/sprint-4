@@ -6,14 +6,21 @@ import cartService from '../../services/cartService.js';
 export function addToCart(item, amount) {
   return dispatch => {
     cartService.addToCart(item, amount)
-      .then(cart => dispatch({ type: 'SET_CART', cart }))
+      .then(cart => dispatch({ type: 'SET_CART', cart ,add:1}))
   } 
 }
 
 export function loadCart() {
   return dispatch => {
     cartService.loadCart()
-      .then(cart => dispatch({ type: 'SET_CART', cart }))
+      .then(cart => dispatch({ type: 'SET_CART', cart,add:0 }))
+  }
+}
+
+export function clearCount() {
+  return dispatch => {
+  
+       dispatch({ type: 'SET_CART_LENGTH', cartLength:0 })
   }
 }
 
