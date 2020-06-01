@@ -9,6 +9,7 @@ const path = require('path')
 
 const app = express()
 const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 // Express App Config
 app.use(cookieParser())
@@ -31,12 +32,14 @@ const itemsRoutes = require('./api/items/item.routes')
 const shopsRoutes = require('./api/shops/shop.routes')
 const authRoutes = require('./api/auth/auth.routes')
 const usersRoutes = require('./api/users/user.routes')
+const connectSockets = require('./api/socket/socket.routes')
 
 //routs
 app.use('/api/items', itemsRoutes) 
 app.use('/api/shops', shopsRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', usersRoutes)
+connectSockets(io)
 
 
 

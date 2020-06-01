@@ -19,7 +19,7 @@ class Home extends React.Component {
         demoData: '',
         tags: [
             'dairy',
-            'fruits'
+            'fruits',//greens
         ],
         items: [],
         shops: [],
@@ -64,7 +64,6 @@ class Home extends React.Component {
             )
         }
         else this.setState({ isModalHidden: true, modalItem: null })
-        console.log('got to show details', this.state.isModalHidden, this.state.modalItem)
     }
 
     handleKey = (ev) => {
