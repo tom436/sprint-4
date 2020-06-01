@@ -127,6 +127,7 @@ function newOrder() {
         }
     })
     localStorage.clear()
+    gCart=[]
     return Promise.resolve(orders)
 
 }
