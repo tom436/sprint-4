@@ -84,8 +84,9 @@ class Home extends React.Component {
         return (
             (!items.length >= 3) ? <p>loading</p> :
                 <section className="home-page" onKeyUp={this.handleKeyUp}>
-                    <section className="hero-image" >
-                        <div className="hero-text flex column">
+                    <section className="hero-image flex column" >
+                        <h1>Straight from the land, to your hands.</h1>
+                        <div className="hero-text">
                             <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue} isHome='home-search' />
                         </div>
                     </section>
