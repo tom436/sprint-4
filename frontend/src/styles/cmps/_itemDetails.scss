@@ -14,11 +14,16 @@
     animation-name: fadeIn;
     animation-duration: 0.4s;
     .input {
+        input {
+            font-family: cursive;
+            font-size: .9rem;
+            width: 40px;
+            border: 1px solid rgba(32, 33, 36, 0.28);
+            padding-left: 5px;
+        }
         display: flex;
         justify-content: space-evenly;
-        input {
-            width: 50%;
-        }
+        
     }
 
     button {

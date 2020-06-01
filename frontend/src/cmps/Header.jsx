@@ -10,20 +10,17 @@ class Header extends React.Component {
 
     state = {
         class: '',
-        menu:'',
+        menu: '',
         filter: {
             searchValue: ''
         }
     }
     componentDidMount() {
         window.addEventListener('scroll', this.getWindowHeight);
-
     }
+
     componentWillUnmount() {
         window.removeEventListener('scroll', this.getWindowHeight);
-    }
-    componentDidUpdate() {
-
     }
 
     getWindowHeight = () => {
@@ -49,7 +46,7 @@ class Header extends React.Component {
     }
     toggleMenu=(pos)=>{
         this.setState({
-            menu:pos
+            menu: pos
         })
     }
     handleChange = (ev) => {
@@ -66,6 +63,9 @@ class Header extends React.Component {
     }
 
     render() {
+        // var cartLength = 0;
+        // this.props.cart.map(shop => shop.length)
+        
         return (
                 <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
                     
@@ -83,7 +83,9 @@ class Header extends React.Component {
                         <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
                         <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
                         <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
-                        <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
+                        <li><NavLink className="fas fa-shopping-cart" to="/cart" exact>
+                        {this.props.cartLength > 0 && <span>{this.props.cartLength}</span>}
+                        </NavLink></li>
                     </ul>
                     <button onClick={(ev)=>{
                         ev.stopPropagation()
@@ -97,7 +99,8 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.item.items
+        items: state.item.items,
+        cartLength: state.user.cartLength
     }
 }
 const mapDispatchToProps = {

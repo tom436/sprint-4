@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { CartItemsList } from '../cmps/CartItemsList'
-import { loadCart, remove, getTotalPrice, checkout } from '../store/actions/userActions'
+import { loadCart, remove, getTotalPrice, checkout ,clearCount } from '../store/actions/userActions'
 import { saveShop, loadShops } from '../store/actions/shopActions'
 import cartService from '../services/cartService'
 import { Modal } from '../cmps/Modal'
@@ -13,6 +13,7 @@ class Cart extends React.Component {
     }
     componentDidMount() {
         this.props.loadCart()
+        // const cart= this.props.cart
         this.props.getTotalPrice()
         this.props.loadShops();
     }
@@ -38,6 +39,7 @@ class Cart extends React.Component {
         this.setState({
             class: 'block'
         })
+        this.props.clearCount()
        
     }
     onCloseModal = () => {
@@ -50,8 +52,9 @@ class Cart extends React.Component {
 
     render() {
         const { cart, remove, totalPrice } = this.props
-        return ( 
-            <section className="grid-container flex space-around">
+        
+        return (!this.props.cart)?<p>loading</p>:( 
+            <section className="grid-container flex space-around cart-wide">
                 <h2>CART</h2>
                 <div className="cart-container">
                     <div className='items-container flex column'>
@@ -102,7 +105,8 @@ const mapDispatchToProps = {
     loadCart,
     remove,
     saveShop,
-    loadShops
+    loadShops,
+    clearCount
 }
 
 

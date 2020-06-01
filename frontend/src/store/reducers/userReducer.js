@@ -4,22 +4,30 @@ if (sessionStorage.user) localLoggedUser = JSON.parse(sessionStorage.user);
 
 const initialState = {
     cart: [],
+    cartLength: 0,
     currPurchase: null,
     totalPrice: 0,
     loggedUser: localLoggedUser,
     users: []
 };
 
-export default function ItemReducer(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_CART':
             return {
-                ...state, 
-                cart: action.cart
+                ...state,
+                cart: action.cart,
+                cartLength: state.cartLength + action.add
+            }
+        case 'SET_CART_LENGTH':
+            return {
+                ...state,
+                cartLength: action.cartLength
             }
         case 'REMOVE_ITEM': {
             return {
                 ...state,
+                cartLength: state.cartLength - 1,
                 cart:
                     state.cart.map((purchase, idx) => {
                         if (idx != action.itemToRemove.itemId) return purchase
