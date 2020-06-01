@@ -2,7 +2,6 @@ import { NavLink, Link, withRouter } from "react-router-dom";
 import React from 'react';
 import { connect } from 'react-redux';
 import { loadItems } from '../store/actions/itemActions.js'
-import userService from '../services/userService'
 import { setFilter } from '../store/actions/itemActions.js'
 import history from '../history'
 import { Search } from './Search'
@@ -80,7 +79,7 @@ class Header extends React.Component {
                     }}>
                         <li><NavLink to="/items" exact>Items</NavLink></li>
                         <li><NavLink to="/farms" exact>Farms</NavLink></li>
-                        <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
+                        <li><NavLink to="/shop/manage/" exact>Manage farm</NavLink></li>
                         <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
                         <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
                         <li><NavLink className="fas fa-shopping-cart" to="/cart" exact>

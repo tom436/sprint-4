@@ -7,6 +7,7 @@ import ItemsPage from './pages/ItemsPage'
 import FarmsPage from './pages/FarmsPage'
 import Login from './pages/Login'
 import Cart from './pages/Cart'
+import About from './pages/About'
 import Header from './cmps/Header'
 import { Footer } from './cmps/Footer'
 
@@ -18,6 +19,7 @@ function App() {
       <section className="main-container">
         <Header />
         <Switch>
+        <Route component={About} path="/about" />
           <Route component={ItemsPage} path="/items" />
           <Route component={FarmsPage} path="/farms" />
           <Route component={ShopManage} path="/shop/manage/:id?" />
