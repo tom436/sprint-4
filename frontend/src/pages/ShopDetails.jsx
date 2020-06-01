@@ -109,7 +109,7 @@ class ShopDetails extends React.Component {
             </div>
             <ItemList items={this.props.items} showDetails={this.showDetails} />
             {!this.state.isModalHidden && this.state.modalItem && <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
-}
+
 
 
         </section>

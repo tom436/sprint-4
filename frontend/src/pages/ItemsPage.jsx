@@ -62,10 +62,10 @@ class ItemsPage extends React.Component {
         const { items } = this.props
         return (!items[0]) ? <p>sorry, we don't have it yet...</p> : <section className="grid-container" >
             <CategoryBar />
-            <form>
-                <label>Sort by:
-                    <select name="sort" onChange={this.onHandleChange}>
-                        <option value="" >-</option>
+            <form className="">
+                <label>
+                    <select className="sort" name="sort" onChange={this.onHandleChange}>
+                        <option value="" >Sort by:</option>
                         <option value="lowToHigh" >Low to High</option>
                         <option value="highToLow" >High to Low</option>
                     </select>

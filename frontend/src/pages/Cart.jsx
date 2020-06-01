@@ -73,7 +73,7 @@ class Cart extends React.Component {
 
                         <h3 className="">WE ACCEPT:</h3>
 
-                        <div className="payment-method">
+                        <div className="payment-method flex space-around">
                             <span className="fab fa-cc-paypal "></span>
                             <span className="fab fa-cc-mastercard"></span>
                             <span className="fab fa-cc-diners-club"></span>

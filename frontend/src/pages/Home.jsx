@@ -12,13 +12,14 @@ import { CategoryBar } from '../cmps/CategoryBar'
 import ItemModal from '../cmps/ItemModal'
 import { Search } from '../cmps/Search'
 
+
 class Home extends React.Component {
 
     state = {
         demoData: '',
         tags: [
-            'fruits',
-            'organic',//greens
+            'dairy',
+            'fruits'
         ],
         items: [],
         shops: [],
@@ -80,12 +81,11 @@ class Home extends React.Component {
             speed: 500,
         }
         const { shops, items, tags } = this.state
-        // const { demoData } = this.state
         return (
             (!items.length >= 3) ? <p>loading</p> :
                 <section className="home-page" onKeyUp={this.handleKeyUp}>
                     <section className="hero-image" >
-                        <div className="hero-text">
+                        <div className="hero-text flex column">
                             <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue} isHome='home-search' />
                         </div>
                     </section>
