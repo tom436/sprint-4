@@ -3,51 +3,45 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CartItemsList } from '../cmps/CartItemsList'
 import { loadCart, remove, getTotalPrice } from '../store/actions/userActions'
-import { saveShop, loadShops } from '../store/actions/shopActions'
 import cartService from '../services/cartService'
 import { Modal } from '../cmps/Modal'
+import SocketService from '../services/SocketService';
+
 class Cart extends React.Component {
 
     state = {
         class: ''
     }
     componentDidMount() {
-        // this.props.loadCart()
+        SocketService.setup();
+
         this.props.getTotalPrice()
-        this.props.loadShops();
     }
     componentDidUpdate() {
         this.props.getTotalPrice()
     }
 
-    onOpenModal = () => {
+    onCheckOut= () => {
         cartService.newOrder().then(orders => {
-            orders.map(order => {
-                this.props.shops.map(shop => {
-                    if (order.shopId === shop._id) {                        
-                        shop.orders.unshift(order)
-                        this.props.saveShop(shop)
-                    }
-                })
+            orders.forEach(order => {                
+                SocketService.emit('farm id', order.shopId);
+                SocketService.emit('farm newOrder', order);
             })
-
         })
         this.setState({
             class: 'block'
         })
-       
     }
     onCloseModal = () => {
         this.setState({
             class: ''
         })
-        
     }
 
 
     render() {
         const { cart, remove, totalPrice } = this.props
-        return ( 
+        return (
             <section className="grid-container flex space-around">
                 <h2>CART</h2>
                 <div className="cart-container">
@@ -64,8 +58,8 @@ class Cart extends React.Component {
                         <h2 >TOTAL: {totalPrice ? `$${totalPrice}` : '0'} </h2>
                         <h4>You are supporting {cart.length} farms!</h4>
                         <button className="checkout-btn green" onClick={() => {
-                            
-                            this.onOpenModal()
+
+                            this.onCheckOut()
                         }}>Checkout</button>
 
                         <h3 className="">WE ACCEPT:</h3>
@@ -89,17 +83,14 @@ class Cart extends React.Component {
 const mapStateToProps = (state) => {
     return {
         cart: state.user.cart,
-        totalPrice: state.user.totalPrice,
-        shops: state.shop.shops
+        totalPrice: state.user.totalPrice
 
     }
 }
 const mapDispatchToProps = {
     getTotalPrice,
     loadCart,
-    remove,
-    saveShop,
-    loadShops
+    remove
 }
 
 
