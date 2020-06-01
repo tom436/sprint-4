@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { CartItemsList } from '../cmps/CartItemsList'
-import { loadCart, remove, getTotalPrice, checkout } from '../store/actions/userActions'
+import { loadCart, remove, getTotalPrice } from '../store/actions/userActions'
 import { saveShop, loadShops } from '../store/actions/shopActions'
 import cartService from '../services/cartService'
 import { Modal } from '../cmps/Modal'
@@ -12,12 +12,11 @@ class Cart extends React.Component {
         class: ''
     }
     componentDidMount() {
-        this.props.loadCart()
+        // this.props.loadCart()
         this.props.getTotalPrice()
         this.props.loadShops();
     }
     componentDidUpdate() {
-        this.props.loadCart()
         this.props.getTotalPrice()
     }
 
@@ -42,6 +41,7 @@ class Cart extends React.Component {
         this.setState({
             class: ''
         })
+        
     }
 
 

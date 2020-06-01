@@ -11,18 +11,21 @@ class ItemModal extends React.Component {//props= item,
         amount: 1
     }
 
-    onHandleChange = ({ target }) => {
-        this.setState({ amount: target.value })
+    onHandleChange = (ev) => {
+        console.log('modal ev',ev);
+        
+        ev.stopPropagation()
+        this.setState({ amount: ev.target.value })
     }
 
     render() {
         const { item } = this.props
         return (!item) ? <p>Loading</p> :
-            <div className="item-details-container block flex "  onClick={() => { this.props.showDetails(null) }}>
+            <div className="item-details-container block flex " >
                 <div className="item-details-modal flex align-center  space-evenly">
                     <div className="img-container"><img src={item.img} /></div>
                     <div className="item-details flex column">
-                        <button className="close-btn"onClick={() => { this.props.showDetails(null) }}>x</button>
+                        <button className="close-btn" onClick={() => { this.props.showDetails(null) }}>x</button>
                         <h3>{item.title}</h3>
                         <div className="modal-shop">
                             <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link></h4>
@@ -34,7 +37,7 @@ class ItemModal extends React.Component {//props= item,
                         <p>Price: &#36;{item.price}/ {item.unit}</p>
                         <p className="input">
                         <label>quantity:</label>
-                        <input type="number" name="amount" placeholder="1" onChange={this.onHandleChange} />
+                        <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
                         </p>
                         <button onClick={() => {
                             this.props.addToCart(item, this.state.amount)

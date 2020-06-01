@@ -12,9 +12,7 @@ class ItemPreview extends React.Component {
     }
 
     onHandleChange = (ev) => {
-
-        ev.preventDefault()
-
+        ev.stopPropagation()
         this.setState({ amount: ev.target.value })
     }
     addAnimation=()=>{
@@ -47,7 +45,9 @@ class ItemPreview extends React.Component {
                     <div className="flex space-between align-center no-padding">
                         <div className="no-padding">Price: &#36;{item.price}/ {item.unit}</div>
                         <div>
-                            <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
+                            <input type="number" name="amount" value={this.state.amount} 
+                            onChange={this.onHandleChange} onClick={(ev)=>console.log(ev)} />
+                        
                             <button className="fas fa-shopping-cart add-to-cart" onClick={this.onAddToCart}>
                             </button>
                         </div>
