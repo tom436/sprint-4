@@ -12,12 +12,12 @@ class Cart extends React.Component {
         class: ''
     }
     componentDidMount() {
-        this.props.loadCart()
+        // this.props.loadCart()
         this.props.getTotalPrice()
         this.props.loadShops();
     }
     componentDidUpdate() {
-        this.props.loadCart()
+        // this.props.loadCart()
         this.props.getTotalPrice()
     }
 
@@ -51,7 +51,7 @@ class Cart extends React.Component {
     render() {
         const { cart, remove, totalPrice } = this.props
         return ( 
-            <section className="grid-container flex space-around">
+            <section className="grid-container flex space-around short-page">
                 <h2>CART</h2>
                 <div className="cart-container">
                     <div className='items-container flex column'>

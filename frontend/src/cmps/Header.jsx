@@ -10,20 +10,17 @@ class Header extends React.Component {
 
     state = {
         class: '',
-        menu:'',
+        menu: '',
         filter: {
             searchValue: ''
         }
     }
     componentDidMount() {
         window.addEventListener('scroll', this.getWindowHeight);
-
     }
+
     componentWillUnmount() {
         window.removeEventListener('scroll', this.getWindowHeight);
-    }
-    componentDidUpdate() {
-
     }
 
     getWindowHeight = () => {
@@ -47,11 +44,11 @@ class Header extends React.Component {
             })
         }
     }
-    toggleMenu=(pos)=>{
+    toggleMenu = (pos) => {
         console.log(pos);
-        
+
         this.setState({
-            menu:pos
+            menu: pos
         })
     }
     handleChange = (ev) => {
@@ -68,29 +65,34 @@ class Header extends React.Component {
     }
 
     render() {
+        // var cartLength = 0;
+        // this.props.cart.map(shop => shop.length)
+        
         return (
-                <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
-                    
-                  <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
-                        this.toggleMenu('')
-                    }}></div>
-                    <h1><Link to="/"><img src={require('../imgs/logo/logo_transparent.png')}/></Link></h1>
-                    
-                    <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue}/>
-                    <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev)=>{
-                        this.toggleMenu('')
-                    }}>
-                        <li><NavLink to="/items" exact>Items</NavLink></li>
-                        <li><NavLink to="/farms" exact>Farms</NavLink></li>
-                        <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
-                        <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
-                        <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
-                        <li><NavLink className="fas fa-shopping-cart" to="/cart" exact></NavLink></li>
-                    </ul>
-                    <button onClick={(ev)=>{
-                        ev.stopPropagation()
-                        this.toggleMenu('menu-open')
-                    }} className="fas fa-bars btn-menu"></button>
+            <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname === '/' ? 'transparent' : ''}`}>
+
+                <div className={`screen ${this.state.menu}`} onClick={(ev) => {
+                    this.toggleMenu('')
+                }}></div>
+                <h1><Link to="/"><img src={require('../imgs/logo/logo_transparent.png')} /></Link></h1>
+
+                <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} value={this.state.filter.searchValue} />
+                <ul className={`main-nav flex ${this.state.menu} `} onClick={(ev) => {
+                    this.toggleMenu('')
+                }}>
+                    <li><NavLink to="/items" exact>Items</NavLink></li>
+                    <li><NavLink to="/farms" exact>Farms</NavLink></li>
+                    <li><NavLink to="/shop/manage/" exact>Add a Farm</NavLink></li>
+                    <li><NavLink className="fas fa-home" to="/" exact ></NavLink></li>
+                    <li><NavLink className="fas fa-user-alt" to="/signup" exact></NavLink></li>
+                    <li><NavLink className="fas fa-shopping-cart" to="/cart" exact>
+                        {this.props.cartLength > 0 && <span>{this.props.cartLength}</span>}
+                    </NavLink></li>
+                </ul>
+                <button onClick={(ev) => {
+                    ev.stopPropagation()
+                    this.toggleMenu('menu-open')
+                }} className="fas fa-bars btn-menu"></button>
 
             </section>
         );
@@ -99,7 +101,8 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.item.items
+        items: state.item.items,
+        cartLength: state.user.cartLength
     }
 }
 const mapDispatchToProps = {

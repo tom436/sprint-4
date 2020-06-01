@@ -25,7 +25,7 @@ class ItemModal extends React.Component {//props= item,
                 <div className="item-details-modal flex align-center  space-evenly">
                     <div className="img-container"><img src={item.img} /></div>
                     <div className="item-details flex column">
-                        <button className="close-btn" onClick={() => { this.props.showDetails(null) }}>x</button>
+                        <button className="close-btn" onClick={() => { this.props.showDetails(null) }}>&times;</button>
                         <h3>{item.title}</h3>
                         <div className="modal-shop">
                             <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link></h4>

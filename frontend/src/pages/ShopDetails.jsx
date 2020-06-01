@@ -15,8 +15,8 @@ class ShopDetails extends React.Component {
         sortBy: null,
         getReviews: false,
         isAddReview: false,
-        isModalHidden:false,
-        modalItem:null,
+        isModalHidden: false,
+        modalItem: null,
     }
 
     componentDidMount() {
@@ -32,8 +32,6 @@ class ShopDetails extends React.Component {
                 console.log(shop);
                 return this.setState({ shop })
             })
-
-
     }
 
     addReview = (reviewToAdd) => {
@@ -43,7 +41,6 @@ class ShopDetails extends React.Component {
         shopService.save(shop)
             .then(res => this.loadShop())
         this.setState({ isAddReview: false })
-
     }
 
     showDetails = (item, isHidden) => {
@@ -62,25 +59,19 @@ class ShopDetails extends React.Component {
         console.log('getting', currentState);
     }
 
-
     getAddReview = () => {
         const currentState = this.state.isAddReview
         this.setState({ isAddReview: true })
 
     }
 
-
-
     render() {
         const { shop, isAddReview } = this.state
         if (!shop) return <div>Loading....</div>
-
         return <section className="grid-container">
-
             <div className="farm-photo full" style={{ backgroundImage: `url(${shop.aboutImg})` }}>
             </div>
             <div className="shope-info">
-
                 <div className="shop-title flex">
                     <div className="logo-container">
                         <img className="shop-logo " src={shop.logo} />
@@ -90,14 +81,12 @@ class ShopDetails extends React.Component {
                         <p >{shop.about}</p>
                     </div>
                 </div>
-
                 <div className="flex buttons-container">
                     <button className="shop-details-btn msg ">Send a Message</button>
                     <button className="shop-details-btn review " onClick={this.getReviews}>Reviews</button>
                 </div>
                 <div className="reviews" >
                     {this.state.getReviews && <Reviews isAddReview={isAddReview} getAddReview={this.getAddReview} shop={shop} addReview={this.addReview} />}
-
                 </div>
                 <form className="flex">
                     <select className="sort" name="sort" onChange={this.onHandleChange}>
@@ -109,9 +98,6 @@ class ShopDetails extends React.Component {
             </div>
             <ItemList items={this.props.items} showDetails={this.showDetails} />
             {!this.state.isModalHidden && this.state.modalItem && <ItemModal item={this.state.modalItem} showDetails={this.showDetails} />}
-}
-
-
         </section>
     }
 }

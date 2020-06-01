@@ -113,7 +113,7 @@ class Test extends Component {
 
     const { loggedInUser } = this.props;
     return (
-      <section className="grid-container">
+      <section className="grid-container short-page">
         {loggedInUser && (
           <div>
             <h2>Welcome: {loggedInUser.username} </h2>
