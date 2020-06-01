@@ -22,10 +22,12 @@ class ItemModal extends React.Component {//props= item,
         const { item } = this.props
         return (!item) ? <p>Loading</p> :
             <div className="item-details-container block flex " >
-                <div className="item-details-modal flex align-center  space-evenly">
+                <div className="item-details-modal ">
+                    <div className="close-btn"><button onClick={() => { this.props.showDetails(null) }}>&times;</button></div>
+                    <div  className="item-container flex justify-center align-center">
                     <div className="img-container"><img src={item.img} /></div>
+                    </div>
                     <div className="item-details flex column">
-                        <button className="close-btn" onClick={() => { this.props.showDetails(null) }}>&times;</button>
                         <h3>{item.title}</h3>
                         <div className="modal-shop">
                             <h4>From <Link to={`/shop/${item.shop._id}`}>{item.shop.name}</Link></h4>
@@ -39,7 +41,7 @@ class ItemModal extends React.Component {//props= item,
                         <label>quantity:</label>
                         <input type="number" name="amount" value={this.state.amount} onChange={this.onHandleChange} />
                         </p>
-                        <button onClick={() => {
+                        <button className="add-btn" onClick={() => {
                             this.props.addToCart(item, this.state.amount)
                             this.props.showDetails(null)
                         }}>Add to Cart</button>
