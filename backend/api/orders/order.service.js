@@ -3,11 +3,14 @@ const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     query,
-    add
+    add,
+    update
 }
 
 async function query(filterBy = {}) {
     const criteria = {};
+    console.log(filterBy);
+    
     if (filterBy.shopId) {
         criteria.shopId = filterBy.shopId
     }
@@ -28,6 +31,16 @@ async function add(order) {
         return order;
     } catch (err) {
         console.log(`ERROR: cannot insert order`)
+        throw err;
+    }
+}
+async function update(order) {
+    const collection = await dbService.getCollection('orders')
+    try {
+        await collection.replaceOne({"_id":order._id}, {$set : order})
+        return order
+    } catch (err) {
+        console.log(`ERROR: cannot update order ${order._id}`)
         throw err;
     }
 }

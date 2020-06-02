@@ -14,7 +14,7 @@ export function OrderList(props) {
             </tr>
         </thead>
         <tbody>
-            {props.shop.orders.map((order, idx) => {
+            {props.orders.map((order, idx) => {
                 return <tr key={idx}>
 
                     <td>
@@ -38,13 +38,13 @@ export function OrderList(props) {
                             if (order.status != 'pending') return
                             order.status = "approved"
                             props.onReact(order.shopperId,{reaction:"approved",shopName:props.shop.name})
-                            props.save(props.shop)
+                            props.saveOrder(order,true)
                         }}>Accept</button>
                         <button className="decline" onClick={() => {
                             if (order.status != 'pending') return
                             order.status = "declined"
                             props.onReact(order.shopperId,{reaction:"declined",shopName:props.shop.name})
-                            props.save(props.shop)
+                            props.saveOrder(order,true)
                         }}>Decline</button>
 
                     </td>
