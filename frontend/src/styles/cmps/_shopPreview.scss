@@ -1,21 +1,35 @@
 .shop-list {
     width: 100%;
-    display: grid;
-    gap: 8px;
-
-    grid-template-columns: 1fr 1fr;
-    @include for-mobile-layout {
-        grid-template-columns: 1fr;
+    display: flex;
+    justify-content: space-evenly;
+    @media (max-width: 700px) {
+        flex-direction: column;
+        >*{
+            margin: 15px auto;
+        }
     }
+   
 }
 
 .shop-preview {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-    width: 100%;
-    @include for-narrow-layout {
+    // width: 100%;
+    height: 142px;
+    width: 326px;
+    h5 {
+        margin: 15px 0;
+        font-size: 1.3rem;
+    }
+    .farm-stars {
+        font-size: 1rem;
+    }
+    .farm-title {
+        margin: 10px 0;
     }
     .img-container {
+        // height: 200px;
+        width: 157px;
         margin-right: 1rem;
         @include aspect-ratio(2, 1);
         img {
