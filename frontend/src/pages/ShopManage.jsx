@@ -26,7 +26,6 @@ class ShopManage extends React.Component {
     }
     componentWillUnmount() {
         SocketService.off('farm addOrder', this.addOrder);
-        SocketService.terminate();
     }
     onHandleChange = (ev) => {
     }

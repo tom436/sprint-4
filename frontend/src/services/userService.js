@@ -45,8 +45,9 @@ function _handleLogin(user) {
     return user;
 }
 
-function getUser( defaultValue = []) {
+function getUser( defaultValue = {_id:'guest'}) {
     var user=sessionStorage['user']
     if(!user) return defaultValue;
     return JSON.parse(user)
 }
+

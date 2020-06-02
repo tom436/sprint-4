@@ -37,13 +37,13 @@ export function OrderList(props) {
                         <button className={"accept"} onClick={() => {
                             if (order.status != 'pending') return
                             order.status = "approved"
-                            props.onReact(order.shopperIdv,{reaction:"approved",shopName:props.shop.name})
+                            props.onReact(order.shopperId,{reaction:"approved",shopName:props.shop.name})
                             props.save(props.shop)
                         }}>Accept</button>
                         <button className="decline" onClick={() => {
                             if (order.status != 'pending') return
                             order.status = "declined"
-                            props.onReact(order.shopperId,"declined",{reaction:"declined",shopName:props.shop.name})
+                            props.onReact(order.shopperId,{reaction:"declined",shopName:props.shop.name})
                             props.save(props.shop)
                         }}>Decline</button>
 

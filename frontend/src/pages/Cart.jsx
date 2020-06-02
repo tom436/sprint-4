@@ -24,7 +24,8 @@ class Cart extends React.Component {
 
     onCheckOut= () => {
         cartService.newOrder().then(orders => {
-            orders.forEach(order => {                
+            orders.forEach(order => {        
+                        
                 SocketService.emit('farm id', order.shopId);
                 SocketService.emit('farm newOrder', order);
             })

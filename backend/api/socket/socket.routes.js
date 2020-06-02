@@ -5,16 +5,17 @@ function connectSockets(io) {
     io.on('connection', socket => {
         socket.on('farm newOrder', order=>{
             // io.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            console.log(order);
-            
+            // emits only to sockets in the same room            
             io.to(socket.myId).emit('farm addOrder', order)
         })
         socket.on('react', response=>{
-
+            console.log(response);
+            
             io.to(socket.shopperId).emit('react order', response)
         })
         socket.on('shopper id', shopperId=>{
+            console.log(shopperId);
+            
             if (socket.shopperId) {
                 socket.leave(socket.shopperId)
             }
@@ -24,7 +25,6 @@ function connectSockets(io) {
 
         socket.on('farm id', shopId=>{
             if (socket.myId) {
-
                 socket.leave(socket.myId)
             }
             socket.join(shopId)

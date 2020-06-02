@@ -3,8 +3,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadItems } from '../store/actions/itemActions.js'
 import { setFilter } from '../store/actions/itemActions.js'
+import usreService from '../services/userService'
 import history from '../history'
 import { Search } from './Search'
+import SocketService from '../services/SocketService';
+import userService from "../services/userService";
+
 class Header extends React.Component {
 
     state = {
@@ -12,16 +16,29 @@ class Header extends React.Component {
         menu: '',
         filter: {
             searchValue: ''
-        }
+        },
+        reaction:null
     }
     componentDidMount() {
         window.addEventListener('scroll', this.getWindowHeight);
+        SocketService.setup();
+        SocketService.emit('shopper id', userService.getUser()._id);
+        SocketService.on('react order', this.setReaction);
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.getWindowHeight);
-    }
+        SocketService.off('react order', this.setReaction);
 
+    }
+    setReaction=(reaction)=>{
+        console.log('hi');
+        this.setState({reaction})
+        setTimeout(()=>{
+            this.setState({reaction:null})
+        },2000)
+        
+    }
     getWindowHeight = () => {
         const distanceY = window.pageYOffset
         const shrinkOn = 500;
@@ -62,12 +79,10 @@ class Header extends React.Component {
     }
 
     render() {
-        // var cartLength = 0;
-        // this.props.cart.map(shop => shop.length)
-        
+        const {reaction}=this.state
         return (
                 <section className={`container flex align-center space-between main-header  ${this.state.class} ${this.props.location.pathname==='/'? 'transparent':''}`}>
-                    
+                    {reaction&&<div className="reaction"><h3>{`${reaction.shopName} ${reaction.reaction} your order, the farmer will cotact you soon`}</h3></div>}
                   <div className={`screen ${this.state.menu}`} onClick={(ev)=>{
                         this.toggleMenu('')
                     }}></div>
