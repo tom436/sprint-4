@@ -41,6 +41,8 @@ app.use('/api/shops', shopsRoutes)
 app.use('/api/orders', ordersRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', usersRoutes)
+app.use(express.static('public'));
+
 connectSockets(io)
 
 const port = process.env.PORT || 3030;
@@ -48,3 +50,9 @@ const port = process.env.PORT || 3030;
 http.listen(port, () => {
     console.log('Server is running on port: ' + port);
 });
+
+
+// const port = process.env.PORT || 3030;
+// app.listen(port, () => {
+// console.log(`App listening on port ${port}!`)
+// });

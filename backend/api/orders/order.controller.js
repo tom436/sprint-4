@@ -1,6 +1,8 @@
 const orderService = require('./order.service.js')
 
 async function getOrders(req, res) {
+    console.log('fsd');
+    
     try {
         const orders = await orderService.query(req.query)
         res.send(orders)
@@ -9,7 +11,11 @@ async function getOrders(req, res) {
 
     }
 }
-
+async function updateOrder(req, res) {
+    const order = req.body;
+    await orderService.update(order)
+    res.send(order)
+}
 async function addOrder(req, res) {
     var order = req.body;
     order = await orderService.add(order)
@@ -18,5 +24,6 @@ async function addOrder(req, res) {
 
 module.exports = {
     getOrders,
-    addOrder
+    addOrder,
+    updateOrder
 }

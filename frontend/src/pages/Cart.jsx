@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CartItemsList } from '../cmps/CartItemsList'
 import { loadCart, remove, getTotalPrice,clearCount } from '../store/actions/userActions'
+
 import { saveOrder } from '../store/actions/orderActions'
 import cartService from '../services/cartService'
 import { Modal } from '../cmps/Modal'
@@ -28,7 +29,7 @@ class Cart extends React.Component {
             orders.forEach(order => {         
                 this.props.saveOrder(order)       
                 SocketService.emit('farm id', order.shopId);
-                SocketService.emit('farm newOrder', order);
+                SocketService.emit('farm newOrder');
             })
         })
         this.setState({

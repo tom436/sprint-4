@@ -1,7 +1,5 @@
-import axios from 'axios'
 // import shopItems from '../services/itemService'
 import HttpService from './HttpService';
-const baseUrl = 'http://localhost:3000/items';
 
 export default {
     getById,

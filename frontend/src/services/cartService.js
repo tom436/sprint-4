@@ -32,6 +32,7 @@ function addToCart(item, amount) {
             _id: item._id,
             title:item.title,
             price:item.price,
+            shopId:item.shop._id,
             totalPrice: amount * item.price,
             amount
         }
@@ -47,6 +48,7 @@ function addToCart(item, amount) {
             _id: item._id,
             title:item.title,
             price:item.price,
+            shopId:item.shop._id,
             totalPrice: amount * item.price,
             amount
         }]
@@ -57,9 +59,9 @@ function addToCart(item, amount) {
 }
 
 function remove(item) {
-    const itemId = item._id
     
-    const shopIdx = gCart.findIndex((purchase) => purchase.shop === item.shopId)
+    const itemId = item._id
+    const shopIdx = gCart.findIndex((purchase) => purchase.shopId === item.shopId)
     const itemIdx = gCart[shopIdx].items.findIndex((currItem => currItem._id === itemId))
     gCart[shopIdx].items.splice(itemIdx, 1)
     if (gCart[shopIdx].items.length === 0) {
@@ -97,14 +99,7 @@ function _getIdxById(itemId) {
     return gCart.findIndex(item => item.id === itemId)
 }
 
-function _makeId(length = 6) {
-    var text = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < length; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return text;
-}
+
 
 
 function _getOrderTotal(items) {
@@ -119,7 +114,6 @@ function newOrder() {
     const cart = storageService.load('cart')
     let orders = cart.map(order => {
         return {
-            _id: _makeId(),
             status:'pending',
             createdAt: new Date().toLocaleString(),
             shopperId: userService.getUser()._id,

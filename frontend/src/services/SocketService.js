@@ -1,7 +1,10 @@
 import io from 'socket.io-client';
 
-const BASE_URL = '//localhost:3030'
-// process.env.NODE_ENV === 'production' ? '/' : ;
+// const BASE_URL ='//localhost:3030'
+
+const BASE_URL = process.env.NODE_ENV === 'production' ?
+    '/api/' :
+    '//localhost:3030/api/'
 
 let socket;
 

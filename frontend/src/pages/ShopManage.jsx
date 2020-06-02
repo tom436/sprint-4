@@ -3,7 +3,7 @@ import React from 'react';
 import { loadItems } from '../store/actions/itemActions.js'
 import { removeItem } from '../store/actions/itemActions.js'
 import { loadShop, saveShop } from '../store/actions/shopActions.js'
-import { loadOrders } from '../store/actions/orderActions.js'
+import { loadOrders,saveOrder } from '../store/actions/orderActions.js'
 import userService from '../services/userService'
 import { BackItemList } from '../cmps/BackItemList'
 import { OrderList } from '../cmps/OrderList'
@@ -24,16 +24,17 @@ class ShopManage extends React.Component {
         SocketService.on('farm addOrder', this.addOrder);
         this.props.loadShop(user.shopId)
         this.props.loadItems(user.shopId)
+        
+        this.props.loadOrders(user.shopId)
     }
     componentWillUnmount() {
         SocketService.off('farm addOrder', this.addOrder);
-        SocketService.terminate();
     }
     onHandleChange = (ev) => {
     }
-    addOrder = newOrder => {
-        this.props.shop.orders.unshift(newOrder)
-        this.props.saveShop(this.props.shop)
+    addOrder = () => {
+        const user = userService.getUser()
+        this.props.loadOrders(user.shopId)
     };
 
     onReact = (shopperId,reaction) => {
@@ -42,11 +43,12 @@ class ShopManage extends React.Component {
     };
 
     render() {
-        const { shop, items } = this.props
+        
+        const { shop, items,orders } = this.props
         return !shop ? 'You dont have a shop' : <section className="grid-container">
             <h2>{shop.name}</h2>
             <h3>Orders</h3>
-            <OrderList shop={shop} save={this.props.saveShop} onReact={this.onReact}/>
+            {orders&&<OrderList orders={orders} shop={shop} saveOrder={this.props.saveOrder} onReact={this.onReact}/>}
             <h3>Edit Shop</h3>
             <BackItemList remove={this.props.removeItem} items={items}  />
         </section>
@@ -57,6 +59,7 @@ const mapStateToProps = (state) => {
     return {
         items: state.item.items,
         shop: state.shop.currShop,
+        orders:state.order.orders
     }
 }
 
@@ -65,7 +68,8 @@ const mapDispatchToProps = {
     loadShop,
     removeItem,
     saveShop,
-    loadOrders
+    loadOrders,
+    saveOrder
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopManage)
