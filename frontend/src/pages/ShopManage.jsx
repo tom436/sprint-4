@@ -3,6 +3,7 @@ import React from 'react';
 import { loadItems } from '../store/actions/itemActions.js'
 import { removeItem } from '../store/actions/itemActions.js'
 import { loadShop, saveShop } from '../store/actions/shopActions.js'
+import { loadOrders } from '../store/actions/orderActions.js'
 import userService from '../services/userService'
 import { BackItemList } from '../cmps/BackItemList'
 import { OrderList } from '../cmps/OrderList'
@@ -62,7 +63,8 @@ const mapDispatchToProps = {
     loadItems,
     loadShop,
     removeItem,
-    saveShop
+    saveShop,
+    loadOrders
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopManage)

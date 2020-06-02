@@ -1,29 +1,28 @@
 .item-details-container {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
+    display: none;
+    position: fixed;
+    z-index: 2;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0, 0, 0); 
-    background-color: rgba(0, 0, 0, 0.4); 
-    -webkit-animation-name: fadeIn; 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-animation-name: fadeIn;
     -webkit-animation-duration: 0.4s;
     animation-name: fadeIn;
     animation-duration: 0.4s;
     .input {
         input {
             font-family: cursive;
-            font-size: .9rem;
+            font-size: 0.9rem;
             width: 40px;
             border: 1px solid rgba(32, 33, 36, 0.28);
             padding-left: 5px;
         }
         display: flex;
         justify-content: space-evenly;
-        
     }
 
     button {
@@ -38,19 +37,44 @@
         }
     }
     .close-btn {
-        width: 50px;
-        align-self: flex-end;
-        background: white;
-        color: #333333;
-        border: none;
-        font-size: 1.5rem;
-        margin: 10px;
+        text-align: right;
+        button {
+            border: 2px solid #333333;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 0;
+            background: white;
+            color: #333333;
+            margin: 10px;
+        }
+
         @include for-mobile-layout {
-            order: 5;
+            z-index: 10;
         }
     }
 
     .item-details-modal {
+        display: grid;
+        grid-template-columns: minmax(260px, 420px) auto;
+        grid-template-rows: 50px 1fr;
+        .close-btn {
+            z-index: 10;
+            line-height: 1.5rem;
+            grid-row: 1;
+            grid-column: 1/-1;
+        }
+        .item-container {
+            grid-row: 2;
+            grid-column: 1;
+            margin-bottom: 20px;
+        }
+        .item-details {
+            grid-row: 2;
+            grid-column: 2;
+        }
         z-index: 2;
         h3 {
             font-size: 1.5rem;
@@ -74,12 +98,72 @@
         img {
             width: 100%;
         }
-        @include for-mobile-layout {
-            position: relative;
-            flex-direction: column;
+
+        @media (max-width: 760px) {
             width: 70vw;
+            margin: 100px auto;
+            grid-template-columns: 70vw;
+            grid-template-rows: auto 1fr;
+            position: relative;
+            .item-container {
+                grid-row: 1;
+                grid-column: 1;
+                align-items: start;
+            }
+            .item-details {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            * {
+                margin-bottom: 5px;
+            }
+            h4 {
+                margin-top: 2px;
+            }
+            .input {
+                justify-content: center;
+                label {
+                    margin-right: 15px;
+                }
+            }
+            .add-btn{
+                font-size: 1rem;
+                width: 300px;
+                line-height: 1.2rem;
+                align-self: center;
+
+            }
+        }
+
+        @media (max-width: 570px) {
             img {
                 border-radius: 22px 22px 0 0;
+            }
+        }
+        @include for-mobile-layout {
+            width: 70vw;
+            margin: 50px auto;
+            grid-template-columns: 70vw;
+            grid-template-rows: auto 1fr;
+            position: relative;
+            .item-container {
+                grid-row: 1;
+                grid-column: 1;
+                align-items: start;
+            }
+            .item-details {
+                grid-row: 2;
+                grid-column: 1;
+            }
+
+            * {
+                margin-bottom: 5px;
+            }
+            h4 {
+                margin-top: 2px;
+            }
+            .add-btn{
+                width: 230px;
             }
         }
     }

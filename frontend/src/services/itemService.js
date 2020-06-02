@@ -1,11 +1,11 @@
 import HttpService from './HttpService';
 
-const STORAGE_KEY = 'items'
 var gItems = []
 
 export default {
     query,
-     remove,
+    // save,
+    remove,
     getById
 }
 
@@ -31,7 +31,6 @@ export default {
 // }
 
 function query(filterBy = null, sortBy = null,isSingle) {
-    
     if (!filterBy) filterBy = '';
     if(isSingle){   
              
@@ -48,20 +47,14 @@ function query(filterBy = null, sortBy = null,isSingle) {
         })
 }
 
-
-
 function remove(itemId) {
-    
     return HttpService.delete(`items/${itemId}`)
-
 }
 
 function getById(itemId) {
-    
     return HttpService.get(`items/${itemId}`)
         .then(res => {
             return res
-            
         })
         .catch(err => console.log(err))
 }
@@ -71,7 +64,6 @@ function _getIdxById(itemId) {
 }
 
 function compare(items, sortBy) {
-
     switch (sortBy) {
         case 'highToLow':
             return items.sort((a, b) => {
@@ -98,7 +90,4 @@ function compare(items, sortBy) {
                 else return 0
             })
     }
-
-
 }
-
