@@ -12,12 +12,12 @@ export function ShopPreview({ shop }) {
             <div>
                 <div className="flex column space-evenly">
                     <h5>{shop.name}</h5>
-                    <div className="flex">
+                    <div className="flex farm-stars">
                         <Stars count={shop.rate} />
                     </div>
                 </div>
 
-                <p>{shop.title}</p>
+                <p className="farm-title">{shop.title}</p>
             </div>
 
         </div>

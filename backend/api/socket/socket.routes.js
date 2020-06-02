@@ -4,9 +4,6 @@ module.exports = connectSockets
 function connectSockets(io) {
     io.on('connection', socket => {
         socket.on('farm newOrder', order=>{
-            // io.emit('chat addMsg', msg)
-            // emits only to sockets in the same room
-            
             io.to(socket.myId).emit('farm addOrder', order)
         })
         socket.on('react', response=>{

@@ -1,40 +1,36 @@
 import HttpService from './HttpService';
 
-const baseUrl = 'http://localhost:3000/items';
-const axios = require('axios').default;
-const STORAGE_KEY = 'items'
 var gItems = []
 
 export default {
     query,
-    save,
+    // save,
     remove,
     getById
 }
 
-function save(itemToSave) {
-    if (itemToSave.id) {
-        // UPDATE
-        return axios.put(`${baseUrl}/${itemToSave.id}`, itemToSave)
-            .then(res => res.data)
-            .then(savedItem => {
-                const itemIdx = _getIdxById(savedItem.id)
-                gItems[itemIdx] = savedItem;
-                return savedItem
-            })
-    } else {
-        // CREATE
-        return axios.post(baseUrl, itemToSave)
-            .then(res => res.data)
-            .then(savedItem => {
-                gItems.unshift(savedItem)
-                return savedItem
-            })
-    }
-}
+// function save(itemToSave) {
+//     if (itemToSave.id) {
+//         // UPDATE
+//         return axios.put(`${baseUrl}/${itemToSave.id}`, itemToSave)
+//             .then(res => res.data)
+//             .then(savedItem => {
+//                 const itemIdx = _getIdxById(savedItem.id)
+//                 gItems[itemIdx] = savedItem;
+//                 return savedItem
+//             })
+//     } else {
+//         // CREATE
+//         return axios.post(baseUrl, itemToSave)
+//             .then(res => res.data)
+//             .then(savedItem => {
+//                 gItems.unshift(savedItem)
+//                 return savedItem
+//             })
+//     }
+// }
 
 function query(filterBy = null, sortBy = null,isSingle) {
-    
     if (!filterBy) filterBy = '';
     if(isSingle){   
              
@@ -51,20 +47,14 @@ function query(filterBy = null, sortBy = null,isSingle) {
         })
 }
 
-
-
 function remove(itemId) {
-    
     return HttpService.delete(`items/${itemId}`)
-
 }
 
 function getById(itemId) {
-    
     return HttpService.get(`items/${itemId}`)
         .then(res => {
             return res
-            
         })
         .catch(err => console.log(err))
 }
@@ -74,7 +64,6 @@ function _getIdxById(itemId) {
 }
 
 function compare(items, sortBy) {
-
     switch (sortBy) {
         case 'highToLow':
             return items.sort((a, b) => {
@@ -101,7 +90,4 @@ function compare(items, sortBy) {
                 else return 0
             })
     }
-
-
 }
-
