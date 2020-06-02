@@ -115,9 +115,9 @@ class Test extends Component {
     return (
       <section className="grid-container short-page">
         {loggedInUser && (
-          <div>
+          <div className="logout">
             <h2>Welcome: {loggedInUser.username} </h2>
-            <button onClick={this.props.logout}>Logout</button>
+            <button className="logout-btn" onClick={this.props.logout}>Logout</button>
           </div>
         )}
         {!loggedInUser&&<h2>{this.state.msg}</h2>}
