@@ -18,16 +18,20 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false }
+    cookie: {
+        secure: false
+    }
 }))
 
-
-const corsOptions = {
-    origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
-    credentials: true
-};
-app.use(cors(corsOptions));
-
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.resolve(__dirname, 'public')));
+} else {
+    const corsOptions = {
+        origin: ['http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:3000', 'http://localhost:3000'],
+        credentials: true
+    };
+    app.use(cors(corsOptions));
+}
 const itemsRoutes = require('./api/items/item.routes')
 const shopsRoutes = require('./api/shops/shop.routes')
 const ordersRoutes = require('./api/orders/order.routes')
@@ -36,12 +40,11 @@ const usersRoutes = require('./api/users/user.routes')
 const connectSockets = require('./api/socket/socket.routes')
 
 //routs
-app.use('/api/items', itemsRoutes) 
+app.use('/api/items', itemsRoutes)
 app.use('/api/shops', shopsRoutes)
 app.use('/api/orders', ordersRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', usersRoutes)
-app.use(express.static('public'));
 
 connectSockets(io)
 
