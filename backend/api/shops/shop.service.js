@@ -12,7 +12,6 @@ module.exports = {
 }
 
 async function query(filterBy = {}) {
-
     const criteria = {};
     if (filterBy._id) {
         criteria._id = filterBy._id
@@ -25,13 +24,12 @@ async function query(filterBy = {}) {
     if (filterBy.tag) {
         criteria.tags = filterBy.tag
     }
-
     const collection = await dbService.getCollection('shops')
     try {
-        const customers = await collection.find(criteria).toArray();
-        return customers
+        const shops = await collection.find(criteria).toArray();
+        return shops
     } catch (err) {
-        console.log('ERROR: cannot find shopss')
+        console.log('ERROR: cannot find shops')
         throw err;
     }
 }

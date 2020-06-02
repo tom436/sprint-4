@@ -1,16 +1,11 @@
-
-console.log('Hello Node, Hi Mongo');
 const dbService = require('../../services/db.service')
 const ObjectId = require('mongodb').ObjectId
-
 
 module.exports = {
     query,
     getById,
     remove
 }
-
-
 
 async function query(filterBy = {}) {
     const criteria = _buildCriteria(filterBy)
@@ -51,7 +46,6 @@ async function query(filterBy = {}) {
     }
 }
 
-
 function _buildCriteria(filterBy) {
 
     let criteria = {}
@@ -59,7 +53,6 @@ function _buildCriteria(filterBy) {
         criteria._id = filterBy.itemId;
     }
     else if (filterBy.searchValue) {
-
         criteria = { $or: [] };
         let regex = new RegExp(filterBy.searchValue, 'i');
         criteria.$or.push({ title: regex })
@@ -67,18 +60,10 @@ function _buildCriteria(filterBy) {
         criteria.$or.push({ shopId: filterBy.searchValue })
     }
     else { criteria = {} }
-
     return criteria;
 }
 
-
-
-
-
-
-
 async function getById(itemId) {
-
     const collection = await dbService.getCollection('items')
     try {
         const item = await collection.findOne({ "_id": itemId })
@@ -89,13 +74,8 @@ async function getById(itemId) {
     }
 }
 
-
-
-
-
 async function remove(itemId) {
     const collection = await dbService.getCollection('items')
-
     try {
         await collection.deleteOne({ "_id": itemId })
     } catch (err) {

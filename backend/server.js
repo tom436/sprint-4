@@ -30,6 +30,7 @@ app.use(cors(corsOptions));
 
 const itemsRoutes = require('./api/items/item.routes')
 const shopsRoutes = require('./api/shops/shop.routes')
+const ordersRoutes = require('./api/orders/order.routes')
 const authRoutes = require('./api/auth/auth.routes')
 const usersRoutes = require('./api/users/user.routes')
 const connectSockets = require('./api/socket/socket.routes')
@@ -37,17 +38,13 @@ const connectSockets = require('./api/socket/socket.routes')
 //routs
 app.use('/api/items', itemsRoutes) 
 app.use('/api/shops', shopsRoutes)
+app.use('/api/orders', ordersRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', usersRoutes)
 connectSockets(io)
-
-
-
 
 const port = process.env.PORT || 3030;
 
 http.listen(port, () => {
     console.log('Server is running on port: ' + port);
-
-    // logger.info('Server is running on port: ' + port)
 });
