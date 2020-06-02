@@ -9,12 +9,10 @@ function connectSockets(io) {
             io.to(socket.myId).emit('farm addOrder', order)
         })
         socket.on('react', response=>{
-            console.log(response);
             
             io.to(socket.shopperId).emit('react order', response)
         })
         socket.on('shopper id', shopperId=>{
-            console.log(shopperId);
             
             if (socket.shopperId) {
                 socket.leave(socket.shopperId)

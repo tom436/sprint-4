@@ -36,7 +36,7 @@ class ShopManage extends React.Component {
 
     onReact = (shopperId,reaction) => {
         SocketService.emit('shopper id',shopperId);
-        SocketService.emit('react', reaction);
+        SocketService.emit('reac t', reaction);
     };
 
     render() {
