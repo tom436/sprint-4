@@ -19,8 +19,6 @@ export default class About extends Component {
   }
 
   addMsg = newMsg => {
-    console.log(newMsg);
-    
     this.setState(prevState => ({ msgs: [...prevState.msgs, newMsg] }));
   };
 

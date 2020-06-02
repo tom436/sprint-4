@@ -53,7 +53,6 @@ class ItemsPage extends React.Component {
 
     showDetails = (item) => {
         if (item) {this.setState({ isModalHidden: false, modalItem: item },()=>{
-            console.log('got to show details',this.state.isModalHidden,this.state.modalItem)
         })}
         else this.setState({ isModalHidden: true, modalItem: null })
     }

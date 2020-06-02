@@ -5,7 +5,6 @@ export function loadShop(id) {
     return shopService.getById(id)
       .then(shop => {
         dispatch({ type: 'SET_SHOP', shop })
-        console.log(shop);
         
         return shop
       })

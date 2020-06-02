@@ -82,7 +82,6 @@ async function update(user) {
 }
 
 async function add(user) {
-    console.log('user.service user',user);
     user._id=_makeId()
     user.msgs=[]
     const collection = await dbService.getCollection('users')

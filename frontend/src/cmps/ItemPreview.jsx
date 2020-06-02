@@ -47,7 +47,6 @@ class ItemPreview extends React.Component {
                         <div>
                             <input type="number" name="amount" value={this.state.amount} 
                             onChange={this.onHandleChange} onClick={(ev)=>{
-                                console.log(ev)
                                 ev.stopPropagation()}} />
                         
                             <button className="fas fa-shopping-cart add-to-cart" onClick={this.onAddToCart}>

@@ -12,8 +12,6 @@ class ItemModal extends React.Component {//props= item,
     }
 
     onHandleChange = (ev) => {
-        console.log('modal ev',ev);
-        
         ev.stopPropagation()
         this.setState({ amount: ev.target.value })
     }

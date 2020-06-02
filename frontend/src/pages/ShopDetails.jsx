@@ -29,13 +29,11 @@ class ShopDetails extends React.Component {
         const id = this.props.match.params.id
         shopService.getById(id)
             .then(shop => {
-                console.log(shop);
                 return this.setState({ shop })
             })
     }
 
     addReview = (reviewToAdd) => {
-        console.log(reviewToAdd);
         const shop = this.state.shop
         shop.reviews.push(reviewToAdd)
         shopService.save(shop)
@@ -44,19 +42,17 @@ class ShopDetails extends React.Component {
     }
 
     showDetails = (item, isHidden) => {
-        console.log('got to show details', item);
         this.setState({ isModalHidden: isHidden, modalItem: item })//
     }
 
     onHandleChange = (ev) => {
         const id = this.props.match.params.id
-        this.props.loadItems({ searchValue: id }, ev.target.value)
+        this.props.loadItems( id , ev.target.value)
     }
 
     getReviews = () => {
         const currentState = this.state.getReviews
         this.setState({ getReviews: !currentState });
-        console.log('getting', currentState);
     }
 
     getAddReview = () => {
