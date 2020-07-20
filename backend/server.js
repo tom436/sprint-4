@@ -48,6 +48,10 @@ app.use('/api/users', usersRoutes)
 
 connectSockets(io)
 
+app.get('/**', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+
 const port = process.env.PORT || 3030;
 
 http.listen(port, () => {
